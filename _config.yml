@@ -1,9 +1,9 @@
 # main text of home
-title: John Doe
-bio: A Person who travels the world eating noodles
+title: Guneycan Sanli
+bio: A person who like learning, music, travelling and sports.
 
 # twitter summary info
-description: A blog about technology and stuff related
+description: A blog about my learning and life topics.
 
 # if it's an external image, update below for true
 # better with square images
@@ -33,17 +33,17 @@ disqus:
   categories: [blog, project] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
-facebook: myfacebook
-twitter: mytwitter
-instagram: myinstagram
-linkedin: mylinkedin
-github: mygithub
-email: myemail@gmail.com
+#facebook: myfacebook
+#twitter: mytwitter
+instagram: guneysnli
+linkedin: guneycansanli
+github: guneycansanli
+email: guneycansanli@gmail.com
 
 authors:
-  johndoe:
-    name: John Doe
-    bio: A Man who travels the world eating noodles
+  guneycansanli:
+    name: Guneycan Sanli
+    bio: A person who like learning, music, travelling and sports.
     external-image: false
     picture: assets/images/profile.jpg
     twitter: johndoe
