@@ -7,7 +7,7 @@ headerImage: false
 tag:
 - docker
 - ubuntu
-- DevOps
+- devOps
 category: blog
 author: guneycansanli
 description: What is the steps of intalling docker on ubuntu?
@@ -24,3 +24,4 @@ This note **demonstrates** some of what [Markdown][some/link] is *capable of doi
 {% endhighlight %}
 
 ---
+
