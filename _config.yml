@@ -46,7 +46,7 @@ authors:
     bio: A person who like learning, music, travelling and sports.
     external-image: false
     picture: assets/images/profile.jpg
-    twitter: johndoe
+    twitter: #johndoe
   jamesfoster:
     name: James Foster
     bio: A Man who develops software with coffee
