@@ -4,32 +4,33 @@ layout: page
 ---
 ![Profile Image]({% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %})
 
-<p>Hi I am Guneycan Sanli.</p>
+<p>Hi I am Guneycan Sanli.I have graduated as a computer engineer since 2021, I am currently working as Integration Engineer almost same like DevOps Engineer position.I will try to share my blogs which is about my learnings for all subjects in that blog page. I would like to tell about myself briefly. I am 24 years old and I like travelling, doing sports, listening music and hanging with my friends. I live in İstanbul which is a very crowded city. İstanbul is one of the most known big city in Turkey, there are a lot of historical sights and museums. The cultural activities in the city are pretty much. </p>
 
-<p>Here is my about page.</p>
+<p>Guney :).</p>
 
 <h2>Skills</h2>
 
 <ul class="skill-list">
-	<li>HTML - Jade - Haml - Erb</li>
-	<li>Responsive (Mobile First)</li>
-	<li>CSS (Stylus, Sass, Less)</li>
-	<li>Css Frameworks (Bootstrap, Foundation)</li>
-	<li>Javascript (Design Patterns, Testes)</li>
-	<li>AngularJS - ReactJS</li>
-	<li>Grunt - Gulp - Yeoman</li>
+	<li>Linux</li>
+	<li>DevOps</li>
+	<li>Robot Framework</li>
+	<li>Basic web development(HTML,CSS,JS, .net core)</li>
+	<li>API(REST)</li>
+	<li>Node-Red</li>
+	<li>Jira</li>
 	<li>Git</li>
-	<li>PHP</li>
-	<li>Python</li>
-	<li>MySQL - MongoDB</li>
-	<li>Scrum and Kanban</li>
-	<li>TDD e Continuous Integration</li>
+	<li>CI/CD(Gitlab, Jenkins)</li>
+	<li>Entry level Docker, K8s</li>
+	<li>PostgreSQL, MsSQL Server</li>
+	<li>Agile</li>
+	<li>Entry level Android Development(Java)</li>
 </ul>
 
 <h2>Projects</h2>
 
 <ul>
-	<li><a href="https://github.com/">Lorem Lorem</a></li>
-	<li><a href="https://github.com/">Ipsum Dolor</a></li>
-	<li><a href="https://github.com/">Dolor Lorem</a></li>
+	<li><a href="https://github.com/guneycansanli/Fitifit">Android Online Dietician Social Media - Fitifit</a></li>
+	<li><a href="https://github.com/guneycansanli/RobotFramework">Entry Robot Framework with Python</a></li>
+	<li><a href="https://github.com/guneycansanli/FitifitAdmin-Node.js">Firebase CRUD project with Node JS</a></li>
+	<li><a href="https://github.com/guneycansanli/AppWheatherLast">Wheather App with Kotlin API</a></li>
 </ul>
