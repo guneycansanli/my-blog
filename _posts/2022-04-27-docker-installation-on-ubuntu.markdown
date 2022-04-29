@@ -2,7 +2,7 @@
 title: "Docker Intallation on Ubuntu"
 layout: post
 date: 2022-04-27 23:19
-image: /assets/images/docker-ubuntu.png
+image: ../assets/images/docker-ubuntu.png
 headerImage: true
 tag:
 - docker
@@ -19,7 +19,7 @@ description: What is the steps of intalling docker on ubuntu?
 
 With this article I will try to explain Docker installation on [Ubuntu 20.04.3][2] on **CLI** (Command Line Interface) let's say *terminal* level. Why I choose **CLI** level because If you will work with a server or minimal operation system which has not GUI you must work with commands and CLI. Other advantage is learn that what is going infrastructure.
 
-Before start If you use Windows you should create a VM with  [Virtual Box][3] or [VMware][4] and than installing Ubuntu.
+Before start If you use Windows you should create a VM with [Virtual Box][3] or [VMware][4] and than installing Ubuntu.
 
 There are installation methods for Docker, In my opinion follow the **Install using the repository** installation method is the easiest and most understandable method. If you want to learn other methods you can check the [Docker Docks for ubuntu][5].
 
