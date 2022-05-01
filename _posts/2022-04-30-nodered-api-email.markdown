@@ -29,21 +29,19 @@ Node-red is working with nodes you can create flows with connecting the nodes. T
 
 ![nodered-1][2]
 
-You can see the nodes left of the page. If you want to learn about the nodes you can use library and you can read the details about the nodes. Most of time flows start with a trigger It is like start or run your code. It can start manuel also you can set a timer for it. In that flow I started with trigger and than I prepared our http request, We need to use authentication method. Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token. You should create a token or you should have a token for API call. I ahve already created a token from [NASA][3]. It free and open API.
+You can see the nodes left of the page. If you want to learn about the nodes you can use library and you can read the details about the nodes. Most of time flows start with a trigger It is like start or run your code. It can start manuel also you can set a timer for it. In that flow I started with trigger and than I prepared our http request, We need to use authentication method. Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token. You should create a token or you should have a token for API call. I have already created a token from [NASA][3]. It free and open API.
 
 ![nodered-2][4]
 
-Inside the node you can use Java Script syntax code. Important point is that Node-RED uses msg properties by default, msg.payload is an object and most of nodes recognize the variable and implement it.
+Inside the node you can use Java Script syntax code. Important point is that Node-RED uses *msg* properties by default, *msg.payload* is an object and most of nodes recognize the variable and implement it.
 
 ![nodered-3][5]
 
-We can think of the entries in this picture as variables, what does it mean? It means I can give a value for url in 
-the previous node which is function nodes. If you check the picture I specified msg.url with the value. It comes in the node as msg.url and assigne to the text entry within the node. API request method should setted by from you and You need to select your node's return type If you want you use your variable after request you should select return as Json object. It is not necessary you can convert it in next functions node but It can be more useful.
+We can think of the entries in this picture as variables, what does it mean? It means I can give a value for *url* in the previous node which is function nodes. If you check the picture I specified msg.url with the value. It comes in the node as *msg.url* and assigne to the text entry within the node. API request method should setted by from you and You need to select your node's return type If you want you use your variable after request you should select return as Json object. It is not necessary you can convert it in next functions node but It can be more useful.
 
 ![nodered-4][6]
 
-Don't forget the what we did before they are storing by *msg.payload* variable even We are preparing next nodes, some of times 
-we can lose them if the the current node return a new *msg.payload* variable. Next step is preparing the our e-mail template you can prepare html file also possible diffrent formatting in that node. *Msg.property* is your return value so You will use it in next node.
+Don't forget the what we did before they are storing by *msg.payload* variable even We are preparing next nodes, some of times we can lose them if the the current node return a new *msg.payload* variable. Next step is preparing the our e-mail template you can prepare html file also possible diffrent formatting in that node. *Msg.property* is your return value so You will use it in next node.
 
 ![nodered-5][7]
 
@@ -61,7 +59,7 @@ I will use the gmail for SMTP. What does SMTP mean?. SMTP stands for Simple Mail
 
 ![nodered-7][10]
 
-Yes You did it! Check your mail inbox you have APOD Astronomy Picture of the Day. Today's Picture is so cool is no it!!!
+Yes You did it! Check your mail inbox you have APOD Astronomy Picture of the Day. Today's Picture is so cool is not it!!!
 
 ![nodered-8][11]
 
