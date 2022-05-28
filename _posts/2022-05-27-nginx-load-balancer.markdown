@@ -68,7 +68,7 @@ Yes You did it! Check your mail inbox you have APOD Astronomy Picture of the Day
 
 [1]: https://www.nginx.com/
 [2]: https://flask.palletsprojects.com/en/2.1.x/
-[3]: ../assets/images/nginx/nginx_flask2.PNG
+[3]: ../assets/images/nginx/nginx-flask2.png
 [4]: ../assets/images/nginx/nginx-3.PNG
 [5]: ../assets/images/nodered/nodered-3.PNG
 [6]: ../assets/images/nodered/nodered-4.PNG

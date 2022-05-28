@@ -32,17 +32,46 @@ The **Linux** command is a utility of the Linux operating system. All basic and 
 
 **Linux** terminal is a user-friendly terminal as it provides various support options. To open the **Linux** terminal, press **"CTRL + ALT + T"** keys together, and execute a command by pressing the **'ENTER'** key.
 
-## What we will use?
+### CD (Change Directory) 
 
-We need to create a way of working for that project so, using Docker containers can save the time, if we make mistakes it will be easy for us to fix the problems. First step is creating a Docker container environment. We should have an Nginx web server for load balance and also We need to 2 or more web projects for traffic management, in that case We will use Python [Flask][2] Framework. Flask is a small and lightweight Python web framework that provides useful tools and features that make creating web applications in Python easier. It gives developers flexibility and is a more accessible framework for new developers since you can build a web application quickly using only a single Python file. Here I prepared a visual for clerify the prject.
+The cd command is vital to navigating the Linux platform. It can be used by any user, whether you’re an administrator or a regular user.
 
-![nginx-2][3]
+{% highlight raw %}
+ $ cd /directory/subdirectory
+{% endhighlight %}
 
-A client send HTTP request to nginx and load balancer will control the flow of traffic according to the density. We will do it with curl command from client side. According to response We will understand that which server is responsing to us. When you reach a web site which is big or famous web site. You can't know how many they have clones but source code is same so you thing that you are using the same web server with the other people but maybe load balancer may sent you to another server. 
+The cd command will change your current working directory to /directory/subdirectory.
 
-![nginx-4][4]
+Use the following command to switch back to the parent directory:
 
-Inside the node you can use Java Script syntax code. Important point is that Node-RED uses *msg* properties by default, *msg.payload* is an object and most of nodes recognize the variable and implement it.
+{% highlight raw %}
+ $ cd ..
+{% endhighlight %}
+
+Now use the following command to go directly to the home directory:
+
+{% highlight raw %}
+ $ cd ~
+{% endhighlight %}
+
+## ls(List)
+
+The ls Linux command is probably the most used. You use the ls command to list all the directory contents, but that’s not all. You can pair it with other commands to view hidden files, sort files, etc.
+
+{% highlight raw %}
+ $ ls
+{% endhighlight %}
+
+This command gives you the names of all the files residing in your directory. However, it does not provide you with metadata about the files, such as type, size, etc.
+
+{% highlight raw %}
+ $ localhost:~# ls -l
+ total16
+ -rw-r--r –    1 root     root           114 Jul  6 03:47 bench.py
+-rw-r--r –    1 root     root            76 Jul  3 19:15 hello.c
+{% endhighlight %}
+
+The “ls -l” command gives you a list with extra details about the directory contents. For example, the resultant list includes the: modified date, size, time, owner name, owner permissions, and file name.
 
 ![nodered-3][5]
 
