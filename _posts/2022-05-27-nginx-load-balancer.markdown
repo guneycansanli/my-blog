@@ -44,14 +44,14 @@ We will implement two with flask, and they will be converted with dockerfile and
 from flask import request, Flask
 import json
 
-app1 = Flask(_name_)
+app1 = Flask(__name__)
 @app1.route('/')
 
 def hello_world():
   
   return 'this is response from app1'
 
-if _name__ == '_main_':
+if __name__ == '__main__':
   app1.run(debug=True, host='0.0.0.0')
  
 #5001 port response.
@@ -62,14 +62,14 @@ if _name__ == '_main_':
 from flask import request, Flask
 import json
 
-app2 = Flask(_name_)
+app2 = Flask(__name__)
 @app2.route('/')
 
 def hello_world():
   
   return 'this is response from app2'
 
-if _name_ == '_main_':
+if __name__ == '__main__':
   app2.run(debug=True, host='0.0.0.0')
  
 #5002 response.
