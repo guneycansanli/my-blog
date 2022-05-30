@@ -34,35 +34,146 @@ A client send HTTP request to nginx and load balancer will control the flow of t
 
 ![nginx-4][4]
 
-Inside the node you can use Java Script syntax code. Important point is that Node-RED uses *msg* properties by default, *msg.payload* is an object and most of nodes recognize the variable and implement it.
+I created a file for the project then seperated all components before creatiing Docker images for the services. I should be like that
 
-![nodered-3][5]
+![nodered-tree][5]
 
-We can think of the entries in this picture as variables, what does it mean? It means I can give a value for *url* in the previous node which is function nodes. If you check the picture I specified msg.url with the value. It comes in the node as *msg.url* and assigne to the text entry within the node. API request method should setted by from you and You need to select your node's return type If you want you use your variable after request you should select return as Json object. It is not necessary you can convert it in next functions node but It can be more useful.
+We will implement two with flask, and they will be converted with dockerfile and run as a container. So first need is write 2 pytohn flask app.
 
-![nodered-4][6]
+{% highlight html %}
+from flask import request, Flask
+import json
 
-Don't forget the what we did before they are storing by *msg.payload* variable even We are preparing next nodes, some of times we can lose them if the the current node return a new *msg.payload* variable. Next step is preparing the our e-mail template you can prepare html file also possible diffrent formatting in that node. *Msg.property* is your return value so You will use it in next node.
+app1 = Flask(_name_)
+@app1.route('/')
 
-![nodered-5][7]
+def hello_world():
+  
+  return 'this is response from app1'
 
-The last function node is for email configuration. As I mentioned before every node has diffrent value and they store some spesific variables. Before config You should intall the email plugin for using SMTP and sending emil with it. You can use setting than search plugin for downloading the email nodes. Node-RED is open source, developers add new features and plugins for it. The *msg.payload* variable is using for email body in the email nodes. You need to set your template as *msg.payload*, function nodes is using for some coding.
+if _name__ == '_main_':
+  app1.run(debug=True, host='0.0.0.0')
+ 
+#5001 port response.
+
+{% endhighlight %}
+
+{% highlight html %}
+from flask import request, Flask
+import json
+
+app2 = Flask(_name_)
+@app2.route('/')
+
+def hello_world():
+  
+  return 'this is response from app2'
+
+if _name_ == '_main_':
+  app2.run(debug=True, host='0.0.0.0')
+ 
+#5002 response.
+{% endhighlight %}
+
+That images have some requirements so We need to create requirement file for our container environment. 
+
+![nginx-5][6]
+
+I used Flask==2.1.0 in this project. It may chance for your project with the new version some times the older ones can not work.
+
+Now we will make a Dockerfile for each app and create an image for the pythons we have made. If you want, you can use a different image and install python, but I will use python:3 directly. you can use it for both apps.
+
+{% highlight html %}
+FROM python:3
+COPY ./requirements.txt /requirements.txt
+WORKDIR /
+RUN pip install -r requirements.txt
+COPY . /
+ENTRYPOINT [ "python3" ]
+CMD [ "app2.py" ]
+{% endhighlight %}
+
+![nginx-7][7]
+
+We need create the containers for our flask app so now We should docker command for creating images.
+
+{% highlight html %}
+sudo docker build . -t web_app1
+{% endhighlight %}
+
+{% highlight html %}
+sudo docker build . -t web_app2
+{% endhighlight %}
+
+please note, run these commands in the folder where the application is located.
+
+![nginx-8][8]
+
+We should run the images and expose them with the 5000 port then our falsk apps will be ready.
+
+{% highlight html %}
+sudo docker run -d -p 5001:5000 web_app1
+{% endhighlight %}
+
+{% highlight html %}
+sudo docker run -d -p 5002:5000 web_app2
+{% endhighlight %}
+
+![nginx-9][9]
+
+and now you can test your applications with curl command.
+
+{% highlight html %}
+curl localhost:5001
+{% endhighlight %}
+
+{% highlight html %}
+curl localhost:5002
+{% endhighlight %}
+---
+
+### Nginx Configuration  
+
+Now we will configure nginx. We will make the nginx settings on a file called nginx.conf, create one, then put it into the image while dockerizing it. I will use the docker host's IP as the IP. If we want to access it from outside, we can also use the public IP.
+
+![nginx-10][10]
+
+Nginx load balancer configuration shoul be like the picture. We should specified the servers. We used docker host ip in that step because Nginx container has already in the Docker host so it can access directly to another container as in same VPN. The nest step is create a Dcoker file. While Dcoker file is running, İt will use conf file so Dcoker file should be:
+
+{% highlight html %}
+FROM nginx
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+CMD ["nginx", "-g", "daemon off;"]
+{% endhighlight %}
+
+After the image creattion We should run the image with the port expose for accesing from outside.
+
+{% highlight html %}
+sudo docker run -p 8080:80 nginx_lb
+{% endhighlight %}
+
+![nginx-11][11]
+
+The last situtation should look like as picture.
 
 ---
 
-# Setting the SMTP for Email Sending
+### Test The Load Balancer
 
-![nodered-6][8]
+Finally We can test our app. For the testing We should send http request our nginx container so We can use curl command with in a loop.
 
-I will use the gmail for SMTP. What does SMTP mean?. SMTP stands for Simple Mail Transfer Protocol, and it’s an application used by mail servers to send, receive, and/or relay outgoing mail between email senders and receivers. For the gmail SMTP you can follow [this article][9]. After complated the STMP configureation you should Just enter the information in the picture. By default the server works like this. When everything is done you should just click the trigger for starting the flow.
+{% highlight html %}
+while true; do curl http://localhost:8080 && sleep 2; done;
+{% endhighlight %}
 
----
+![nginx-12][12]
 
-![nodered-7][10]
+As you see We got response from 2 another web apps. We sent request to Nginx and then Nginx load balancer control the traffic for wen apps.
 
-Yes You did it! Check your mail inbox you have APOD Astronomy Picture of the Day. Today's Picture is so cool is not it!!!
 
-![nodered-8][11]
+
+[Source][13]
 
 ---
 
@@ -70,11 +181,13 @@ Yes You did it! Check your mail inbox you have APOD Astronomy Picture of the Day
 [2]: https://flask.palletsprojects.com/en/2.1.x/
 [3]: ../assets/images/nginx/nginx-flask2.png
 [4]: ../assets/images/nginx/nginx-3.PNG
-[5]: ../assets/images/nodered/nodered-3.PNG
-[6]: ../assets/images/nodered/nodered-4.PNG
-[7]: ../assets/images/nodered/nodered-5.PNG
-[8]: ../assets/images/nodered/nodered-6.PNG
-[9]: https://kinsta.com/blog/gmail-smtp-server/
-[10]: ../assets/images/nodered/nodered-7.PNG
-[11]: ../assets/images/nodered/nodered-7.jpg
+[5]: ../assets/images/nginx/nginx-tree.PNG
+[6]: ../assets/images/nginx/nginx-req.PNG
+[7]: ../assets/images/nginx/nginx-dockerfile.PNG
+[8]: ../assets/images/nginx/nginx-images.PNG
+[9]: ../assets/images/nginx/nginx-container.PNG
+[10]: ../assets/images/nginx/nginx-conf.PNG
+[11]: ../assets/images/nginx/docker-container-ls.PNG
+[12]: ../assets/images/nginx/nginx-load.PNG
+[13]: https://alperenhasanselcuk.medium.com/docker-ve-nginx-kullanarak-load-balancer-konfig%C3%BCrasyonu-3aa2fa89e33c
 
