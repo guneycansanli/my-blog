@@ -2,7 +2,7 @@
 title: "The Most-Used Linux Commands"
 layout: post
 date: 2022-06-13 21:50
-image: ../assets/images/linux/linux-1.png
+image: ../assets/images/linuxMain/linux-1.PNG
 headerImage: true
 tag:
 - linux
