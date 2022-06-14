@@ -2,7 +2,7 @@
 title: "The Most-Used Linux Commands"
 layout: post
 date: 2022-06-13 21:50
-image: ../assets/images/linuxMain/linux-1.PNG
+image: ../assets/images/linux/linuxMain.PNG
 headerImage: true
 tag:
 - linux
@@ -20,7 +20,7 @@ description: What are the most used Linux command and what are they doing or why
 
 Linux is freely available for anyone to download and use for any purpose, and so are most of the apps on it.
 
-Unlike proprietary software, this is software that you actually get to take ownership over, giving you genuine control over your computer. Use it to do what you wish. Take it apart and tinker. Put it back together. Learn from it. Keep your machine running as long as possible. You can turn your Linux knowledge into a career, or you can use Linux as a stable foundation for the career of your choice.
+Unlike proprietary software, this is software that you actually get to take ownership over, giving you genuine control over your computer. Use it to do what you wish. Take it apart and tinker. Put it back together. Learn from it. Keep your machine running as long as possible. You can turn your Linux knowledge into a career or you can use Linux as a stable foundation for the career of your choice.
 
 ---
 
