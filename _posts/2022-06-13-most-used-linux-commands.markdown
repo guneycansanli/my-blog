@@ -16,7 +16,7 @@ description: What are the most used Linux command and what are they doing or why
 
 # Introduction
 
-[Linux][1]  is an operating system built around a set of values. If you agree with those values, that alone can be ample reason to give Linux a go. But there are many pragmatic reasons to switch to Linux.
+[Linux][1] is an operating system built around a set of values. If you agree with those values, that alone can be ample reason to give Linux a go. But there are many pragmatic reasons to switch to Linux.
 
 Linux is freely available for anyone to download and use for any purpose, and so are most of the apps on it.
 
