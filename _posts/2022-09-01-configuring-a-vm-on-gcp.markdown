@@ -68,29 +68,27 @@ If You done you can click create button and You will see processing for creating
 
 ## SSH to New Instance
 
-You can reach you new instance with SSH from GCP there is a section for Secure Shell. Here is You can see.
+You can reach you new instance with SSH from **GCP** there is a section for Secure Shell. Here is You can see.
 
 ![sshToVm][11]
 
-Finally connecting from retome host to GCP inctance as You know we added RSA public key for SSH so We can connect from our local or any remote instances.
+Finally connecting from remote host to GCP inctance as You know we added RSA public key for SSH so We can connect from our local or any remote instances.
 
 ![sshFromRemote][12]
-
-
 
 
 
 ---
 
 [1]: https://cloud.google.com/
-[2]: ../assets/images/gcp/gcp2.png
-[3]: ../assets/images/gcp/gcp3.png
-[4]: ../assets/images/gcp/gcp4.png
-[5]: ../assets/images/gcp/gcp5.png
-[6]: ../assets/images/gcp/gcp6.png
-[7]: ../assets/images/gcp/gcp7.png
-[8]: ../assets/images/gcp/gcp8.png
-[9]: ../assets/images/gcp/gcp9.png
-[10]: ../assets/images/gcp/gcp10.png
-[11]: ../assets/images/gcp/gcp11.png
-[12]: ../assets/images/gcp/gcp12.png
+[2]: ../assets/images/gcp/gcp2.PNG
+[3]: ../assets/images/gcp/gcp3.PNG
+[4]: ../assets/images/gcp/gcp4.PNG
+[5]: ../assets/images/gcp/gcp5.PNG
+[6]: ../assets/images/gcp/gcp6.PNG
+[7]: ../assets/images/gcp/gcp7.PNG
+[8]: ../assets/images/gcp/gcp8.PNG
+[9]: ../assets/images/gcp/gcp9.PNG
+[10]: ../assets/images/gcp/gcp10.PNG
+[11]: ../assets/images/gcp/gcp11.PNG
+[12]: ../assets/images/gcp/gcp12.PNG
