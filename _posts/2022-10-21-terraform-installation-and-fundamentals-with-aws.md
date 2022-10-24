@@ -309,4 +309,4 @@ Thanks for reading :)
 [3]: ../assets/images/terraform/terraform3.PNG
 [4]: ../assets/images/terraform/terraform4.PNG
 [5]: ../assets/images/terraform/terraform5.PNG
-[5]: ../assets/images/terraform/terraform6.PNG
+[6]: ../assets/images/terraform/terraform6.PNG
