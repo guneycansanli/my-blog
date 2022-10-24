@@ -1,5 +1,5 @@
 ---
-title: "Get started Trraform - Aws"
+title: "Get started Terraform - Aws"
 layout: post
 date: 2022-10-21 20:20
 image: ../assets/images/terraform/terraform.png
@@ -12,7 +12,7 @@ tag:
 - cloud
 category: blog
 author: guneycansanli
-description: Get started Trraform - Aws
+description: Get started Terraform - Aws
 ---
 
 # What is Terraform?
@@ -234,8 +234,8 @@ resource "aws_route_table_association" "rta-subnet1" {
   route_table_id = aws_route_table.rtb.id
 }
 
-# SECURITY GROUPS #
-# Nginx security group 
+## SECURITY GROUPS
+### Nginx security group 
 resource "aws_security_group" "nginx-sg" {
   name   = "nginx_sg"
   vpc_id = aws_vpc.vpc.id
@@ -257,7 +257,7 @@ resource "aws_security_group" "nginx-sg" {
   }
 }
 
-# INSTANCES #
+## INSTANCES
 resource "aws_instance" "nginx1" {
   ami                    = nonsensitive(data.aws_ssm_parameter.ami.value)
   instance_type          = "t2.micro"
