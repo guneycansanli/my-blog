@@ -49,7 +49,7 @@ You should follow that steps for create a new codespace.
 
 -   Finally I can access to my running web project.
 
-![Codespace][5]
+![Codespace][6]
 
 With the new GitHub feature. We can develop or test our code without our work PC. Codespaces is really usefull I am sure We will use it We will use it more in the near future.
 
