@@ -60,5 +60,5 @@ Thanks for reading :)
 [2]: ../assets/images/gitCodespace/gitCodespace1.jpg
 [3]: ../assets/images/gitCodespace/gitCodespace2.jpg
 [4]: ../assets/images/gitCodespace/gitCodespace3.jpg
-[5]: ../assets/images/gitCodespace/gitCodespace4.jpg
+[5]: ../assets/images/gitCodespace/gitCodeSpace4.jpg
 [6]: ../assets/images/gitCodespace/gitCodespace5.jpg
