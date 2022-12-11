@@ -4,7 +4,7 @@ layout: page
 ---
 ![Profile Image]({% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %})
 
-<p>Hi I am Guneycan Sanli.I have graduated as a computer engineer since 2021, I am currently working as Integration Engineer almost same like DevOps Engineer position.I will try to share my blogs which is about my learnings for all subjects in that blog page. I would like to tell about myself briefly. I am 24 years old and I like travelling, doing sports, listening music and hanging with my friends. I live in İstanbul which is a very crowded city. İstanbul is one of the most known big city in Turkey, there are a lot of historical sights and museums. The cultural activities in the city are pretty much. </p>
+<p>Hi I am Guneycan Sanli.I have graduated as a computer engineer since 2021, I am currently working as DevOps Engineer. I will try to share my blogs which is about my learnings for all subjects in that blog page. I would like to tell about myself briefly. I am 25 years old and I like travelling, doing sports, listening music and hanging with my friends. I live in Nutley, New Jersey. </p>
 
 <p>Guney :).</p>
 
