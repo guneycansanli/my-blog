@@ -1,7 +1,7 @@
 ---
 title: "Deploy Kubernetes Load Balancer Service with Terraform in Google Cloud"
 layout: post
-date: 2022-12-05 20:20
+date: 2022-12-16 20:20
 image: ../assets/images/loadBalancerWithTerraform/main.jpg
 headerImage: true
 tag:
