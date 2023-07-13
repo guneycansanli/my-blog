@@ -1,5 +1,5 @@
 ---
-title: "How To Install LXD on Debian 11 Buster Fast Guide"
+title: "How To Install LXD on Debian 10 Buster Fast Guide"
 layout: post
 date: 2023-07-12 18:20
 image: ../assets/images/lxd/main.jpg
