@@ -1,7 +1,7 @@
 ---
 title: "How to Install and Configure Cluster with Two Nodes With PCS Debian 10"
 layout: post
-date: 2023-08-31 14:20
+date: 2023-07-31 14:20
 image: ../assets/images/pcs/pcsMain.jpg
 headerImage: true
 tag:
