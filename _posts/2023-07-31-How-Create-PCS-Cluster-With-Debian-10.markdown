@@ -1,5 +1,5 @@
 ---
-title: "How to Install and Configure HA Cluster with PCS on Debian 10"
+title: "How to Install and Configure HA Cluster with PCS on Debian"
 layout: post
 date: 2023-07-31 14:20
 image: ../assets/images/pcs/pcsMain.jpg
@@ -14,7 +14,7 @@ tag:
     - Cluster
 category: blog
 author: guneycansanli
-description: How to Install and Configure HA Cluster with PCS on Debian 10
+description: How to Install and Configure HA Cluster with PCS on Debian
 ---
 
 # Why HA?
