@@ -97,7 +97,7 @@ Use the command below to send a request to the backend to ensure it is up and ru
 "Alarms":null, ...
 {% endhighlight %}
 
-Open your web browser and go to http://<your-server-ip>:3000
+Open your web browser and go to http://<your-server-ip>:3000:
 ![sensu3][3]
 
 Use your credentials created above to login. After Successful login you will get the following dashboard:
