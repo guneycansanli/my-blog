@@ -1,7 +1,7 @@
 ---
 title: "Install and Configure Sensu-Go Monitoring on Debian 10"
 layout: post
-date: 2023-07-31 14:20
+date: 2023-08-09 14:20
 image: ../assets/images/sensu/sensuMain.png
 headerImage: true
 tag:
