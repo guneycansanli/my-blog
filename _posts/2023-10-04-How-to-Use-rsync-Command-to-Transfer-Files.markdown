@@ -1,7 +1,7 @@
 ---
 title: "How to Use the rsync Command to Transfer Files"
 layout: post
-date: 2023-10-02 14:20
+date: 2023-04-10 14:20
 image: ../assets/images/rsync/rsyncmain.jpg
 headerImage: true
 tag:
