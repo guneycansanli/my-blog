@@ -6,7 +6,7 @@ image: ../assets/images/rsync/rsyncmain.jpg
 headerImage: true
 tag:
     - linux
-    - ryscn
+    - rsync
     - command
 category: blog
 author: guneycansanli
