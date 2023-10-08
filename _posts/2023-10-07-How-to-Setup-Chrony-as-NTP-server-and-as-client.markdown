@@ -102,7 +102,7 @@ vi /etc/chrony.conf
 {% highlight raw %}
 server 192.168.64.15 iburst prefer
 {% endhighlight %}
-![chrony1][3]
+![chrony3][3]
 -   Save the file and exit the editor when you're done.
 
 -   Now, run the following command to restart the Chrony service and apply new configurations.
@@ -115,13 +115,13 @@ sudo systemctl restart chronyd
 chronyc tracking
 {% endhighlight %}
 -   You should see the 'node2' machine is connected and synchronized the time to the NTP Server 'ntp.hwdomain.io', which is the server IP address '192.168.64.15'.
-    ![chrony1][4]
+![chrony4][4]
 
 -   You can also verify the detailed NTP data via the chronyc command below.
 {% highlight raw %}
 chronyc ntpdata
 {% endhighlight %}
-    ![chrony1][5]
+![chrony5][5]
 
 ---
 
