@@ -72,7 +72,7 @@ chronyc sources
 {% highlight raw %}
 chronyc sources -v
 {% endhighlight %}
-    ![chrony1][2]
+![chrony2][2]
 
 ---
 
@@ -136,7 +136,7 @@ Guneycan Sanli.
 ---
 
 [1]: ../assets/images/chrony/chrony1.jpeg
-[2]: ../assets/images/chrony/chrony2.jpeg
+[2]: ../assets/images/chrony/chrony2.jpg
 [3]: ../assets/images/chrony/chrony3.jpg
 [4]: ../assets/images/chrony/chrony4.jpg
 [5]: ../assets/images/chrony/chrony5.jpg
