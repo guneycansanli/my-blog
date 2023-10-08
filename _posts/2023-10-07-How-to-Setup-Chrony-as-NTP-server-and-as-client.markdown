@@ -27,15 +27,15 @@ description: How to Set up Chrony as NTP Server and Client
 # Install chrony and start service
 
 -   If you don't have chrony you can install with your packer manager (apt, apt-get, yum. dnf ...)
-    {% highlight raw %}
+{% highlight raw %}
     apt install chrony -y
-    {% endhighlight %}
+{% endhighlight %}
 
 -   After Chrony is installed, start and enable the Chronyd service using the systemctl command below.
-    {% highlight raw %}
+{% highlight raw %}
     systemctl enable chrony
     systemctl start chrony
-    {% endhighlight %}
+{% endhighlight %}
 
 # Configure chrony server
 
@@ -65,13 +65,13 @@ allow 192.168.64.0/24
 ![chrony1][1]
 
 -   Now, let's run the following chronyc command below to verify the sources of the NTP server pool that is currently used. You should see the list of current NTP server sources that are used by your server.
-    {% highlight raw %}
-    chronyc sources
-    {% endhighlight %}
+{% highlight raw %}
+chronyc sources
+{% endhighlight %}
 -   You can also get detailed information via the '-v' option as verbose.
-    {% highlight raw %}
+{% highlight raw %}
     chronyc sources -v
-    {% endhighlight %}
+{% endhighlight %}
     ![chrony1][2]
 
 ---
@@ -80,20 +80,20 @@ allow 192.168.64.0/24
 
 -   We will configure chrony client, Intallation process is same as chrony server, only the difference will be configuration.
 -   Install chrony to client
-    {% highlight raw %}
+{% highlight raw %}
     apt install chrony -y
-    {% endhighlight %}
+{% endhighlight %}
 
 -   After Chrony is installed, start and enable the Chronyd service using the systemctl command below.
-    {% highlight raw %}
+{% highlight raw %}
     systemctl enable chrony
     systemctl start chrony
-    {% endhighlight %}
+{% endhighlight %}
 
 -   We are ready to edit chrony config file
-    {% highlight raw %}
+{% highlight raw %}
     vi /etc/chrony.conf
-    {% endhighlight %}
+{% endhighlight %}
 
 -   On the server directive, change the NTP server source with your NTP server. In this example, the NTP Server is running the server with IP address '192.168.64.15'.
 -   Also, you can see additional options on the server directive"
@@ -106,21 +106,21 @@ allow 192.168.64.0/24
 -   Save the file and exit the editor when you're done.
 
 -   Now, run the following command to restart the Chrony service and apply new configurations.
-    {% highlight raw %}
+{% highlight raw %}
     sudo systemctl restart chronyd
-    {% endhighlight %}
+{% endhighlight %}
 
 -   Finally, run the following chronyc command to verify the current status of NTP on the 'node2' machine.
-    {% highlight raw %}
+{% highlight raw %}
     chronyc tracking
-    {% endhighlight %}
+{% endhighlight %}
 -   You should see the 'node2' machine is connected and synchronized the time to the NTP Server 'ntp.hwdomain.io', which is the server IP address '192.168.64.15'.
     ![chrony1][4]
 
 -   You can also verify the detailed NTP data via the chronyc command below.
-    {% highlight raw %}
+{% highlight raw %}
     chronyc ntpdata
-    {% endhighlight %}
+{% endhighlight %}
     ![chrony1][5]
 
 ---
