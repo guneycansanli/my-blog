@@ -114,7 +114,7 @@ sudo systemctl restart chronyd
 {% highlight raw %}
 chronyc tracking
 {% endhighlight %}
--   You should see the 'node2' machine is connected and synchronized the time to the NTP Server 'ntp.hwdomain.io', which is the server IP address '192.168.64.15'.
+-   You should see the 'node2' machine is connected and synchronized the time to the NTP Server 'node1.local', which is the server IP address '192.168.64.15'.
 ![chrony4][4]
 
 -   You can also verify the detailed NTP data via the chronyc command below.
