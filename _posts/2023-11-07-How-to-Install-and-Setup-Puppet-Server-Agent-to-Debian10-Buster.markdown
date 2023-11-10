@@ -94,7 +94,7 @@ systemctl enable puppetserver
 
 - Return to the Puppet agent nodes and run the Puppet agent again:
 {% highlight raw %}
-/opt/puppetlabs/bin/puppetserver ca list
+/opt/puppetlabs/bin/puppet agent -t
 {% endhighlight %}
 - You should see the agent could connected to the server.
 
