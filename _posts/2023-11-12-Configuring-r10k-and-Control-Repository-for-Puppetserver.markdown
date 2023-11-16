@@ -15,7 +15,7 @@ description: How to Install and Setup Puppet Server-Agent in Debian 10(Buster)
 
 # What is r10k?
 
--  In Puppet, we have a code management tool known as r10k that helps in managing environment configurations related to different kind of environments that we can configure in Puppet such as development, testing, and production. This helps in storing environment-related configuration in the source code repository.
+- In Puppet, we have a code management tool known as r10k that helps in managing environment configurations related to different kind of environments that we can configure in Puppet such as development, testing, and production. This helps in storing environment-related configuration in the source code repository.
 - We can manage our control repository and different environments with different branches. r10k helps us to deploy our code to puppetserver using with remote repository in this article I am going to use github and configuration can be SSH or https. I ahve already a public repository in github so I will use https.
 
 # Steps
@@ -28,7 +28,6 @@ description: How to Install and Setup Puppet Server-Agent in Debian 10(Buster)
 # Install and configure r10k to Puppetserver
 
 - Before installing r10k You may aware of ruby and gem because , It may cause couple of problems I won't give details ruby and gem but If you have issue, You may search ruby and gem versions or dependencies for r10k
----
 - Install r10k using Puppet embeded ruby gem 
 - In my case my versions like below
 - You can find available versions in https://rubygems.org/gems/r10k/versions/ 
