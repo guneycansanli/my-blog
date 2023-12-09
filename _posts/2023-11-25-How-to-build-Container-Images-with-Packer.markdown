@@ -49,6 +49,7 @@ sudo apt-get update && sudo apt-get install packer
 - Write Packer template, A Packer template is a configuration file that defines the image you want to build and how to build it. Packer templates use the Hashicorp Configuration Language (HCL).
 - Create a file docker-ubuntu.pkr.hcl
 - Add following HCL block to it and save the file.
+{% highlight raw %}
 packer {
   required_plugins {
     docker = {
