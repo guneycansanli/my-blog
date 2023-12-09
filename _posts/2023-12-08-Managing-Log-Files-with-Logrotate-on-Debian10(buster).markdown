@@ -31,10 +31,10 @@ description: Managing Log Files with Logrotate
 -   The logrotate daemon is pre-installed and active by default in Debian and most mainstream Linux distributions. If Logrotate is not installed on your machine, ensure to install it first through your distribution's package manager.
 
 -   You can test if you have already logrotate installed with:
-    {% highlight raw %}
-    logrotate --version
-    {% endhighlight %}
-    ![logrotate][1]
+{% highlight raw %}
+logrotate --version
+{% endhighlight %}
+![logrotate][1]
 
 -   The Logrotate daemon uses configuration files to specify all the log rotation details for an application. The default setup consists of the following aspects:
 -   /etc/logrotate.conf: this is the main configuration file for the Logrotate utility. It defines the global settings and defaults for log rotation that are applied to all log files unless overridden by individual Logrotate configuration files in the /etc/logrotate.d/ directory.
@@ -76,26 +76,26 @@ done
 {% endhighlight %}
 
 -   Save the file, then make it executable:
-    {% highlight raw %}
-    chmod +x logify.sh
-    {% endhighlight %}
-    ![logrotate2][2]
+{% highlight raw %}
+chmod +x logify.sh
+{% endhighlight %}
+![logrotate2][2]
 
 -   Afterward, create the /var/log/logify directory using elevated privileges, then change the ownership of the directory to your user so that the script can write files to the directory:
-    {% highlight raw %}
-    mkdir /var/log/logify
-    {% endhighlight %}
+{% highlight raw %}
+mkdir /var/log/logify
+{% endhighlight %}
 
 -   You are ready for run our script , You may run it as a background process
-    {% highlight raw %}
-    ./logify.sh &
-    {% endhighlight %}
+{% highlight raw %}
+./logify.sh &
+{% endhighlight %}
 
 -   You can verify script is logging to /var/log/logify/log_records.log
-    {% highlight raw %}
-    cat /var/log/logify/log_records.log
-    {% endhighlight %}
-    ![logrotate3][3]
+{% highlight raw %}
+cat /var/log/logify/log_records.log
+{% endhighlight %}
+![logrotate3][3]
 
 -   At this stage, you must set up a log rotation policy to prevent the log_records.log file from growing too large and taking up valuable disk space on the server. There are two main options for doing this:
 -   Create a new Logrotate configuration file and place it in the /etc/logrotate.d/ directory to perform log rotation according to the system's default schedule (it runs once per day by default but you can change it.)
@@ -108,42 +108,42 @@ done
     {% endhighlight %}
 
 -   Add the following text to the file:
-    {% highlight raw %}
-    /var/log/logify/\*.log
-    {
-    hourly
-    missingok
-    rotate 7
-    compress
-    notifempty
-    }
-    {% endhighlight %}
-    ![logrotate4][4]
+{% highlight raw %}
+/var/log/logify/\*.log
+{
+hourly
+missingok
+rotate 7
+compress
+notifempty
+}
+{% endhighlight %}
+![logrotate4][4]
 -   As you can see I used hourly but You can change this configuration with different options.
 -   The configuration above applies to all the files ending with .log in the /var/log/logify/ directory. We've already discussed what each directive here does earlier, so we won't go over that again here.
 -   Save the file and test the new configuration by executing the command below. The --debug option instructs logrotate to operate in test mode where only debug messages are printed.
-    {% highlight raw %}
-    logrotate /etc/logrotate.conf --debug
-    {% endhighlight %}
+{% highlight raw %}
+logrotate /etc/logrotate.conf --debug
+{% endhighlight %}
 -   You can see your new configuration and all other configurations
-    ![logrotate5][5]
+![logrotate5][5]
 
 -   If you want to test that the log rotation works without without waiting for the specified schedule, you can use the -f/--force option like this:
-    {% highlight raw %}
-    logrotate -f /etc/logrotate.d/logify
-    {% endhighlight %}
+{% highlight raw %}
+logrotate -f /etc/logrotate.d/logify
+{% endhighlight %}
 
 -   You will observe that the old log file was renamed and compressed and a new one was created:
-    {% highlight raw %}
-    ls /var/log/logify/
-    {% endhighlight %}
-    ![logrotate6][6]
+{% highlight raw %}
+ls /var/log/logify/
+{% endhighlight %}
+![logrotate6][6]
 
 -   Another way to verify if a particular log file is rotating or not, and to check the last date and time of its rotation, examine the /var/lib/logrotate/status file (or /var/lib/logrotate/logrotate.status on Red Hat systems) like this:
-    {% highlight raw %}
-    cat /var/lib/logrotate/status | grep 'logify'
-    {% endhighlight %}
-    ![logrotate7][7]
+{% highlight raw %}
+cat /var/lib/logrotate/status | grep 'logify'
+{% endhighlight %}
+![logrotate7][7]
 
 -   There are different ways for logrotation like Creating a system-independent Logrotate configuration, Running commands or scripts before or after log rotation, Debugging Logrotate problems.
 -   I wanted to show you how logrotate works and how it usefull logrotate for avoid for high disk usage.
