@@ -13,7 +13,7 @@ author: guneycansanli
 description: Managing Log Files with Logrotate
 ---
 
-# What is Packer?
+# What is Logrotate?
 
 -   Controlling the sizes of log files on a Linux server is crucial due to their continuous growth. As log files accumulate, they can consume valuable storage space, strain server resources, and cause performance and memory issues. To address this problem, log rotation is commonly employed. It involves renaming or compressing log files before they become too large, while also removing or archiving old logs to free up storage space. On most Linux distributions, the preferred tool for log rotation is the logrotate program, which we will be focusing on in this tutorial.
 -   In this tutorial We will create a script which is logs randomly and We will compress the logs with logrotate.
