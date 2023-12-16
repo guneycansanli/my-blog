@@ -1,5 +1,5 @@
 ---
-title: "How to build Container Images with Packer"
+title: "How to Parallel builds Docker Images with Packer"
 layout: post
 date: 2023-12-14 14:20
 image: ../assets/images/packer/main.png
@@ -10,7 +10,7 @@ tag:
     - packer
 category: blog
 author: guneycansanli
-description: How to Parallel builds Docker Container Images with Packer
+description: How to Parallel builds Docker Images with Packer
 ---
 
 # What is Packer?
@@ -126,6 +126,7 @@ build {
 - The source block configures a specific builder plugin, which is then invoked by a build block.
 - The build block defines what Packer should do with the Docker container after it launches.
 - Initialize Packer configuration, Initialize your Packer configuration.
+- Parellel build is a very useful and important feature of Packer. For example, Packer can build an Amazon AMI and a VMware virtual machine in parallel provisioned with the same scripts, resulting in near-identical images.
 {% highlight raw %}
 packer init .
 {% endhighlight %}
