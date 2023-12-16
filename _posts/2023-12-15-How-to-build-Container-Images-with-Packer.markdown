@@ -111,12 +111,13 @@ build {
     post-processor "docker-push" {
         login = true
         login_username = "gnyscnsnli"
-        login_password = "Cemal61ilayda*."
+        login_password = "**********"
         only = ["docker.ubuntu-bionic"]
     }
   }
 }
 {% endhighlight %}
+![packer][2]
 
 - Packer Block
 - The packer {} block contains Packer settings, including specifying a required Packer version.
@@ -124,8 +125,7 @@ build {
 - Each plugin block contains a version and source attribute. Packer will use these attributes to download the appropriate plugin(s)..
 - The source block configures a specific builder plugin, which is then invoked by a build block.
 - The build block defines what Packer should do with the Docker container after it launches.
-- Initialize Packer configuration, Initialize your Packer configuration 
-- You can
+- Initialize Packer configuration, Initialize your Packer configuration.
 {% highlight raw %}
 packer init .
 {% endhighlight %}
@@ -133,12 +133,19 @@ packer init .
 
 
 
-- Build images
+- Build images 
 {% highlight raw %}
  $  packer build .
 {% endhighlight %}
+![packer][4]
 
 
+- After build images succesfully We can verify that We have images
+- We used parallel images that means 2 different image with different tags and also We just push the only 1 image to repository
+![packer][5]
+
+- If We check our Dockerhub repository We can verify that We have only 1 image.
+![packer][6]
 
 ---
 ---
@@ -154,12 +161,6 @@ Guneycan Sanli.
 [1]: ../assets/images/packer/packer1.jpg
 [2]: ../assets/images/packer/packer2.jpg
 [3]: ../assets/images/packer/packer3.jpg
-[4]: ../assets/images/packer/
-[5]: ../assets/images/packer/
-[6]: ../assets/images/packer/
-[7]: ../assets/images/packer/
-[8]: ../assets/images/packer/
-[9]: ../assets/images/packer/
-[10]: ../assets/images/packer/
-[11]: ../assets/images/packer/
-[12]: ../assets/images/packer/
+[4]: ../assets/images/packer/packer5.jpg
+[5]: ../assets/images/packer/packer6.jpg
+[6]: ../assets/images/packer/packer7.jpg
