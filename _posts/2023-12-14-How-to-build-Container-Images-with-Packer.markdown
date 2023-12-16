@@ -1,7 +1,7 @@
 ---
 title: "How to build Container Images with Packer"
 layout: post
-date: 2023-12-15 14:20
+date: 2023-12-14 14:20
 image: ../assets/images/packer/main.png
 headerImage: true
 tag:
