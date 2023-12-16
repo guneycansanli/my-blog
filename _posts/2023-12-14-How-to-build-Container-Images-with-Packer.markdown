@@ -1,5 +1,5 @@
 ---
-title: "How to Parallel builds Docker Images with Packer"
+title: "How to Parallel Docker image builds with Packer"
 layout: post
 date: 2023-12-14 14:20
 image: ../assets/images/packer/main.png
@@ -10,7 +10,7 @@ tag:
     - packer
 category: blog
 author: guneycansanli
-description: How to Parallel builds Docker Images with Packer
+description: How to Parallel Docker image builds with Packer
 ---
 
 # What is Packer?
