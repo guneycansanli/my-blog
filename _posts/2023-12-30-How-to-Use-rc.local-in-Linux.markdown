@@ -125,10 +125,11 @@ systemctl status rc-local
 mkdir /home/this-is-rclocal-directory
 echo "Hi hi hi hi"
 {% endhighlight %}
+![rc-local][3]
 
 - Just crate a sample command or script for rc.local
 - After reboot the node you can check the script was ran or not.
-![rc-local][3]
+![rc-local][4]
 
 ---
 ---
@@ -143,5 +144,6 @@ Guneycan Sanli.
 
 [1]: ../assets/images/rc-local/rc-local1.jpg
 [2]: ../assets/images/rc-local/rc-local2.jpg
-[2]: ../assets/images/rc-local/rc-local3.jpg
+[3]: ../assets/images/rc-local/rc-local4.jpg
+[4]: ../assets/images/rc-local/rc-local3.jpg
 
