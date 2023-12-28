@@ -1,7 +1,7 @@
 ---
 title: "How to use /etc/rc.local at boot"
 layout: post
-date: 2023-12-14 14:20
+date: 2023-12-30 14:20
 image: ../assets/images/rc-local/main.jpg
 headerImage: true
 tag:
