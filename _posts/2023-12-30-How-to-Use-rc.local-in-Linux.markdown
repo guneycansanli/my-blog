@@ -31,7 +31,7 @@ description: How to use /etc/rc.local at boot
   - Risk: Applications may not stop correctly, potentially causing problems on the next boot.
   - Recommendation: It is advisable to create proper init scripts for application services, ensuring both startup and shutdown procedures are handled gracefully.
 
--Network/Firewall Configuration:
+- Network/Firewall Configuration:
 
   - Issue: Using rc.local for network or firewall tasks is discouraged as it's not the designated location for such configurations.
   - Risk: Incorrect placement of network or firewall settings can lead to misconfigurations.
@@ -72,7 +72,7 @@ WantedBy=multi-user.target
 
 
 - Then we create the rc.local file
-```
+{% highlight raw %}
 cat /etc/rc.local
 #!/bin/sh -e
 #
@@ -88,25 +88,25 @@ cat /etc/rc.local
 # By default this script does nothing.
  
 exit 0
-```
+{% endhighlight %}
 
 - Set the permissions:
-```
+{% highlight raw %}
 chmod +x /etc/rc.local
-```
+{% endhighlight %}
 - And enable the service to start during boot
-```
+{% highlight raw %}
 systemctl enable rc-local
-```
+{% endhighlight %}
 - And finaly start the service
-```
+{% highlight raw %}
 systemctl start rc-local
-```
+{% endhighlight %}
 - You can view the status of the service with:
   - And enable the service to start during boot
-```
+{% highlight raw %}
 systemctl status rc-local
-```
+{% endhighlight %}
 ![rc-local][2]
 
 - You can now add what you want back into the rc.local file, of course this is not the ‘correct’ way of doing, best would be to add a service for your scripts/programs in systemd where possible.
@@ -121,10 +121,10 @@ systemctl status rc-local
   - Command: Add a command to create a directory and a script.
   - Path Specification: Utilize complete paths to ensure command execution, especially if the PATH variable is not consulted.
 
-```
+{% highlight raw %}
 mkdir /home/this-is-rclocal-directory
 echo "Hi hi hi hi"
-```
+{% endhighlight %}
 
 - Just crate a sample command or script for rc.local
 - After reboot the node you can check the script was ran or not.
