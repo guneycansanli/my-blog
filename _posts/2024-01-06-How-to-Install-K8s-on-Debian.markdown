@@ -1,8 +1,8 @@
 ---
 title: "How to Install Kubernetes on Debian"
 layout: post
-date: 2023-12-28 14:20
-image: ../assets/images/rc-local/main.jpg
+date: 2024-01-06 14:20
+image: ../assets/images/k8s/main.png
 headerImage: true
 tag:
     - linux
