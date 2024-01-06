@@ -114,6 +114,7 @@ apt-mark hold kubelet kubeadm kubectl
 # Install Kubernetes Cluster with Kubeadm
 
 - Now, we are all set to initialize Kubernetes cluster, run following command only from master node,
+
 :one: We need to disable SWAP memory (SWAP RAM), on both the nodes as Kubernetes does not perform properly on systems that is using swap memory.
 {% highlight raw %}
 swapoff -a
