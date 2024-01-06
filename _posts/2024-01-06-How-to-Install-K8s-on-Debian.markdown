@@ -23,7 +23,7 @@ description: How to Install Kubernetes on Debian
 - You may need to edit your 2 machines hostnames. master-node and worker-node (slave)
 - You need to follow up the steps for both master and slave nodes.
 
-1. Install Containerd Run time on All Nodes
+:one: Install Containerd Run time on All Nodes
 - Containerd is the industry standard container run time and supported by Kubernetes. So, install containerd on all master and worker nodes.
 - Before installing containerd, set the following kernel parameters on all the nodes.
 {% highlight raw %}
@@ -48,7 +48,7 @@ sysctl --system
 {% endhighlight %}
 ![k8s][1]
 
-1. We need  to install containerd and settingup contianerd for k8s.
+:two: We need  to install containerd and settingup contianerd for k8s.
 {% highlight raw %}
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 echo "deb [arch=amd64] https://download.docker.com/linux/debian buster stable" |sudo tee /etc/apt/sources.list.d/docker.list
@@ -76,12 +76,12 @@ systemctl enable containerd
 {% endhighlight %}
 ![k8s][7]
 
-1. Install curl for both nodes.
+:three: Install curl for both nodes.
 {% highlight raw %}
 apt install curl -y
 {% endhighlight %}
 
-1. Add the Kubernetes signing key on both the nodes.
+:four: Add the Kubernetes signing key on both the nodes.
 {% highlight raw %}
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 {% endhighlight %}
@@ -89,7 +89,7 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 - I f you get any error regarding to gnupg, gnupg2 and gnupg1 probably You need to install one of it ex. apt-get install -y gnupg2
 ![k8s][2]
 
-1. Add Kubernetes Repository on both the nodes.
+:five: Add Kubernetes Repository on both the nodes.
 - We will be using Xenial Kubernetes Repository
 {% highlight raw %}
 apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
@@ -100,7 +100,7 @@ apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 apt update
 {% endhighlight %}
 
-1. Install Kubeadm and some k8s tools on both the nodes.
+:six: Install Kubeadm and some k8s tools on both the nodes.
 - This is the final step for installation. Installing kubeadm on both the nodes 
 {% highlight raw %}
 apt update
@@ -114,14 +114,14 @@ apt-mark hold kubelet kubeadm kubectl
 # Install Kubernetes Cluster with Kubeadm
 
 - Now, we are all set to initialize Kubernetes cluster, run following command only from master node,
-1. We need to disable SWAP memory (SWAP RAM), on both the nodes as Kubernetes does not perform properly on systems that is using swap memory.
+:one: We need to disable SWAP memory (SWAP RAM), on both the nodes as Kubernetes does not perform properly on systems that is using swap memory.
 {% highlight raw %}
 swapoff -a
 {% endhighlight %}
 - You may need to comment out fstab entry for SWAP (For permanently disable SWAP) :+1: :+1: :+1:
 ![k8s][5]
 
-1. Before Initialize K8s I would like to change hostname of VMs for better understanding
+:two: Before Initialize K8s I would like to change hostname of VMs for better understanding
 {% highlight raw %}
 hostnamectl set-hostname "k8s-master.local"      // Run on master node
 hostnamectl set-hostname "k8s-worker01.local"    // Run on 1st worker node
@@ -133,7 +133,7 @@ hostnamectl set-hostname "k8s-worker01.local"    // Run on 1st worker node
 {% endhighlight %}
 ![k8s][9]
 
-1. Initialize K8s in Master-node i.e master-node
+:three: Initialize K8s in Master-node i.e master-node
 - Run the following command only in master-node
 {% highlight raw %}
 kubeadm init --control-plane-endpoint=k8s-master
@@ -167,7 +167,7 @@ $ kubectl cluster-info
 - Note: Copy worker node join command from output and run it in worker(slave) node.
 ![k8s][12]
 
-1. Check the nodes status by running following command from master node,
+:four: Check the nodes status by running following command from master node,
 {% highlight raw %}
 kubectl get nodes
 {% endhighlight %}
@@ -175,7 +175,7 @@ kubectl get nodes
 
 - To make nodes status ready, we must install POD network addons like Calico or flannel.
 
-1. Setup Pod Network Using Calico
+:five: Setup Pod Network Using Calico
 - On the master node, run beneath command to install calico,
 {% highlight raw %}
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml
@@ -194,7 +194,7 @@ kubectl get nodes
 ![k8s][15]
 
 
-1. You are ready for deploy applications.
+:arrow_forward: :arrow_forward: :arrow_forward: You are ready for deploy applications. Enjoy with your Kubernetes Cluster 
 
 
 ---
