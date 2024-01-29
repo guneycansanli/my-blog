@@ -161,7 +161,15 @@ docker-compose up -d
 - Jenkins will take you back to the node list. Click on your new node name.
 ![jen][19]
 
-- Then click on Log in the menu on the left.
+- Then click on Log in the dropdown menu.
+![jen][20]
+
+
+- The most important entry you’ll see is Agent successfully connected and online.
+- But if you look at the other entries, you’ll see plenty of information about your agent, including the SSH key. 
+![jen][21]
+
+
 
 ---
 ---
@@ -191,5 +199,7 @@ Guneycan Sanli.
 [15]: ../assets/images/jenkins-docker-compose/jen15.jpg
 [16]: ../assets/images/jenkins-docker-compose/jen16.jpg
 [17]: ../assets/images/jenkins-docker-compose/jen17.jpg
-[18]: ../assets/images/jenkins-docker-compose/jen18.jpg
+[18]: ../assets/images/jenkins-docker-compose/java18.jpg
 [19]: ../assets/images/jenkins-docker-compose/jen19.jpg
+[20]: ../assets/images/jenkins-docker-compose/jen20.jpg
+[21]: ../assets/images/jenkins-docker-compose/jen21.jpg
