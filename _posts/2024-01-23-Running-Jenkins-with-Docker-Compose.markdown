@@ -1,5 +1,5 @@
 ---
-title: "Running jenkis with Docker Compose on Ubuntu 20.04.6 LTS (Focal Fossa)"
+title: "Running jenkins with Docker Compose on Ubuntu 20.04.6 LTS (Focal Fossa)"
 layout: post
 date: 2024-01-23 14:20
 image: ../assets/images/jenkins-docker-compose/main.jpg
@@ -10,7 +10,7 @@ tag:
     - docker
 category: blog
 author: guneycansanli
-description: Running jenkis with Docker Compose
+description: Running jenkins with Docker Compose
 ---
 
 # Before Installation of Jenkins with Docker compose?
