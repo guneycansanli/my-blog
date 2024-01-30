@@ -2,7 +2,7 @@
 title: "Running jenkis with Docker Compose on Ubuntu 20.04.6 LTS (Focal Fossa)"
 layout: post
 date: 2024-01-23 14:20
-image: ../assets/images/jenkins-docker-compose/main.png
+image: ../assets/images/jenkins-docker-compose/main.jpg
 headerImage: true
 tag:
     - linux
