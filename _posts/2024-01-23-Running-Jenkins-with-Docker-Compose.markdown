@@ -121,7 +121,19 @@ ssh-keygen -t rsa -f jenkins_agent
 
 - We are ready for setting up the agent.
 - We will use jenkins_agent.pub in docker-compose.yaml.
+{% highlight raw %}
+  agent:
+    image: jenkins/ssh-agent:jdk11
+    privileged: true
+    user: root
+    container_name: agent
+    expose:
+      - 22
+    environment:
+      - JENKINS_AGENT_SSH_PUBKEY=<YOUR-SSH-KEY>
+{% endhighlight %}
 - Add a new service to docker compose file.
+
 
 ![jen][13]
 - New service-container with jenkins/ssh-agent:jdk11 image and options similar to the controller, except you’re exposing the SSH port, 22
