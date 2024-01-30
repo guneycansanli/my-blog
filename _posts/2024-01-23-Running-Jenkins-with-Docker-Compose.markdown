@@ -8,6 +8,7 @@ tag:
     - linux
     - ubuntu
     - docker
+    - jenkins
 category: blog
 author: guneycansanli
 description: Running jenkins with Docker Compose
