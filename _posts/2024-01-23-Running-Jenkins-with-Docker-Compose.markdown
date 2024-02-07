@@ -105,7 +105,7 @@ ssh-keygen -t rsa -f jenkins_agent
 - Then click Global credentials.
 ![jen][10]
 
-- Finally, click Add Credentials in the menu on the left.
+- Finally, click Add Credentials in the menu on the right.
 ![jen][11]
 
 - Set these options on this screen.
