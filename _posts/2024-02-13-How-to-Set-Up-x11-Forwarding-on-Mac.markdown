@@ -43,7 +43,7 @@ description: How to Set Up x11 Forwarding on your Mac
 
 # Download xquartz
 
--   We need to download and install x to MAC.
+-   We need to download and install xquartz to MAC.
 -   You can find xquartz [here](https://www.xquartz.org/)
 ![x11][2]
 
