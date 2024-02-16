@@ -7,7 +7,7 @@ headerImage: true
 tag:
     - linux
     - ubuntu
-    - x11
+    - vnc
 category: blog
 author: guneycansanli
 description: How to Install and Configure VNC on Ubuntu 20.04 Tutorial
