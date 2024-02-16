@@ -17,10 +17,14 @@ description: How to Install and Configure VNC on Ubuntu 20.04 Tutorial
 
 -   VNC allows you connect to it securely through an SSH tunnel.
 
+---
+
 # Prerequisites
 
 -   One Ubuntu 20.04 server with a non-root administrative user.
 -   A local computer with a VNC client installed for MAC I use REAL VNC, VNC Viewer
+
+---
 
 # Install VNC and Desktop Environment
 
@@ -56,7 +60,7 @@ description: How to Install and Configure VNC on Ubuntu 20.04 Tutorial
 
 7- After You run vncserver. You nedd to create a password for accessingyour machine remotely.
 8- You can see details after You cinfigured your password.  
-   ![vnc][2]
+ ![vnc][2]
 
 9- You can use vncserver commands and check more details about your server configs. vncserber -list will show your vnc sessions and port informations. You will use RFB PORT for accessing remotely.
 
@@ -67,6 +71,8 @@ description: How to Install and Configure VNC on Ubuntu 20.04 Tutorial
 ![vnc][3]
 
 10- At this point, the VNC server is installed and running. Now let’s configure it to launch Xfce and give us access to the server through a graphical interface.
+
+---
 
 # Configuring the VNC Server
 
@@ -116,7 +122,9 @@ vncserver -localhost
 
 ![vnc][6]
 
-# Connectingto VNC Desktop
+---
+
+# Connecting to VNC Desktop
 
 1- Create an SSH connection on your local computer with open tunnel.
 2- You can do this via the terminal on Linux or macOS with the following ssh command.
@@ -127,10 +135,12 @@ ssh -A -o ServerAliveInterval=60 -L  9901:localhost:5901 guney@192.168.64.20
 
 3- You may use different SSH options or different local ports.
 4- If you are succefully open tunnel to remote server.
-   ![vnc][7]
+![vnc][7]
 
 5- Once the tunnel is running, use a VNC client to connect to localhost:9901 (My port). You’ll be prompted to authenticate using the password you set.
-   ![vnc][8]
+![vnc][8]
+
+---
 
 # Running VNC as a System Service
 
@@ -197,7 +207,7 @@ sudo systemctl status vncserver@1
 ![vnc][10]
 
 10- Finally, You can test remote connection again.
-   ![vnc][11]
+![vnc][11]
 
 ---
 
