@@ -1,7 +1,7 @@
 ---
 title: "How to Install and Configure VNC on Ubuntu 20.04"
 layout: post
-date: 2024-02-13 14:20
+date: 2024-02-15 14:20
 image: ../assets/images/vnc/main.jpg
 headerImage: true
 tag:
