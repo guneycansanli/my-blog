@@ -285,7 +285,24 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 19- Next, locate the TLSAccept section, which looks like this.
 ![zabbix][22]
 
+20- Next, find the TLSPSKIdentity section, which looks like this.
+![zabbix][23]
 
+21- You’ll use this as the PSK ID when you add your host through the Zabbix web interface.
+22- Then set the option that points to your previously created pre-shared key. Locate the TLSPSKFile option.
+![zabbix][24]
+
+23- Save and close the file. Now you can restart the Zabbix agent and set it to start at boot time.
+
+```
+    systemctl restart zabbix-agent
+    systemctl enable zabbix-agent
+```
+
+24- For good measure, check that the Zabbix agent is running properly.
+```
+    systemctl status zabbix-agent
+```
 
 ---
 
