@@ -2,7 +2,7 @@
 title: "How To Install and Configure Zabbix on Ubuntu 20.04"
 layout: post
 date: 2024-02-28 14:20
-image: ../assets/images/vnc/main.jpg
+image: ../assets/images/zabbix/main.jpg
 headerImage: true
 tag:
     - linux
