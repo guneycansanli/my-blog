@@ -185,18 +185,22 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 # Configuring Settings for the Zabbix Web Interface
 
 1- You will see Welcome page. It is user-friendly so just follow the steps.
+
 2- On the next screen, you will see the table that lists all of the prerequisites to run Zabbix.
 ![zabbix][10]
 
 3- All values show OK so We are good to go next steps.
+
 4- The next screen asks for database connection information.
+
 5- We are running mySql on local so default setting is fine just need to put right DB password that You used when you created ZAbbix user for DB.
 ![zabbix][11]
 
 6- On the next screen, you can leave the options at their default values.
 ![zabbix][12]
 
-7- Next sreen shows summary of you configs.
+7- Next screen shows summary of you configs.
+
 8- Click Next step to proceed to the final screen.
 
 9- The Front-end setup is now complete. Click Finish to proceed to the login screen. The default user is **Admin** and the password is **zabbix**.
@@ -215,9 +219,13 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 # Installing and Configuring the Zabbix Agent
 
 1- We setup Zabbix successfully.
+
 2- Now We will setup a Zabbix agent and will monitor it.
+
 3- Now you need to configure the agent software that will send monitoring data to the Zabbix server.
+
 4- SSH to client node(Second VM)
+
 5- Before start installation Zabbix make sure Ubuntu is up-to-date.
 
 ```
@@ -264,6 +272,7 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 ![zabbix][18]
 
 12- Save your key We will use it later.
+
 13- Now edit the Zabbix agent settings to set up its secure connection to the Zabbix server. Open the agent configuration file in your text editor.
 
 ```
@@ -271,6 +280,7 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 ```
 
 14- Each setting within this file is documented via informative comments throughout the file, but you only need to edit some of them.
+
 15 -First you have to edit the IP address of the Zabbix server. Find the following section.
 ![zabbix][19]
 
@@ -289,6 +299,7 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 ![zabbix][23]
 
 21- You’ll use this as the PSK ID when you add your host through the Zabbix web interface.
+
 22- Then set the option that points to your previously created pre-shared key. Locate the TLSPSKFile option.
 ![zabbix][24]
 
@@ -316,12 +327,14 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 1- Installing an agent on a server you want to monitor is only half of the process. Each host you want to monitor needs to be registered on the Zabbix server, which you can do through the web interface.
 
 2- Log in to the Zabbix Server web.
+
 3- When you have logged in, click on Configuration and then Hosts in the left navigation bar. Then click the Create host button in the top right corner of the screen. This will open the host configuration page.
 ![zabbix][26]
 
 4- Adjust the Host name and IP address to reflect the host name and IP address of your second Ubuntu server, then add the host to a group. You can select an existing group, for example Linux servers, or create your own group. The host can be in multiple groups. To do this, enter the name of an existing or new group in the Groups field and select the desired value from the proposed list.
 
 5- Before adding the group, click the Templates tab.
+
 6- Type Template OS Linux by Zabbix agent in the Search field and then select it from the list to add this template to the host.
 ![zabbix][27]
 
@@ -329,13 +342,14 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 ![zabbix][28]
 
 8- Finally, click the Add button at the bottom of the form to create the host.
+
 9- You will see your new host in the list. Wait for a minute and reload the page to see green labels indicating that everything is working fine and the connection is encrypted.
+
 10- You will see your new host in the list. Wait for a minute and reload the page to see green labels indicating that everything is working fine and the connection is encrypted.
 ![zabbix][29]
 
 11- The Zabbix server is now monitoring your second Ubuntu server.
 ![zabbix][30]
-
 
 ---
 
