@@ -25,7 +25,7 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 
 # Prerequisites
 
--   2 Ubuntu 20.04 server with a non-root administrative user.
+-   2 Ubuntu 20.04 servers.
 
 ---
 
