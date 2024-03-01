@@ -45,6 +45,7 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 # Install Zabbix Server
 
 1- Let's Install Zebbix server.
+
 2- Zabbix provides the packages for easy installation.
 
 ```
@@ -81,6 +82,7 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 ```
 
 2- You may set root password your mySql service. You can follow up the installation steps When you run mysql_secure_installation
+
 3- I used basic password for mySql.
 
 4- After installing MySQL, create a database and user for Zabbix
@@ -120,7 +122,9 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 ```
 
 9- Now We need to create table and other DB stuff for Zabbix.
+
 10- The Zabbix installation provided you with a file that sets this up. Run the following command to set up the schema and import the data into the zabbix database. We will use zcat since the data in the file is compressed.
+
 11- Once you run command use your zabbix DB user's password and wait couple of minutes.
 
 ```
@@ -174,7 +178,9 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 # Accessing Zabbix Frontend
 
 1- We are ready to access Zabbix UI.
+
 2- You just need to open your browser and reach your VM's LAB ip and /zabbix.
+
 3- If you try http://your_server_ip_or_domain/zabbix. You should see the Zabbix setup wizard. Follow the steps to complete the setup.
 ![zabbix][8]
 
@@ -257,6 +263,7 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 ![zabbix][17]
 
 9- While Zabbix supports certificate-based encryption, setting up a certificate authority is beyond the scope of this tutorial. But you can use pre-shared keys (PSK) to secure the connection between the server and agent.
+
 10- First, generate a PSK.
 
 ```
