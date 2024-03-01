@@ -300,9 +300,42 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 ```
 
 24- For good measure, check that the Zabbix agent is running properly.
+
 ```
     systemctl status zabbix-agent
 ```
+
+![zabbix][25]
+
+25- The agent will listen on port 10050 for connections from the server. If you use firewall so just make sure your firewall is not blocking.
+
+---
+
+# Adding the New Host to the Zabbix Server
+
+1- Installing an agent on a server you want to monitor is only half of the process. Each host you want to monitor needs to be registered on the Zabbix server, which you can do through the web interface.
+
+2- Log in to the Zabbix Server web.
+3- When you have logged in, click on Configuration and then Hosts in the left navigation bar. Then click the Create host button in the top right corner of the screen. This will open the host configuration page.
+![zabbix][26]
+
+4- Adjust the Host name and IP address to reflect the host name and IP address of your second Ubuntu server, then add the host to a group. You can select an existing group, for example Linux servers, or create your own group. The host can be in multiple groups. To do this, enter the name of an existing or new group in the Groups field and select the desired value from the proposed list.
+
+5- Before adding the group, click the Templates tab.
+6- Type Template OS Linux by Zabbix agent in the Search field and then select it from the list to add this template to the host.
+![zabbix][27]
+
+7- Next, navigate to the Encryption tab. Select PSK for both Connections to host and Connections from host. Then set PSK identity to PSK 001, which is the value of the TLSPSKIdentity setting of the Zabbix agent you configured previously. Then set PSK value to the key you generated for the Zabbix agent. It’s the one stored in the file /etc/zabbix/zabbix_agentd.psk on the agent machine.
+![zabbix][28]
+
+8- Finally, click the Add button at the bottom of the form to create the host.
+9- You will see your new host in the list. Wait for a minute and reload the page to see green labels indicating that everything is working fine and the connection is encrypted.
+10- You will see your new host in the list. Wait for a minute and reload the page to see green labels indicating that everything is working fine and the connection is encrypted.
+![zabbix][29]
+
+11- The Zabbix server is now monitoring your second Ubuntu server.
+![zabbix][30]
+
 
 ---
 
@@ -318,17 +351,36 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/vnc/vnc-1.jpg
-[2]: ../assets/images/vnc/vnc-2.jpg
-[3]: ../assets/images/vnc/vnc-3.jpg
-[4]: ../assets/images/vnc/vnc-4.jpg
-[5]: ../assets/images/vnc/vnc-5.jpg
-[6]: ../assets/images/vnc/vnc-6.jpg
-[7]: ../assets/images/vnc/vnc-7.jpg
-[8]: ../assets/images/vnc/vnc-8.jpg
-[9]: ../assets/images/vnc/vnc-9.jpg
-[10]: ../assets/images/vnc/vnc-10.jpg
-[11]: ../assets/images/vnc/vnc-11.jpg
+[1]: ../assets/images/zabbix/zabbix1.jpg
+[2]: ../assets/images/zabbix/zabbix2.jpg
+[3]: ../assets/images/zabbix/zabbix3.jpg
+[4]: ../assets/images/zabbix/zabbix4.jpg
+[5]: ../assets/images/zabbix/zabbix5.jpg
+[6]: ../assets/images/zabbix/zabbix6.jpg
+[7]: ../assets/images/zabbix/zabbix7.jpg
+[8]: ../assets/images/zabbix/zabbix8.jpg
+[9]: ../assets/images/zabbix/zabbix9.jpg
+[10]: ../assets/images/zabbix/zabbix10.jpg
+[11]: ../assets/images/zabbix/zabbix11.jpg
+[12]: ../assets/images/zabbix/zabbix12.jpg
+[13]: ../assets/images/zabbix/zabbix13.jpg
+[14]: ../assets/images/zabbix/zabbix14.jpg
+[15]: ../assets/images/zabbix/zabbix15.jpg
+[16]: ../assets/images/zabbix/zabbix16.jpg
+[17]: ../assets/images/zabbix/zabbix17.jpg
+[18]: ../assets/images/zabbix/zabbix18.jpg
+[19]: ../assets/images/zabbix/zabbix19.jpg
+[20]: ../assets/images/zabbix/zabbix20.jpg
+[21]: ../assets/images/zabbix/zabbix21.jpg
+[22]: ../assets/images/zabbix/zabbix22.jpg
+[23]: ../assets/images/zabbix/zabbix23.jpg
+[24]: ../assets/images/zabbix/zabbix24.jpg
+[25]: ../assets/images/zabbix/zabbix25.jpg
+[26]: ../assets/images/zabbix/zabbix26.jpg
+[27]: ../assets/images/zabbix/zabbix27.jpg
+[28]: ../assets/images/zabbix/zabbix28.jpg
+[29]: ../assets/images/zabbix/zabbix29.jpg
+[30]: ../assets/images/zabbix/zabbix30.jpg
 
 ```
 
