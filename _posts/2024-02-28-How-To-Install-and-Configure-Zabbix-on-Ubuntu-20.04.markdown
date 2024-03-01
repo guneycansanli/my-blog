@@ -56,7 +56,7 @@ You can set up Zabbix with mySql or PostgresSQL.You can also store historical da
 
 ![zabbix][1]
 
-2- I am using Zabbix 5.0, but make sure to check for the latest version.
+3- I am using Zabbix 5.0, but make sure to check for the latest version.
 
 ---
 
