@@ -122,8 +122,10 @@ Run the following command to reconfigure GitLab.
 ```
     sudo cat /etc/gitlab/initial_root_password
 ```
+![gitlab][8]
 
 4- If you run GitLab in your LAN you can access LAN ip from browser.
+![gitlab][9]
 
 ---
 
@@ -146,8 +148,8 @@ Guneycan Sanli.
 [5]: ../assets/images/gitlab/gitlab5.jpg
 [6]: ../assets/images/gitlab/gitlab6.jpg
 [7]: ../assets/images/gitlab/gitlab7.jpg
-[8]: ../assets/images/gitlab/gitlab1.jpg
-[9]: ../assets/images/gitlab/gitlab1.jpg
+[8]: ../assets/images/gitlab/gitlab8.jpg
+[9]: ../assets/images/gitlab/gitlab9.jpg
 
 ```
 
