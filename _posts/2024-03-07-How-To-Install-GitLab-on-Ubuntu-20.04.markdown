@@ -127,6 +127,8 @@ Run the following command to reconfigure GitLab.
 4- If you run GitLab in your LAN you can access LAN ip from browser.
 ![gitlab][9]
 
+![gitlab][10]
+
 ---
 
 ---
@@ -150,6 +152,7 @@ Guneycan Sanli.
 [7]: ../assets/images/gitlab/gitlab7.jpg
 [8]: ../assets/images/gitlab/gitlab8.jpg
 [9]: ../assets/images/gitlab/gitlab9.jpg
+[10]: ../assets/images/gitlab/gitlab10.jpg
 
 ```
 
