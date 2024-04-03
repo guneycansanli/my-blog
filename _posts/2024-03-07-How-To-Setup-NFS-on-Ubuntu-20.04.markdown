@@ -1,0 +1,161 @@
+---
+title: "How To Setup and NFS on Ubuntu 20.04"
+layout: post
+date: 2024-03-07 14:20
+image: ../assets/images/nfs/main.jpg
+headerImage: true
+tag:
+    - linux
+    - ubuntu
+    - nfs
+category: blog
+author: guneycansanli
+description: How To Setup and NFS on Ubuntu 20.04
+---
+
+# NFS Introduction ?
+
+NFS is a protocol for distributed file systems, enabling you to mount remote directories on your server. This facilitates managing storage from different locations and writing to it from multiple clients. It offers a standard and efficient method for accessing remote systems over a network, ideal for regular resource sharing. This guide covers installing NFS software on Ubuntu 20.04, configuring mounts on both server and client sides, and managing remote shares through mounting and unmounting.
+
+---
+
+# Prerequisites
+
+-   2 Ubuntu VM, or Server, 1 is for host 1 is for client.
+
+---
+
+# Installing the Dependencies
+
+On the Host:
+
+1- Install the nfs-kernel-server package, which will allow you to share your directories.
+
+```
+    sudo apt update
+    sudo apt install nfs-kernel-server
+```
+
+2- Then install the dependencies
+
+```
+    sudo apt install ca-certificates curl openssh-server postfix tzdata perl
+```
+
+3- During the postfix installation, a configuration window will appear. Choose “Internet Site” and enter your server’s hostname as the mail server name. This will allow GitLab to send email notifications.
+
+4- Choose “Internet Site” and then select OK.
+![gitlab][1]
+
+5- You should also enter hostname. Mail name
+![gitlab][2]
+
+6- Now that you have the dependencies installed, you’re ready to install GitLab.
+
+---
+
+# Installig GitLab
+
+1- With the dependencies in place, you can install GitLab. This process leverages an installation script to configure your system with the GitLab repositories.
+
+2- Move into the /tmp directory and then download the installation script:
+
+```
+    cd /tmp
+    curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
+```
+
+![gitlab][3]
+
+3- Run the installer.
+
+```
+    sudo bash /tmp/script.deb.sh
+```
+
+![gitlab][4]
+
+4- The script sets up your server to use the GitLab maintained repositories. This lets you manage GitLab with the same package management tools you use for your other system packages. Once this is complete, you can install the actual GitLab application with apt
+
+```
+    sudo apt install gitlab-ce
+```
+
+5- This installs the necessary components on your system.
+![gitlab][5]
+
+---
+
+# Editing the GitLab Configuration File
+
+1- Before you can use the application, update the configuration file and run a reconfiguration command. First, open GitLab’s configuration file with your preferred text editor
+
+```
+    sudo vi /etc/gitlab/gitlab.rb
+```
+
+2- Find the external_url configuration line. Update it to match your domain if you have DNS and public(WAN) IP and make sure to change http to https to automatically redirect users to the site protected by the Let’s Encrypt certificate.
+
+3- At that point I will use my localhost only. I have not public DNS and Public IP.
+![gitlab][6]
+
+4- Once you’re done making changes, save and close the file. You can also enable couple of more options like SSL or contact email.
+
+Run the following command to reconfigure GitLab.
+
+```
+    sudo gitlab-ctl reconfigure
+```
+
+5- This is a automated process so You should wait until command configure GitLAb for you. You will see long output on the terminal.
+![gitlab][7]
+
+---
+
+# Access GitLab Web Interface
+
+1- With GitLab installed and configured, open your web browser and enter your server’s IP address or hostname.
+
+2- User Name: **root**
+
+3- Password : **Find from /etc/gitlab/initial_root_password**
+
+```
+    sudo cat /etc/gitlab/initial_root_password
+```
+
+![gitlab][8]
+
+4- If you run GitLab in your LAN you can access LAN ip from browser.
+![gitlab][9]
+
+![gitlab][10]
+
+---
+
+---
+
+---
+
+> :blush: :star: :boom: :fire: :+1: :eyes: :metal:
+
+---
+
+Guneycan Sanli.
+
+---
+
+[1]: ../assets/images/gitlab/gitlab1.jpg
+[2]: ../assets/images/gitlab/gitlab2.jpg
+[3]: ../assets/images/gitlab/gitlab3.jpg
+[4]: ../assets/images/gitlab/gitlab4.jpg
+[5]: ../assets/images/gitlab/gitlab5.jpg
+[6]: ../assets/images/gitlab/gitlab6.jpg
+[7]: ../assets/images/gitlab/gitlab7.jpg
+[8]: ../assets/images/gitlab/gitlab8.jpg
+[9]: ../assets/images/gitlab/gitlab9.jpg
+[10]: ../assets/images/gitlab/gitlab10.jpg
+
+```
+
+```
