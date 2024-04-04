@@ -27,7 +27,7 @@ NFS is a protocol for distributed file systems, enabling you to mount remote dir
 
 # Installing the Dependencies
 
-On the Host:
+On the host server/vm:
 
 1- Install the nfs-kernel-server package, which will allow you to share your directories.
 
@@ -36,6 +36,68 @@ On the Host:
     sudo apt install nfs-kernel-server
 ```
 
+![nfs][1]
+
+On the client server/VM :
+
+1- We have done host server so now We can configure client server.
+
+2- To set up the client server, it's essential to install the nfs-common package, enabling NFS capabilities while excluding server functionalities. Remember to update the local package index beforehand to ensure you're working with the latest information.
+
+```
+    sudo apt update
+    sudo apt install nfs-common
+```
+
+![nfs][2]
+
+3- After above installation finish. We are reayd to setup share diretories on the host server/Vm.
+
+# Creating the Share Directories on the Host
+
+1- Okay, We are ready to setup directories for sharing to clients but there are different settings for it. We will set 2 different various of that.
+
+2- NFS server does not allow that superusers on the client cannot write files as root. So basiclly client have a mount from NFS so even client's root user can not write files by default.
+
+3-However You can use other method like trusted user in client serverfor managing NFS but It comes with also couple risks, as such a user could gain root access to the entire host system.
+
+4- Let's figure it out some exaple uses after We learnt some informations and riks.
+
+# Example 1 Exporting a General Purpose Mount
+
+1- let's say we're setting up a way to share files between computers using NFS. We're making it so that even if someone has full control over their computer (like being an admin or having root access), they won't automatically have the same control over the shared files. This setup can be handy for storing files from a content management system or for letting users share project files without worrying about someone messing with important system stuff.
+
+2- First, make the share directory on host server/VM
+
+```
+    sudo mkdir /var/nfs/general -p
+```
+
+3- We created the directory via sudo so owner and group will be **root** .
+
+![nfs][3]
+
+4- NFS uses any root operations on the client to the nobody:nogroup as a security measure. Therefore, we need to change the directory ownership to match those credentials. So let's chown the diretory.
+
+![nfs][4]
+
+5- Okay , We are ready share/export this directory.
+
+# Configuring the NFS Exports on the Host Server
+
+1- Next, We will setup the NFS configuration file to set up the sharing of directory . On the host machine, open the **/etc/exports** file in your text editor via root.
+
+2- The file sysntax should be **directory_to_share** **client(share_option1,...,share_optionN)**
+
+![nfs][5]
+
+3- We need to create a line for each of the directories that we plan to share. so make sure using right directory path and client IP.
+
+4- In my case I will share **/var/nfs/general** directory and my client LAN ip (ubuntu-slave) is **192.168.64.21**
+
+5- My conf : **/var/nfs/general 192.168.64.21(rw,sync,no_subtree_check)**
+
+![nfs][6]
 
 THIS ARTICLE IS IN PROGRESS-----------
 
