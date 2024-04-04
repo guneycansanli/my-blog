@@ -1,7 +1,7 @@
 ---
 title: "How To Setup and NFS on Ubuntu 20.04"
 layout: post
-date: 2024-03-07 14:20
+date: 2024-04-04 14:20
 image: ../assets/images/nfs/main.jpg
 headerImage: true
 tag:
@@ -35,6 +35,9 @@ On the Host:
     sudo apt update
     sudo apt install nfs-kernel-server
 ```
+
+
+THIS ARTICLE IS IN PROGRESS-----------
 
 2- Then install the dependencies
 
