@@ -51,19 +51,17 @@ On the client server/VM :
 
 ![nfs][2]
 
-3- After above installation finish. We are reayd to setup share diretories on the host server/VM.
+3- After above installation finish. We are ready to setup sharing directories on the host server/VM.
 
 ---
 
 # Creating the Share Directories on the Host
 
-1- Okay, We are ready to setup directories for sharing to clients but there are different settings for it. We will set 2 different various of that.
+1- Okay, We are ready to setup directories for sharing to clients but there are different settings for it. I will try root user example today.
 
-2- NFS server does not allow that superusers on the client cannot write files as root. So basiclly client have a mount from NFS so even client's root user can not write files by default.
+2- NFS server does not allow that superusers on the client cannot write files as root. So basiclly client have a mount from NFS so even client's root user can not write files by default. The solution is using nobody user and nogroup for shared files/directories. Superusers can control everything on their own system. But when it comes to NFS, the shared directories aren't part of the client's system, so by default, the server stops superusers from doing certain things like writing files as root or changing ownership. Sometimes, trusted users on the client side need to do these tasks on the shared files, even though they don't need superuser access on the server. You can adjust the NFS settings to allow this, but it comes with a risk because those users could potentially gain control over the whole server system.
 
-3-However You can use other method like trusted user in client serverfor managing NFS but It comes with also couple risks, as such a user could gain root access to the entire host system.
-
-4- Let's figure it out with one exaple uses after We learnt some informations and risk.
+3- Let's figure it out with one example uses after We learnt some informations and risks.
 
 ---
 
