@@ -1,5 +1,5 @@
 ---
-title: "How To Setup and NFS on Ubuntu 20.04"
+title: "How To Setup NFS Server and Client on Ubuntu 20.04"
 layout: post
 date: 2024-04-04 14:20
 image: ../assets/images/nfs/main.jpg
@@ -10,7 +10,7 @@ tag:
     - nfs
 category: blog
 author: guneycansanli
-description: How To Setup and NFS on Ubuntu 20.04
+description: How To Setup NFS Server and Client on Ubuntu 20.04
 ---
 
 # NFS Introduction ?
@@ -51,7 +51,9 @@ On the client server/VM :
 
 ![nfs][2]
 
-3- After above installation finish. We are reayd to setup share diretories on the host server/Vm.
+3- After above installation finish. We are reayd to setup share diretories on the host server/VM.
+
+---
 
 # Creating the Share Directories on the Host
 
@@ -61,9 +63,11 @@ On the client server/VM :
 
 3-However You can use other method like trusted user in client serverfor managing NFS but It comes with also couple risks, as such a user could gain root access to the entire host system.
 
-4- Let's figure it out some exaple uses after We learnt some informations and riks.
+4- Let's figure it out with one exaple uses after We learnt some informations and risk.
 
-# Example 1 Exporting a General Purpose Mount
+---
+
+# Example Exporting a General Purpose Mount
 
 1- let's say we're setting up a way to share files between computers using NFS. We're making it so that even if someone has full control over their computer (like being an admin or having root access), they won't automatically have the same control over the shared files. This setup can be handy for storing files from a content management system or for letting users share project files without worrying about someone messing with important system stuff.
 
@@ -83,6 +87,8 @@ On the client server/VM :
 
 5- Okay , We are ready share/export this directory.
 
+---
+
 # Configuring the NFS Exports on the Host Server
 
 1- Next, We will setup the NFS configuration file to set up the sharing of directory . On the host machine, open the **/etc/exports** file in your text editor via root.
@@ -99,110 +105,112 @@ On the client server/VM :
 
 ![nfs][6]
 
-THIS ARTICLE IS IN PROGRESS-----------
+6- I will not explain the options **rw,sync,no_subtree_check** You may search the options and try different options. basiclly We gave both read and write access to the volume.
 
-2- Then install the dependencies
+7- Once you update your NFS host configuration. You need to restart the NFS server.
 
 ```
-    sudo apt install ca-certificates curl openssh-server postfix tzdata perl
+    sudo systemctl restart nfs-kernel-server
 ```
 
-3- During the postfix installation, a configuration window will appear. Choose “Internet Site” and enter your server’s hostname as the mail server name. This will allow GitLab to send email notifications.
-
-4- Choose “Internet Site” and then select OK.
-![gitlab][1]
-
-5- You should also enter hostname. Mail name
-![gitlab][2]
-
-6- Now that you have the dependencies installed, you’re ready to install GitLab.
+![nfs][7]
 
 ---
 
-# Installig GitLab
+# Creating Mount Points and Mounting Directories on the Client
 
-1- With the dependencies in place, you can install GitLab. This process leverages an installation script to configure your system with the GitLab repositories.
+1- Now time to use shared directory from NFS host. We need to prepare our client server/VM for using that directory.
 
-2- Move into the /tmp directory and then download the installation script:
+2- In order to make the remote shares available on the client, we need to mount the directories on the host that we want to share to empty directories on the client.
 
-```
-    cd /tmp
-    curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
-```
-
-![gitlab][3]
-
-3- Run the installer.
+3- We will create the directory for our mount , I will use same directory name which is **general**
 
 ```
-    sudo bash /tmp/script.deb.sh
+    sudo mkdir -p /nfs/general
 ```
 
-![gitlab][4]
+![nfs][8]
 
-4- The script sets up your server to use the GitLab maintained repositories. This lets you manage GitLab with the same package management tools you use for your other system packages. Once this is complete, you can install the actual GitLab application with apt
+4- Now the enjoyable part. We can mount the directory with NFS remote/host directory.
 
 ```
-    sudo apt install gitlab-ce
+    sudo mount host_ip:/var/nfs/general /nfs/general
 ```
 
-5- This installs the necessary components on your system.
-![gitlab][5]
+5- My host ip is **192.168.64.20** so I will use
+
+```
+    sudo mount 192.168.64.20:/var/nfs/general /nfs/general
+```
+
+6- We can see mount points now with df -h
+![nfs][9]
 
 ---
 
-# Editing the GitLab Configuration File
+# Testing NFS Access
 
-1- Before you can use the application, update the configuration file and run a reconfiguration command. First, open GitLab’s configuration file with your preferred text editor
+1- Let's test our NFS server. We can create some files and try to edit.
 
-```
-    sudo vi /etc/gitlab/gitlab.rb
-```
-
-2- Find the external_url configuration line. Update it to match your domain if you have DNS and public(WAN) IP and make sure to change http to https to automatically redirect users to the site protected by the Let’s Encrypt certificate.
-
-3- At that point I will use my localhost only. I have not public DNS and Public IP.
-![gitlab][6]
-
-4- Once you’re done making changes, save and close the file. You can also enable couple of more options like SSL or contact email.
-
-Run the following command to reconfigure GitLab.
+2- Let's create a file in client server/VM via sudo and check owner and group of the file.
 
 ```
-    sudo gitlab-ctl reconfigure
+    sudo touch /nfs/general/my-test.txt && sudo ls -lrth /nfs/general/my-test.txt
 ```
 
-5- This is a automated process so You should wait until command configure GitLAb for you. You will see long output on the terminal.
-![gitlab][7]
+![nfs][10]
+
+3- Because we mounted this volume without changing NFS’s default behavior and created the file as the client machine’s root user via the sudo command, ownership of the file defaults to nobody:nogroup. client superusers won’t be able to perform typical administrative actions, like changing the owner of a file or creating a new directory for a group of users, on this NFS-mounted share.
+
+4- Let's add a line to the test file and check the same file from host server.
+
+```
+    # From client server
+    sudo vi /nfs/general/my-test.txt
+
+    #Add : Hi is line added from client.....
+    #Save
+```
+
+![nfs][11]
+
+5- And check file content from host server:
+
+```
+    sudo cat /var/nfs/general/my-test.txt
+```
+
+![nfs][12]
+
+6- You can try same thing from host server and You will see changes from client side.
 
 ---
 
-# Access GitLab Web Interface
+# Mounting the Remote NFS Directories at Boot
 
-1- With GitLab installed and configured, open your web browser and enter your server’s IP address or hostname.
+1- If You want to have NFS mount , You need to use automatically at boot by adding them to /etc/fstab file on the client.
 
-2- User Name: **root**
-
-3- Password : **Find from /etc/gitlab/initial_root_password**
+2- Edit your **/etc/fstab** file and add your mount
 
 ```
-    sudo cat /etc/gitlab/initial_root_password
+    host_ip:/var/nfs/general    /nfs/general   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
 ```
 
-![gitlab][8]
+3- In my case :
 
-4- If you run GitLab in your LAN you can access LAN ip from browser.
-![gitlab][9]
+```
+    192.168.64.20:/var/nfs/general    /nfs/general   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+```
 
-![gitlab][10]
+![nfs][19]
+
+---
 
 ---
 
 ---
 
----
-
-> :blush: :star: :boom: :fire: :+1: :eyes: :metal:
+> :+1: :+1: :+1: :+1: :+1: :+1: :+1: :+1:
 
 ---
 
@@ -210,16 +218,19 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/gitlab/gitlab1.jpg
-[2]: ../assets/images/gitlab/gitlab2.jpg
-[3]: ../assets/images/gitlab/gitlab3.jpg
-[4]: ../assets/images/gitlab/gitlab4.jpg
-[5]: ../assets/images/gitlab/gitlab5.jpg
-[6]: ../assets/images/gitlab/gitlab6.jpg
-[7]: ../assets/images/gitlab/gitlab7.jpg
-[8]: ../assets/images/gitlab/gitlab8.jpg
-[9]: ../assets/images/gitlab/gitlab9.jpg
-[10]: ../assets/images/gitlab/gitlab10.jpg
+[1]: ../assets/images/nfs/nfs1.jpg
+[2]: ../assets/images/nfs/nfs2.jpg
+[3]: ../assets/images/nfs/nfs3.jpg
+[4]: ../assets/images/nfs/nfs4.jpg
+[5]: ../assets/images/nfs/nfs5.jpg
+[6]: ../assets/images/nfs/nfs6.jpg
+[7]: ../assets/images/nfs/nfs7.jpg
+[8]: ../assets/images/nfs/nfs8.jpg
+[9]: ../assets/images/nfs/nfs9.jpg
+[10]: ../assets/images/nfs/nfs10.jpg
+[11]: ../assets/images/nfs/nfs11.jpg
+[12]: ../assets/images/nfs/nfs12.jpg
+[19]: ../assets/images/nfs/nfs19.jpg
 
 ```
 
