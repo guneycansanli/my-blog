@@ -2,7 +2,7 @@
 title: "How To Setup NFS Server and Client on Ubuntu 20.04"
 layout: post
 date: 2024-04-04 14:20
-image: ../assets/images/nfs/main.jpg
+image: ../assets/images/nfs/main2.jpg
 headerImage: true
 tag:
     - linux
