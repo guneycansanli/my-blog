@@ -1,67 +1,97 @@
 ---
-title: "How To Setup NFS Server and Client on Ubuntu 20.04"
+title: "Send Push Notifications to Your Phone or Desktop via NTFY (Notify)"
 layout: post
-date: 2024-04-04 14:20
-image: ../assets/images/nfs/main-2.jpg
+date: 2024-04-12 14:20
+image: ../assets/images/ntfy/main.jpg
 headerImage: true
 tag:
     - linux
-    - ubuntu
-    - nfs
+    - debian
+    - NTFY
 category: blog
 author: guneycansanli
-description: How To Setup NFS Server and Client on Ubuntu 20.04
+description: Send Push Notifications to Your Phone or Desktop via NTFY
 ---
 
-# NFS Introduction ?
+# What is NTFY?
 
-NFS is a protocol for distributed file systems, enabling you to mount remote directories on your server. This facilitates managing storage from different locations and writing to it from multiple clients. It offers a standard and efficient method for accessing remote systems over a network, ideal for regular resource sharing. This guide covers installing NFS software on Ubuntu 20.04, configuring mounts on both server and client sides, and managing remote shares through mounting and unmounting.
+NFTY (Notify) is a simple HTTP based notification service. We can send notifications to your phone or desktop via scripts from any computer. It is a open source tool. Let's image that You are trying to do some long processes like **nmap** or dowloading a large file from internet or runnning a script that takes long time anything else... , so with notify We can have a notification after our process complete.
 
 ---
 
 # Prerequisites
 
--   2 Ubuntu VM, or Server, 1 is for host 1 is for client.
+-   1 server/VM (I will use Debain Buster VM)
+-   Docker installed on the box.
+-   Doowloaded nfty app Your target device (Phone?)
 
 ---
 
-# Installing the Dependencies
+# Installing Docker
 
-On the host server/vm:
+Let's get started with Docker installation:
 
-1- Install the nfs-kernel-server package, which will allow you to share your directories.
+1- Update your repositories and install docker.
 
 ```
-    sudo apt update
-    sudo apt install nfs-kernel-server
+sudo apt update
+
+# install a few prerequisite packages which let apt use packages over HTTPS:
+sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+
+#Then add the GPG key for the official Docker repository to your system:
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+#Add the Docker repository to APT sources:
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+
+#Next, update the package database with the Docker packages from the newly added repo:
+sudo apt update
+
+#Make sure you are about to install from the Docker repo instead of the default Debian repo:
+apt-cache policy docker-ce
+
+#Notice that docker-ce is not installed, but the candidate for installation is from the Docker repository for Debian 10 (buster).
+
+# Finally, install Docker:
+sudo apt install docker-ce
 ```
 
-![nfs][1]
+![nfty][1]
+
+3- You may need to start docker service
+
+```
+    systemctl start docker && systemctl enable docker && systemctl status docker
+```
+
+# Running NFTY in docker Container
 
 On the client server/VM :
 
-1- We have done host server so now We can configure client server.
-
-2- To set up the client server, it's essential to install the nfs-common package, enabling NFS capabilities while excluding server functionalities. Remember to update the local package index beforehand to ensure you're working with the latest information.
+1- I will run nfty in docker container but You may run/intsall on your host machine.
+2- Here is details for other hosts [nofty](https://docs.ntfy.sh/install/)
+3- Run/serve nfty in docker container.
 
 ```
-    sudo apt update
-    sudo apt install nfs-common
+    docker run -p 80:80 -itd binwiederhier/ntfy serve
 ```
 
-![nfs][2]
+![nfty][2]
 
-3- After above installation finish. We are ready to setup sharing directories on the host server/VM.
+3- Basiclly that is it. Server is setup and running. Let's chekc the WEB nfty interface.
 
 ---
 
-# Creating the Share Directories on the Host
+# Access nfty Web Interface
 
-1- Okay, We are ready to setup directories for sharing to clients but there are different settings for it. I will try root user example today.
+1- You can access your nfty via port forwarding.
+2- I used port 80 so I will open a port to my VM or You can use your VM's LAN IP to access.
 
-2- NFS server does not allow that superusers on the client cannot write files as root. So basiclly client have a mount from NFS so even client's root user can not write files by default. The solution is using nobody user and nogroup for shared files/directories. Superusers can control everything on their own system. But when it comes to NFS, the shared directories aren't part of the client's system, so by default, the server stops superusers from doing certain things like writing files as root or changing ownership. Sometimes, trusted users on the client side need to do these tasks on the shared files, even though they don't need superuser access on the server. You can adjust the NFS settings to allow this, but it comes with a risk because those users could potentially gain control over the whole server system.
+![nfty][3]
 
-3- Let's figure it out with one example uses after We learnt some informations and risks.
+![nfty][4]
+
 
 ---
 
@@ -216,19 +246,14 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/nfs/nfs1.jpg
-[2]: ../assets/images/nfs/nfs2.jpg
-[3]: ../assets/images/nfs/nfs3.jpg
-[4]: ../assets/images/nfs/nfs4.jpg
+[1]: ../assets/images/ntfy/notfy1-1.jpg
+[2]: ../assets/images/ntfy/notfy2.jpg
+[3]: ../assets/images/ntfy/notfy3.jpg
+[4]: ../assets/images/ntfy/notfy4.jpg
 [5]: ../assets/images/nfs/nfs5.jpg
 [6]: ../assets/images/nfs/nfs6.jpg
 [7]: ../assets/images/nfs/nfs7.jpg
 [8]: ../assets/images/nfs/nfs8.jpg
-[9]: ../assets/images/nfs/nfs9.jpg
-[10]: ../assets/images/nfs/nfs10.jpg
-[11]: ../assets/images/nfs/nfs11.jpg
-[12]: ../assets/images/nfs/nfs12.jpg
-[19]: ../assets/images/nfs/nfs19.jpg
 
 ```
 
