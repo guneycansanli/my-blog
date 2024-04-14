@@ -79,7 +79,7 @@ On the client server/VM :
 
 ![nfty][2]
 
-3- Basiclly that is it. Server is setup and running. Let's chekc the WEB nfty interface.
+3- Basiclly that is it. Server is setup and running. Let's check nfty WEB interface.
 
 ---
 
