@@ -1,5 +1,5 @@
 ---
-title: "Send Push Notifications to Your Phone or Desktop via NTFY (Notify)"
+title: "Send/Get Notifications via NTFY (notify)"
 layout: post
 date: 2024-04-12 14:20
 image: ../assets/images/ntfy/main.jpg
@@ -7,10 +7,13 @@ headerImage: true
 tag:
     - linux
     - debian
-    - NTFY
+    - ntfy
+    - cloudflare
+    - domain
+    - notitication
 category: blog
 author: guneycansanli
-description: Send Push Notifications to Your Phone or Desktop via NTFY
+description: Setting up NTFY server and send notifications
 ---
 
 # What is NTFY?
