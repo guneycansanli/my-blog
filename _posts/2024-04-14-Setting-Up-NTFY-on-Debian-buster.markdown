@@ -100,7 +100,7 @@ On the client server/VM :
 
 2- I have a VM in my LAN so I have no public ip assinged to my local VM.
 
-3- I need to reach from public internet to my private network so , I will setup a **Claudflare** tunnel with using my personal domain. After You created Cloudflare account You need to add Website to your account which is should be your DNS (You can choose freeplan and cludflare will provide you Nameservers with that nameservers You need to edit your Domain's nameservers)
+3- I need to reach from public internet to my private network so , I will setup a **Claudflare** tunnel with using my personal domain. After You created Cloudflare account You need to add Website to your account which is should be your Domain name (You can choose freeplan and cludflare will provide you Nameservers with that nameservers You need to edit your Domain's nameservers)
 
 4- If You have not domain name You may buy a new domain name. I can recommned **porkbun** [porkbun](https://porkbun.com/) , It is a good provider for support and also renewal prices are cheapier than other providers.
 
