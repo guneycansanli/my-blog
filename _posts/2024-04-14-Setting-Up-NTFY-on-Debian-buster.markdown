@@ -1,5 +1,5 @@
 ---
-title: "Send/Get Notifications via NTFY (notify)"
+title: "Setting Up Ntfy Notification Service (notify)"
 layout: post
 date: 2024-04-12 14:20
 image: ../assets/images/ntfy/main.jpg
@@ -18,7 +18,7 @@ description: Setting up NTFY server and send notifications
 
 # What is NTFY?
 
-NFTY (Notify) is a simple HTTP based notification service. We can send notifications to your phone or desktop via scripts from any computer. It is a open source tool. Let's image that You are trying to do some long processes like **nmap** or dowloading a large file from internet or runnning a script that takes long time anything else... , so with notify We can have a notification after our process complete.
+NFTY (Notify) is a simple HTTP based notification service. We can send notifications to your phone or desktop via scripts from any computer. It is a open source tool. Let's image that You are trying to do some long processes like **nmap** or dowloading a large file from internet or runnning a script that takes long time anything else... , so with notify We can have a notification after our process complete. ntfy lets you send push notifications to your phone or desktop via scripts from any computer, using simple HTTP PUT or POST requests. I use it to notify myself when scripts fail, or long-running commands complete.
 
 ---
 
