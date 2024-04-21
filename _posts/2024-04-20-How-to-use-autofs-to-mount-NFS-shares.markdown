@@ -51,7 +51,7 @@ auto.master is the main file autofs will check in order to mount an NFS share. O
 
 An auto.master entry consists of three parts:
 
-<mount_point> <map_file> <options>
+mount_point-map_fil-options-
 
 1- Edit auto.master for direct mapping
 
