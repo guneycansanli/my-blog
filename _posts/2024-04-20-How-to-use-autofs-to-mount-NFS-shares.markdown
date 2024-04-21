@@ -55,7 +55,7 @@ mount_point-map_fil-options-
 
 1- Edit auto.master for direct mapping
 
-2- Add **/- /etc/auto.misc** ans save the file.
+2- Add **/- /etc/auto.misc** and save the file.
 
 ```
 sudo vi /etc/auto.master
