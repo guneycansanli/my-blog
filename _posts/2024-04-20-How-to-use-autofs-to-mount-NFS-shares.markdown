@@ -24,8 +24,6 @@ To address this issue, we can turn to a tool called autofs. It offers a solution
 
 ---
 
----
-
 # Installing autofs
 
 I have already one NFS server and client. I have another guide gor setting up NFS.
