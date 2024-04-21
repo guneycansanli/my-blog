@@ -1,7 +1,7 @@
 ---
 title: "How to use autofs to mount NFS shares"
 layout: post
-date: 2024-04-12 14:20
+date: 2024-04-20 14:20
 image: ../assets/images/nfs-autofs/main.jpg
 headerImage: true
 tag:
@@ -120,7 +120,6 @@ sudo service autofs status
 
 ![autofs][7]
 
-
 ---
 
 ---
@@ -142,3 +141,5 @@ Guneycan Sanli.
 [3]: ../assets/images/nfs-autofs/autofs3.jpg
 [4]: ../assets/images/nfs-autofs/autofs4.jpg
 [5]: ../assets/images/nfs-autofs/autofs5.jpg
+[6]: ../assets/images/nfs-autofs/autofs6.jpg
+[7]: ../assets/images/nfs-autofs/autofs7.jpg
