@@ -32,7 +32,7 @@ So We will start with choosing a existing kernel and We will modify it. We can f
 
 ![kernel][1]
 
-2- We decide out kernel version so , We need to doeload it to out VM , We can use wget to dowload kernel.
+2- We decided our kernel version so , We need to download it to our VM , We can use wget to dowload kernel.
 
 ```
 wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.8.7.tar.xz
@@ -58,7 +58,7 @@ tar xvf linux-6.8.7.tar.xz
 
 1- Before building new kernel We need to install required packages You can install any package you want to add to the new kernel.
 
-2- Let's use apt for insalling reiqured packages.
+2- Let's use apt for installing reiqured packages.
 
 ```
 apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison -y
@@ -122,7 +122,7 @@ make
 
 ![kernel][10]
 
-4- Install the required modules after build is completed.
+6- Install the required modules after build is completed.
 
 ```
 make install
@@ -130,7 +130,7 @@ make install
 
 ![kernel][11]
 
-5- Once is done You will see **done** output on the terminal.
+7- Once is done You will see **done** output on the terminal.
 
 # Update the Bootloader
 
@@ -151,7 +151,6 @@ update-initramfs -c -k 6.8.7
 ```
 update-grub
 ```
-
 
 6- The terminal prints out the process and confirmation message:
 
