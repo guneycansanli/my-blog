@@ -128,8 +128,6 @@ make
 make install
 ```
 
-![kernel][11]
-
 7- Once is done You will see **done** output on the terminal.
 
 # Update the Bootloader
@@ -152,28 +150,15 @@ update-initramfs -c -k 6.8.7
 update-grub
 ```
 
-6- The terminal prints out the process and confirmation message:
+6- The terminal prints out the process and confirmation message
 
-# Test
+# Reboot and Verify Kernel Version
 
-1- We can test autofs with shutdown the NFS server and reboot client and verify It can boot-up properly.
-
-2- We can test restart autofs service after NFS server bootup and We can verify It is working and mount the folder the NFS folder in client machine.
-
-3- I powered-off NFS server and reboot client server. Client successfully rebooted and there is not NFS mount at this point.
-
-![autofs][6]
-
-4- Now I will power-on NFS server and I will restart autofs in client server.
+1- When you complete the steps above, reboot the machine. When the system boots up, verify the kernel version using the uname command.
 
 ```
-sudo service autofs restart
-sudo service autofs status
+uname -mrs
 ```
-
-5- After I restarted aufofs service I could see NFS mount to client server.
-
-![autofs][7]
 
 ---
 
