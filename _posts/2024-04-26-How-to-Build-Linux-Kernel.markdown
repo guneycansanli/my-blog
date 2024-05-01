@@ -122,7 +122,7 @@ make
 
 ![kernel][10]
 
-6- Install the required modules after build is completed.
+6- Install the required modules after build completed.
 
 ```
 make install
