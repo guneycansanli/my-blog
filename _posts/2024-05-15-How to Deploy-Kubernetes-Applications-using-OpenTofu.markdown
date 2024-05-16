@@ -43,7 +43,7 @@ $ sudo curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server --write-kubeconfi
 
 ![opentofu][1]
 
-2- We decided our kernel version so , We need to download it to our VM , We can use wget to dowload kernel.
+3- We decided our kernel version so , We need to download it to our VM , We can use wget to dowload kernel.
 
 ```
 $ kubectl get nodes
@@ -51,9 +51,9 @@ $ kubectl get nodes
 
 ![opentofu][2]
 
-3- A kubeconfig file is a configuration file utilized by kubectl, the command-line interface for managing Kubernetes clusters. This file contains crucial information such as cluster details, authentication credentials, contexts, and other settings required for connecting to and communicating with a Kubernetes cluster. It outlines the API server address for the cluster, the methods of authentication (like certificates or tokens), and the default namespace for running commands. The kubeconfig file enables users to handle multiple Kubernetes clusters and seamlessly switch between them using kubectl.
+4- A kubeconfig file is a configuration file utilized by kubectl, the command-line interface for managing Kubernetes clusters. This file contains crucial information such as cluster details, authentication credentials, contexts, and other settings required for connecting to and communicating with a Kubernetes cluster. It outlines the API server address for the cluster, the methods of authentication (like certificates or tokens), and the default namespace for running commands. The kubeconfig file enables users to handle multiple Kubernetes clusters and seamlessly switch between them using kubectl.
 
-4- Check the name of the Kubernetes context by requesting information about the kubeconfig file:
+5- Check the name of the Kubernetes context by requesting information about the kubeconfig file:
 
 ```
 $ kubectl config view
@@ -61,7 +61,7 @@ $ kubectl config view
 
 ![opentofu][3]
 
-5- Now We can use kubectl for manage our cluster. In this example the Kubernetes cluster name is **default**.
+6- Now We can use kubectl for manage our cluster. In this example the Kubernetes cluster name is **default**.
 
 # Install OpenTofu
 
@@ -266,7 +266,7 @@ $ tofu apply
 
 ![opentofu][7]
 
-4- End of the output You will see:
+5- End of the output You will see:
 
 ```
 Plan: 3 to add, 0 to change, 0 to destroy.
@@ -278,7 +278,7 @@ Do you want to perform these actions?
   Enter a value:
 ```
 
-5- At that point opentofu is waiting an input and We should enter **yes**.
+6- At that point opentofu is waiting an input and We should enter **yes**.
 
 ![opentofu][8]
 
