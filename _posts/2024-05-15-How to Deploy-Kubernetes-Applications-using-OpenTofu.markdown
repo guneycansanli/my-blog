@@ -1,7 +1,7 @@
 ---
 title: "How to Deploy Kubernetes Applications using OpenTofu"
 layout: post
-date: 2024-04-20 14:20
+date: 2024-05-15 14:20
 image: ../assets/images/opentofu/opentofu-main.jpg
 headerImage: true
 tag:
