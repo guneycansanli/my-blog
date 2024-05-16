@@ -22,7 +22,9 @@ In this guide , I will deploy kubernetes Web applications using OpenTofu.
 # Prerequisites
 
 1- Local kubernetes cluster or different orchestration systems, I will use k3s
+
 2- Ubuntu or Debian server/VM
+
 3- Installed opentofu
 
 # Intall/Setup a local K3S
