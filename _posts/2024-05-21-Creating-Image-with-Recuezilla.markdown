@@ -1,5 +1,5 @@
 ---
-title: "Creating Image with Recuezilla"
+title: "Creating Image with Rescuezilla"
 layout: post
 date: 2024-05-21 14:20
 image: ../assets/images/rescuezilla/rescuezilla-main.jpg
@@ -10,7 +10,7 @@ tag:
     - linux
 category: blog
 author: guneycansanli
-description: Creating Image with Recuezilla
+description: Creating Image with Rescuezilla
 ---
 
 # Introduction
