@@ -2,7 +2,7 @@
 title: "Creating Image with Recuezilla"
 layout: post
 date: 2024-05-21 14:20
-image: ../assets/images/opentofu/rescuezilla-main.jpg
+image: ../assets/images/rescuezilla/rescuezilla-main.jpg
 headerImage: true
 tag:
     - rescuezilla
