@@ -65,15 +65,15 @@ In this guide , I will create my Debian VM's image with rescuezilla.
 
 7- We are at **STEP 3** Now We need to select destination drive which will store the image.
 
-8- I want to store/save my image in another VM , so I will choose **Shared over a network** option, You may want to store the image in an USB but fot this option You need to attach another USB to the VM.
+8- I want to store/save my image in another VM , so I will choose **Shared over a network** option, You may want to store the image in an USB but for this option You need to attach another USB to the VM.
 
-9- If you want to sahre over network there are diffrent options for it too.
+9- If you want to share over network there are diffrent options for it too.
 
 10- I have already a VM and SSH service is running. I will use SSH option.
 
 ![rescue][5]
 
-11- If You will use SSH make sure You have not accessing issue. I haev also created a folder for storing the image.
+11- If You will use SSH make sure You have not accessing issue. I have also created a folder for storing the image.
 
 ![rescue][6]
 
@@ -81,7 +81,7 @@ In this guide , I will create my Debian VM's image with rescuezilla.
 
 ![rescue][7]
 
-13- Now We are ready for crate image , just click next and wait until Rescuezilla mount process.
+13- Now We are ready for create the image , just click next and wait until Rescuezilla mount process.
 
 ![rescue][8]
 
@@ -91,7 +91,7 @@ In this guide , I will create my Debian VM's image with rescuezilla.
 
 ![rescue][9]
 
-16- **STEP 6** Now We should choose our image's type (compressed or not). I will use gzip so It will be fast. It depends on your reqirement You may choose different options.
+16- **STEP 6** Now We should choose our image's type (compressed or not). I will use gzip so It will be fast. It depends on your requirement You may choose different options.
 
 ![rescue][10]
 
