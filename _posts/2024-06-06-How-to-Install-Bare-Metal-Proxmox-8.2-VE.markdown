@@ -1,7 +1,7 @@
 ---
 title: "How to Install Proxmox 8.2 VE to Bare Metal"
 layout: post
-date: 2024-06-06 14:20
+date: 2024-06-05 14:20
 image: ../assets/images/proxmox/proxmox-main.jpg
 headerImage: true
 tag:
