@@ -92,7 +92,7 @@ sudo ls -lrth /var/lib/dbus/machine-id
 ![proxmox-img][6]
 
 
-# Clenaing the Template
+# Cleaning the Template
 
 1- Before crateing template We should cleaning current image. we could possibly get it and i'm notgoing to go into too much detail on this there's all kinds of things that you could do to clean up an image.
 
