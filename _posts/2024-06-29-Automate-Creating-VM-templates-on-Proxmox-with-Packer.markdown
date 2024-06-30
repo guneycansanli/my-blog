@@ -107,13 +107,15 @@ autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>
 
 ![proxmox-packer-vm-temp][8]
 
+![proxmox-packer-vm-temp][9]
+
 10- We need to use a file for Provisioning the VM Template for Cloud-Init Integration. We need to copy the file under **/etc/cloud/cloud.cfg.d/** 
 
-![proxmox-packer-vm-temp][9]
+![proxmox-packer-vm-temp][10]
 
 11- **user-data** is the file We defined our auto VM installation variables. Packer will send out config to VM USing via web server during building the VM. 
 
-![proxmox-packer-vm-temp][10]
+![proxmox-packer-vm-temp][11]
 
 ---
 
@@ -145,7 +147,32 @@ packer validate -var-file "credentials.pkr.hcl" ubuntu-server-jammy.pkr.hcl
 ```
 packer build -var-file "credentials.pkr.hcl" ubuntu-server-jammy.pkr.hcl
 ```
+![proxmox-packer-vm-temp][11]
 
+![proxmox-packer-vm-temp][12]
+
+8- Here is process , We do not touch anything on Proxmox and Packer does all steps for us.
+
+9- Packer will wait until SSH connectin is successfully and will do Cloud-init or What We define in shell provisioner.
+
+10- After all process done, We can able to see from logs as well as in Proxmox UI
+
+![proxmox-packer-vm-temp][13]
+
+![proxmox-packer-vm-temp][14]
+
+11- We have succesfully created new VM template.
+
+
+# Running VM from Template
+
+1- We have new template and We just need to clone our current template as as new VM. Since We set up cloud-init We need to define cloud init setting in Proxmox.
+
+2- Clone the image and deploy new image then put your settings to the cloud-init and regenerate the image.
+
+![proxmox-packer-vm-temp][15]
+
+![proxmox-packer-vm-temp][16]
 
 
 Thanks for reading...
@@ -175,4 +202,12 @@ Guneycan Sanli.
 [7]: ../assets/images/prxmx-automate-vm-tmp/project-4.jpg
 [8]: ../assets/images/prxmx-automate-vm-tmp/project-5.jpg
 [9]: ../assets/images/prxmx-automate-vm-tmp/project-6.jpg
+[10]: ../assets/images/prxmx-automate-vm-tmp/project-7.jpg
+[11]: ../assets/images/prxmx-automate-vm-tmp/project-8.jpg
+[12]: ../assets/images/prxmx-automate-vm-tmp/project-9.jpg
+[13]: ../assets/images/prxmx-automate-vm-tmp/project-10.jpg
+[14]: ../assets/images/prxmx-automate-vm-tmp/project-11.jpg
+[15]: ../assets/images/prxmx-automate-vm-tmp/project-12.jpg
+[16]: ../assets/images/prxmx-automate-vm-tmp/project-13.jpg
+[17]: ../assets/images/prxmx-automate-vm-tmp/project-14.jpg
 
