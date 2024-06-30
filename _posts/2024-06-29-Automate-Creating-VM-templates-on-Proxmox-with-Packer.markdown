@@ -2,7 +2,7 @@
 title: "Automate Creating VM templates on Proxmox with Packer"
 layout: post
 date: 2024-06-29 14:20
-image: ../assets/images/prxmx-vm-template/main.jpg
+image: ../assets/images/prxmx-automate-vm-tmp/main.jpg
 headerImage: true
 tag:
     - vm
