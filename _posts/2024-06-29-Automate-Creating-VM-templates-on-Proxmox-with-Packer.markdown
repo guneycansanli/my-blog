@@ -69,7 +69,7 @@ Packer is a tool which can automate image builds. Packer has a lot of plugins to
 
 ![proxmox-packer-vm-temp][2]
 
-5- After you create API token copy your ID and token. You may need to save them in a safe place. 
+6- After you create API token copy your ID and token. You may need to save them in a safe place. 
 
 ![proxmox-packer-vm-temp][3]
 
@@ -83,25 +83,25 @@ Packer is a tool which can automate image builds. Packer has a lot of plugins to
 
 ![proxmox-packer-vm-temp][4]
 
-4- **packer.pkr.hcl** is the file Packer uses plugings and initiliaze. I will not cover Packer structure in this guide If You want to check ref: [https://developer.hashicorp.com/packer/docs?ajs_aid=18a770ea-dd9a-474f-8f8e-05d0aade4cba&product_intent=packer](https://developer.hashicorp.com/packer/docs?ajs_aid=18a770ea-dd9a-474f-8f8e-05d0aade4cba&product_intent=packer)
+3- **packer.pkr.hcl** is the file Packer uses plugings and initiliaze. I will not cover Packer structure in this guide If You want to check ref: [https://developer.hashicorp.com/packer/docs?ajs_aid=18a770ea-dd9a-474f-8f8e-05d0aade4cba&product_intent=packer](https://developer.hashicorp.com/packer/docs?ajs_aid=18a770ea-dd9a-474f-8f8e-05d0aade4cba&product_intent=packer)
 
 ![proxmox-packer-vm-temp][5]
 
-5- **ubuntu-server-jammy.pkr.hcl** is the file We will define our VM Template's resources. Which image We will use or VM's hardware disk, cpu etc. 
+4- **ubuntu-server-jammy.pkr.hcl** is the file We will define our VM Template's resources. Which image We will use or VM's hardware disk, cpu etc. 
 
-6- We will also use cloud-init steps In the file (Running shell commands).
+5- We will also use cloud-init steps In the file (Running shell commands).
 
 ![proxmox-packer-vm-temp][6]
 
-7- There is an important section **boot_command** This section can be different for other ISO images. For example We will use Ubuntu Jammy, When We run that image We need to push keyboard inputs to use auto boot loader. We will send command to the Prosmox our auto boot loader commands.
+6- There is an important section **boot_command** This section can be different for other ISO images. For example We will use Ubuntu Jammy, When We run that image We need to push keyboard inputs to use auto boot loader. We will send command to the Prosmox our auto boot loader commands.
 
-8- Packer will create a web server to send our commands to the Proxmox VM. 
+7- Packer will create a web server to send our commands to the Proxmox VM. 
 
 ```
 autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>
 ```
 
-9- You may need to define a static ip. Some case Packer can not assing right IP but I did not have any problem liket that.
+8- You may need to define a static ip. Some case Packer can not assing right IP but I did not have any problem liket that.
 
 ![proxmox-packer-vm-temp][7]
 
@@ -109,11 +109,11 @@ autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>
 
 ![proxmox-packer-vm-temp][9]
 
-10- We need to use a file for Provisioning the VM Template for Cloud-Init Integration. We need to copy the file under **/etc/cloud/cloud.cfg.d/** 
+9- We need to use a file for Provisioning the VM Template for Cloud-Init Integration. We need to copy the file under **/etc/cloud/cloud.cfg.d/** 
 
 ![proxmox-packer-vm-temp][10]
 
-11- **user-data** is the file We defined our auto VM installation variables. Packer will send out config to VM USing via web server during building the VM. 
+10- **user-data** is the file We defined our auto VM installation variables. Packer will send out config to VM USing via web server during building the VM. 
 
 ![proxmox-packer-vm-temp][11]
 
