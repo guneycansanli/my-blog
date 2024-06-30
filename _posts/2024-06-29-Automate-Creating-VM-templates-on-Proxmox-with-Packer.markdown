@@ -241,10 +241,4 @@ Guneycan Sanli.
 [7]: ../assets/images/prxmx-automate-vm-tmp/project-4.jpg
 [8]: ../assets/images/prxmx-automate-vm-tmp/project-5.jpg
 [9]: ../assets/images/prxmx-automate-vm-tmp/project-6.jpg
-[10]: ../assets/images/prxmx-vm-template/prxmx-img-10.jpg
-[11]: ../assets/images/prxmx-vm-template/prxmx-img-11.jpg
-[12]: ../assets/images/prxmx-vm-template/prxmx-img-12.jpg
-[13]: ../assets/images/prxmx-vm-template/prxmx-img-13.jpg
-[14]: ../assets/images/prxmx-vm-template/prxmx-img-14.jpg
-[15]: ../assets/images/prxmx-vm-template/prxmx-img-15.jpg
-[16]: ../assets/images/prxmx-vm-template/prxmx-img-16.jpg
+
