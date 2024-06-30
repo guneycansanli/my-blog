@@ -174,6 +174,10 @@ packer build -var-file "credentials.pkr.hcl" ubuntu-server-jammy.pkr.hcl
 
 ![proxmox-packer-vm-temp][16]
 
+3- Finally We have new VM from template via cloud-init settings.
+
+![proxmox-packer-vm-temp][17]
+
 
 Thanks for reading...
 
