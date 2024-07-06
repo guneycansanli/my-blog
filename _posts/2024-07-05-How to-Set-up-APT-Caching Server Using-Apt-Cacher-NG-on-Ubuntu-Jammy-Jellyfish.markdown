@@ -78,7 +78,7 @@ systemctl enable apt-cacher-ng
 systemctl status apt-cacher-ng
 ```
 
-![apt-cacher][5]
+![apt-cacher][4]
 
 5- Apt-Cacher-NG listens on port 3142 as default. If your Firewall enable You need to add necessary rules, I do not use any FW so I will skip that part.
 
