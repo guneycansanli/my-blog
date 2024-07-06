@@ -6,7 +6,7 @@ image: ../assets/images/apt-cacher/main.jpg
 headerImage: true
 tag:
     - vm
-    - proxmox
+    - ubuntu
     - apt-cacher
 category: blog
 author: guneycansanli
