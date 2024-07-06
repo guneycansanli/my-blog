@@ -241,20 +241,16 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/prxmx-automate-vm-tmp/packer.jpeg
-[2]: ../assets/images/prxmx-automate-vm-tmp/packer-api-token.jpg
-[3]: ../assets/images/prxmx-automate-vm-tmp/packer-api-token-1.jpg
-[4]: ../assets/images/prxmx-automate-vm-tmp/project-1.jpg
-[5]: ../assets/images/prxmx-automate-vm-tmp/project-2.jpg
-[6]: ../assets/images/prxmx-automate-vm-tmp/project-3.jpeg
-[7]: ../assets/images/prxmx-automate-vm-tmp/project-4.jpg
-[8]: ../assets/images/prxmx-automate-vm-tmp/project-5.jpg
-[9]: ../assets/images/prxmx-automate-vm-tmp/project-6.jpg
-[10]: ../assets/images/prxmx-automate-vm-tmp/project-7.jpg
-[11]: ../assets/images/prxmx-automate-vm-tmp/project-8.jpg
-[12]: ../assets/images/prxmx-automate-vm-tmp/project-9.jpg
-[13]: ../assets/images/prxmx-automate-vm-tmp/project-10.jpg
-[14]: ../assets/images/prxmx-automate-vm-tmp/project-11.jpg
-[15]: ../assets/images/prxmx-automate-vm-tmp/project-12.jpg
-[16]: ../assets/images/prxmx-automate-vm-tmp/project-13.jpg
-[17]: ../assets/images/prxmx-automate-vm-tmp/project-14.jpg
+[1]: ../assets/images/apt-cacher/apt-cacher-1.jpg
+[2]: ../assets/images/apt-cacher/apt-cacher-2.jpg
+[3]: ../assets/images/apt-cacher/apt-cacher-3.jpg
+[4]: ../assets/images/apt-cacher/apt-cacher-4.jpg
+[5]: ../assets/images/apt-cacher/apt-cacher-5.jpg
+[6]: ../assets/images/apt-cacher/apt-cacher-6.jpg
+[7]: ../assets/images/apt-cacher/apt-cacher-7.jpg
+[8]: ../assets/images/apt-cacher/apt-cacher-8.jpg
+[9]: ../assets/images/apt-cacher/apt-cacher-9.jpg
+[10]: ../assets/images/apt-cacher/apt-cacher-10.jpg
+[11]: ../assets/images/apt-cacher/apt-cacher-11.jpg
+[12]: ../assets/images/apt-cacher/apt-cacher-12.jpg
+
