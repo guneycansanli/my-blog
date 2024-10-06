@@ -1,5 +1,5 @@
 ---
-title: "Setup dynamic Docker Slave(Agent) and Integrate with Jenkins Master"
+title: "Setup Dynamic Docker Slave(Agent) and Integrate with Jenkins Master"
 layout: post
 date: 2024-10-06 14:20
 image: ../assets/images/jenkins-docker-agent/main.png
@@ -10,7 +10,7 @@ tag:
     - docker
 category: blog
 author: guneycansanli
-description: Setup dynamic Docker Slave(Agent) and Integrate with Jenkins Master
+description: Setup Dynamic Docker Slave(Agent) and Integrate with Jenkins Master
 ---
 
 # Introduction
@@ -28,8 +28,10 @@ Jenkins offers a robust master-slave architecture that allows for distributed bu
 # Prerequisites
 
 1- Two Ubuntu virtual machines (VMs) are required: one for Jenkins Master and another for the Docker Host.
+
 2- Jenkins Master is already installed and operational.
  * Port 8080 is open in the firewall If You have Firewall enabled.
+
 3- Set up the Docker Host. 
  * Port 4243 is open on the Docker Host machine, If You have Firewall enabled.
  * Ports 32768 to 60999 are also open on the Docker Host machine, If You have Firewall enabled.
