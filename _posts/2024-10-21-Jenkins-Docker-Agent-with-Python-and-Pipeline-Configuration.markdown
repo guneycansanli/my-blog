@@ -2,12 +2,13 @@
 title: "Jenkins Docker Agent with Python and Pipeline Configuration"
 layout: post
 date: 2024-10-21 14:20
-image: ../assets/images/jenkins-docker-agent/
+image: ../assets/images/jenkins-python-pipeline/main.jpg
 headerImage: true
 tag:
     - jenkins
     - ubuntu
     - docker
+    - python
 category: blog
 author: guneycansanli
 description: Jenkins Docker Agent with Python and Pipeline Configuration
