@@ -90,7 +90,7 @@ Note: Jenkins has 2 different e-mail configurations.
 
 Extended E-mail Notification: 
 
-1. Find out **xtended E-mail Notification** in same system configuration page (Should be above of E-mail Notification)
+1. Find out **extended E-mail Notification** in same system configuration page (Should be above of E-mail Notification)
 2. Use same credentials.
 
 ![jen-mail][5]
@@ -122,7 +122,9 @@ Here is my full configs:
 We are ready to use E-mail feature in our any of pipeline. I have already have a pipeline. I jusst need to edit my Jenkins file and add post step/job. 
 
 1. My example post step will be:
-        ```
+
+
+ ```
          post {
             always {
                 emailext (
@@ -141,7 +143,7 @@ We are ready to use E-mail feature in our any of pipeline. I have already have a
                 )
             }
         }
-        ```
+```
 
 ![jen-mail][7]
 
