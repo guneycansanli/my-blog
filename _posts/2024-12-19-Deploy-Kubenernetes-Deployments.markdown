@@ -117,48 +117,48 @@ You can use my public repo's yaml files to create deployments and services.
 Once You pull repo , You will have yaml files , You do not need to use pod yamls , I have already converted them to deployment yamls so , You can create deployments and also regarding services. 
 
 1. Create **Redis** deployment and service 
-        ```
-            kubectl create -f redis-deployment.yaml
-            kubectl create -f pod-service-yamls/redis-service.yaml
-        ```
+```
+kubectl create -f redis-deployment.yaml
+kubectl create -f pod-service-yamls/redis-service.yaml
+```
 
 2. Create **Postgres DB** deployment and service 
-        ```
-            kubectl create -f deployment-yamls/postgres-deployment.yaml 
-            kubectl create -f pod-service-yamls/postgres-service.yaml
-        ```
+```
+kubectl create -f deployment-yamls/postgres-deployment.yaml 
+kubectl create -f pod-service-yamls/postgres-service.yaml
+```
 
 3. Create **Worker App** deployment, only deployment because worker app no need to listen or expose any ports
-        ```
-            kubectl create -f deployment-yamls/worker-app-deployment.yaml
-        ```
+```
+kubectl create -f deployment-yamls/worker-app-deployment.yaml
+```
 
 4. Create **Voting App** deployment and service 
-        ```
-            kubectl create -f deployment-yamls/result-app-deployment.yaml  
-            kubectl create -f pod-service-yamls/voting-app-service.yaml
-        ```
+```
+kubectl create -f deployment-yamls/result-app-deployment.yaml  
+kubectl create -f pod-service-yamls/voting-app-service.yaml
+```
 
 5. Create **Results App** deployment and service 
-        ```
-            kubectl create -f deployment-yamls/voting-app-deployment.yaml  
-            kubectl create -f pod-service-yamls/result-app-service.yaml 
-        ```
+```
+kubectl create -f deployment-yamls/voting-app-deployment.yaml  
+kubectl create -f pod-service-yamls/result-app-service.yaml 
+```
 
 
 Note: Since We are using deployments We can edit replicas of pods , I prefered to increase **voting app** replicas to 3, You can edit your replicas after you create deployment but in that case You need to run kubectl appy command like below:
- ```
-        kubectl apply -f deployment-yamls/voting-app-deployment.yaml 
- ```
+```
+kubectl apply -f deployment-yamls/voting-app-deployment.yaml 
+```
 
 * * *
 
 # Step 4: Checking Cluster Resources
 
 We have created all deployments and service now We can check What we have cluster , Depends on your choise You can check resources seperatly , I check all resources with **kubectl**
- ```
-        kubectl get all
- ```
+```
+kubectl get all
+```
 
 ![k8s-deploy][3]
 
@@ -166,10 +166,10 @@ We have created all deployments and service now We can check What we have cluste
 2. Note: **ClusterIp** is default service for communication between Pods/Containers
 3. If you have K8s cluster in VM or/in diffrent network , You may need to do **Port Forwarding**
 4. **Port Forward** to K8s host/s
- ```
-       ssh -L 9000:10.101.202.69:80 guney@192.168.1.159(k8s worker or master) 
-       ssh -L 9001:10.99.113.120:80 guney@192.168.1.159(k8s worker or master) 
- ```
+```
+ssh -L 9000:10.101.202.69:80 guney@192.168.1.159(k8s worker or master) 
+ssh -L 9001:10.99.113.120:80 guney@192.168.1.159(k8s worker or master) 
+```
 
 5. You can vote animals fro voting app and check result app. 
 
