@@ -1,7 +1,7 @@
 ---
 title: "Step-by-Step Guide to Deploy a Scalable Voting App Using Kubernetes"
 layout: post
-date: 2024-12-19 14:20
+date: 2024-12-18 14:20
 image: ../assets/images/k8s-deploy/k8s-main.jpg
 headerImage: true
 tag:
