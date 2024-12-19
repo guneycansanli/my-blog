@@ -26,7 +26,7 @@ This guide explains how to deploy a Voting App with a microservices architecture
 # Prerequisites
 
 1.  Kubernetes Cluster: A running Kubernetes cluster.
-2.  kubectl: Installed and configured to manage the Kubernetes cluster.not personal SMTP server
+2.  kubectl: Installed and configured to manage the Kubernetes cluster.
 3.  YAML Files: Deployment and Service configuration files for each component. (You can use my Public GitHub Repo)
 
 * * *
