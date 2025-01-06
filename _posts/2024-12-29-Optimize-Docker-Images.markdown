@@ -1,7 +1,7 @@
 ---
 title: "Optimize Docker Images: Practical Guide How to Reduce Docker Image Size?"
 layout: post
-date: 2025-01-04 12:20
+date: 2024-12-29 12:20
 image: ../assets/images/docker-image-size/main.jpg
 headerImage: true
 tag:
