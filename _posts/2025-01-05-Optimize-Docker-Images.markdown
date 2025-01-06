@@ -6,7 +6,6 @@ image: ../assets/images/docker-image-size/main.jpg
 headerImage: true
 tag:
     - docker
-    - best-practises
 category: blog
 author: guneycansanli
 description: Optimize Docker Images: Practical Guide How to Reduce Docker Image Size?
