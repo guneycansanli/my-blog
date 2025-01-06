@@ -1,7 +1,7 @@
 ---
 title: "Optimize Docker Images: Practical Guide How to Reduce Docker Image Size?"
 layout: post
-date: 2024-12-29 12:20
+date: 2025-01-04 12:20
 image: ../assets/images/docker-image-size/main.jpg
 headerImage: true
 tag:
@@ -276,10 +276,10 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/k8s-deploy/k8s-deploy-1.jpg
-[2]: ../assets/images/k8s-deploy/k8s-deploy-2.jpg
-[3]: ../assets/images/k8s-deploy/k8s-deploy-3.jpg
-[4]: ../assets/images/k8s-deploy/k8s-deploy-4.jpg
-[5]: ../assets/images/k8s-deploy/k8s-deploy-5.jpg
+[1]: ../assets/images/docker-image-size/docker-ima1.jpg
+[2]: ../assets/images/docker-image-size/docker-ima2.jpg
+[3]: ../assets/images/docker-image-size/docker-ima3.jpg
+[4]: ../assets/images/docker-image-size/docker-ima4.jpg
+[5]: ../assets/images/docker-image-size/docker-ima5.jpg
 
 
