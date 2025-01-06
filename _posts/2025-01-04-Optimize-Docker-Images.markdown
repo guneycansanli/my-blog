@@ -8,7 +8,7 @@ tag:
     - docker
 category: blog
 author: guneycansanli
-description: Optimize Docker Images: Practical Guide How to Reduce Docker Image Size?
+description: Optimize Docker Images Practical Guide How to Reduce Docker Image Size?
 ---
 
 # Optimize Docker Images: Practical Guide
