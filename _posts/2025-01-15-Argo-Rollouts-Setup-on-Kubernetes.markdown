@@ -146,9 +146,7 @@ kubectl argo rollouts get rollout nginx-rollout --watch
 
 1. Update the Manifest File, Edit the **nginx-rollouts.yaml** file to update the nginx container image to the latest version:
 ```yaml
-      containers:
-      - name: nginx-container
-        image: nginx:latest
+image: nginx:latest
 ```
 
 2. Apply the Updated Manifest File
