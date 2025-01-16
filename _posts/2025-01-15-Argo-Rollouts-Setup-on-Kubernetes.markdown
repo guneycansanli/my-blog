@@ -233,5 +233,6 @@ Guneycan Sanli.
 [4]: ../assets/images/argo-rollouts/argo-4.jpg
 [5]: ../assets/images/argo-rollouts/argo-5.jpg
 [6]: ../assets/images/argo-rollouts/argo-6.jpg
+[6]: ../assets/images/argo-rollouts/argo-7.jpg
 
 
