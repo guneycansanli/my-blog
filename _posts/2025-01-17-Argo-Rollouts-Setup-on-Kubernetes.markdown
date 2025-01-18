@@ -1,5 +1,5 @@
 ---
-title: "Setting up EFK Stack on Kubernetes"
+title: "Argo Rollouts Setup on Kubernetes"
 layout: post
 date: 2025-01-17 12:20
 image: ../assets/images/argo-rollouts/argo-main.jpg
@@ -9,7 +9,7 @@ tag:
     - k8s
 category: blog
 author: guneycansanli
-description: Setting up EFK Stack on Kubernetes
+description: Argo Rollouts Setup on Kubernetes
 ---
 
 # Setting Up and Using Argo Rollouts on Kubernetes
