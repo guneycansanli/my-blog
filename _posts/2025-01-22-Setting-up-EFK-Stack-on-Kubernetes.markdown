@@ -103,8 +103,8 @@ volumeBindingMode: WaitForFirstConsumer
 kubectl apply -f local-storage-class.yaml
 ```
 
-
 - We also need to have PersistentVolume to Bound 
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
@@ -290,6 +290,7 @@ kubectl create -f kibana-deployment.yaml
 - To access the Kibana UI via the node's IP address, we'll create a NodePort service. This is a simple way to expose the service for demonstration purposes. A NodePort service assigns a specific port on each cluster node, allowing you to access the application using the node's IP and the assigned port.In real-world projects, however, it's more common to use Kubernetes Ingress in combination with a ClusterIP service. This setup provides better control, security, and scalability by routing external traffic through the ingress, while the service itself remains accessible only within the cluster.
 
 - Save the following manifest as kibana-svc.yaml
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -411,7 +412,9 @@ kubectl create -f fluentd-rb.yaml
 ```
 
 4. Deploy Fluentd DaemonSet
+
 - Save the following as fluentd-ds.yaml
+
 ```yaml
 apiVersion: apps/v1
 kind: DaemonSet
