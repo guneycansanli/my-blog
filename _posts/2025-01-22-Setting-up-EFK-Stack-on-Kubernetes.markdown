@@ -51,6 +51,7 @@ The deployment includes Fluentd for log collection, Elasticsearch for storage, a
 - You can clone **https://github.com/guneycansanli/k8s-training.git** and fond all yamls under **kubernetes-efk-yamls** directory.
 
 - Note: All the EFK components get deployed in the default namespace.
+
 ```bash
 git clone https://github.com/guneycansanli/k8s-training.git
 ```
@@ -63,6 +64,7 @@ git clone https://github.com/guneycansanli/k8s-training.git
 #### Create a Headless Service
 
 - Define the headless service (`es-svc.yaml`) for internal communication between Elasticsearch pods:
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -82,6 +84,7 @@ spec:
 ![efk][1]
 
 - Apply the service:
+
 ```bash
 kubectl apply -f es-svc.yaml
 ```
@@ -90,6 +93,7 @@ kubectl apply -f es-svc.yaml
 - Since I work with my local cluster in my home lab , Local Clusters Lack Native Storage Backends
 Local Kubernetes clusters (e.g., minikube, kubeadm setups) don't come with built-in storage backends. Instead Storage is tied to the local filesystem of the worker nodes. You have to manually specify the storage paths or directories that the PVs map to, using mechanisms like hostPath or local volumes.
 - You need to crate StorageClass
+
 ```yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -137,6 +141,7 @@ kubectl apply -f local-persistent-volume-kworker1.yaml
 - I have crated 3 diffrent PV so ElasticSearch istences can claim (We have 3 nodes/replicas in cluster)
 - Deploy Elasticsearch
 - Use the following StatefulSet (**es-sts.yaml**) to deploy Elasticsearch:
+
 ```yaml
 apiVersion: apps/v1
 kind: StatefulSet
@@ -223,6 +228,7 @@ spec:
 ```
 
 - Apply the StatefulSet:
+
 ```bash
 kubectl apply -f es-sts.yaml
 ```
@@ -236,6 +242,7 @@ kubectl port-forward es-cluster-0 9200:9200
 ```
 
 - You can sned curl to health check.
+
 ```bash
 curl http://localhost:9200/_cluster/health/?pretty
 ```
@@ -250,6 +257,7 @@ curl http://localhost:9200/_cluster/health/?pretty
 Kibana can be created as a simple Kubernetes deployment. If you check the following Kibana deployment manifest file, we have an env var ELASTICSEARCH_URL defined to configure the Elasticsearch cluster endpoint. Kibana uses the endpoint URL to connect to elasticsearch.
 
 - Create the Kibana deployment manifest as kibana-deployment.yaml
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -307,6 +315,7 @@ spec:
 ```
 
 - Create the kibana-svc
+
 ```bash
 kubectl create -f kibana-svc.yaml
 ```
@@ -347,6 +356,7 @@ A cluster role in Kubernetes defines rules that outline a specific set of permis
 ---
 
 1. Create a manifest fluentd-role.yaml
+
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -375,6 +385,7 @@ kubectl create -f fluentd-role.yaml
   A service account in kubernetes is an entity to provide identity to a pod. Here, we want to create a service account to be used with fluentd pods.
 
 - Create a manifest **fluentd-sa.yaml**
+
 ```yaml
 apiVersion: v1
 kind: ServiceAccount
@@ -385,12 +396,15 @@ metadata:
 ```
 
 - Apply the manifest
+
 ```bash
 kubectl create -f fluentd-sa.yaml
 ```
 
 3. Fluentd Cluster Role Binding
+
 - Create a manifest fluentd-rb.yaml
+
 ```yaml
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -470,6 +484,7 @@ spec:
 ```
 
 - Apply
+
 ```bash
 kubectl create -f fluentd-ds.yaml
 ```
@@ -478,6 +493,7 @@ kubectl create -f fluentd-ds.yaml
 6. In order to verify the fluentd installation, let us start a pod that creates logs continuously. We will then try to see these logs inside Kibana.
 
 - Save the following as test-pod.yaml
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -491,6 +507,7 @@ spec:
 ```
 
 - Apply
+
 ```bash
 kubectl create -f test-pod.yaml
 ```
