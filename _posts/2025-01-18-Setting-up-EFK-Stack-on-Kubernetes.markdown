@@ -1,208 +1,524 @@
 ---
 title: "Setting up EFK Stack on Kubernetes"
 layout: post
-date: 2025-01-18 12:20
-image: ../assets/images/argo-rollouts/argo-main.jpg
+date: 2025-01-24 12:20
+image: ../assets/images/efk/efk-main.jpg
 headerImage: true
 tag:
-    - argo
+    - efk
     - k8s
+    - logging
 category: blog
 author: guneycansanli
 description: Setting up EFK Stack on Kubernetes
 ---
 
-# Setting Up and Using Argo Rollouts on Kubernetes
+# How to Setup EFK Stack on Kubernetes: A Step-by-Step Guide
 
 ### Introduction
 
-Argo Rollouts is an open-source tool for Kubernetes designed to enable advanced deployment strategies like blue-green and canary   deployments. While Kubernetes offers native rolling update mechanisms, they have limitations such as restricted control over rollout speed and traffic distribution. Argo Rollouts overcomes these constraints, giving you greater flexibility and control over deployments.
+EFK (Elasticsearch, Fluentd, Kibana) is a powerful open-source stack for centralized log aggregation, analysis, and visualization. When managing multiple applications and services on Kubernetes, centralizing logs ensures better monitoring and troubleshooting. 
 
-In this article, we’ll cover the setup of Argo Rollouts and demonstrate how to use it for deploying applications.
-
----
-
-## Workflow of Argo Rollouts
-
-Argo Rollouts integrates with tools like **Ingress Controllers**, **Argo CD** for visualization, and **Prometheus** for monitoring. Below is an explanation of its workflow:
-
-1. An application is already running in the cluster.
-2. To initiate a rollout, update the image or configuration in the manifest file.
-3. Argo Rollouts deploys the updated version alongside the existing version.
-4. Traffic is gradually shifted from the old to the new version based on the strategy defined in the manifest.
-5. The Ingress Controller manages traffic routing, while Prometheus collects metrics during the rollout process.
+This guide walks you through setting up the EFK stack on a Kubernetes cluster.
 
 ---
 
-## Installing Argo Rollouts
+## What is the EFK Stack?
 
-### Prerequisites
-- A functional Kubernetes cluster.
-- `kubectl` configured to interact with the cluster.
+- **Elasticsearch**: A distributed search and analytics engine that stores and retrieves large log volumes. It's designed for scalability and efficiency.
+- **Fluentd**: A flexible log collector that unifies data collection and forwards logs to various destinations like Elasticsearch.
+- **Kibana**: A user-friendly interface for querying, visualizing, and analyzing log data.
 
-### Installation Steps
+Elasticsearch is optimized for managing unstructured log data, Fluentd serves as the log shipper, and Kibana provides visualization tools for better insights.
 
-To keep Argo Rollouts isolated, create a dedicated namespace:
+---
+
+## Architecture of EFK Stack
+
+The EFK stack architecture for Kubernetes involves:
+
+1. **Fluentd**: Deployed as a DaemonSet to gather logs from all nodes. It forwards logs to the Elasticsearch endpoint.
+2. **Elasticsearch**: Deployed as a StatefulSet for persisting log data. It provides a service endpoint for Fluentd and Kibana.
+3. **Kibana**: Deployed as a Deployment to visualize the data stored in Elasticsearch.
+
+### High-Level Architecture
+
+The deployment includes Fluentd for log collection, Elasticsearch for storage, and Kibana for visualization.
+
+
+## Step-by-Step Setup
+
+- You can clone **https://github.com/guneycansanli/k8s-training.git** and fond all yamls under **kubernetes-efk-yamls** directory.
+
+- Note: All the EFK components get deployed in the default namespace.
+
 ```bash
-kubectl create namespace argo-rollouts
+git clone https://github.com/guneycansanli/k8s-training.git
 ```
 
 
-### Step 2: Install Argo Rollouts
-
-- Run the following command to install Argo Rollouts in the namespace:
-```bash
-kubectl apply -n argo-rollouts -f https://raw.githubusercontent.com/argoproj/argo-rollouts/stable/manifests/install.yaml
-```
+### 1. Deploy Elasticsearch StatefulSet
 
 - This command installs the latest stable version of Argo Rollouts in the argo-rollouts namespace
 
-![argo][1]
+#### Create a Headless Service
 
-
-### Step 3: Install the Argo Rollouts Plugin (Linux-amd64) for kubectl
-
-
-- Download the plugin
-```bash
-curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
-```
-
-- Make it executable
-```bash
-chmod +x ./kubectl-argo-rollouts-linux-amd64
-```
-
-- Move the binary to your PATH
-```bash
-sudo mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
-```
-
-- Verify the installation
-```bash
-kubectl argo rollouts version
-```
-
-![argo][2]
-
-
----
-
-## Deploying Applications with Argo Rollouts
-
-### Step 1: Deploy the Initial Application
-
-1. Create the Manifest File
-2. Create a file named nginx-rollouts.yaml with the following content:
+- Define the headless service (`es-svc.yaml`) for internal communication between Elasticsearch pods:
 
 ```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: v1
+kind: Service
 metadata:
-  name: nginx-rollout
-  namespace: default
+  name: elasticsearch
 spec:
+  selector:
+    app: elasticsearch
+  clusterIP: None
+  ports:
+    - port: 9200
+      name: rest
+    - port: 9300
+      name: inter-node
+```
+
+![efk][1]
+
+- Apply the service:
+
+```bash
+kubectl apply -f es-svc.yaml
+```
+
+- Before we begin creating the statefulset for elastic search, let’s recall that a statefulset requires a storage class defined beforehand using which it can create volumes whenever required.
+- Since I work with my local cluster in my home lab , Local Clusters Lack Native Storage Backends
+Local Kubernetes clusters (e.g., minikube, kubeadm setups) don't come with built-in storage backends. Instead Storage is tied to the local filesystem of the worker nodes. You have to manually specify the storage paths or directories that the PVs map to, using mechanisms like hostPath or local volumes.
+
+- You need to crate StorageClass
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+```
+
+```bash
+kubectl apply -f local-storage-class.yaml
+```
+
+
+- We also need to have PersistentVolume to Bound 
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-pv-worker-0
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /opt/k8s/es-cluster-0
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+            - kworker1
+```
+
+```bash
+kubectl apply -f local-persistent-volume-kworker1.yaml
+```
+
+- Note: Make sure path directory already exist and also You may have some issues if you crate PV on worker or master node.
+
+- I have crated 3 diffrent PV so ElasticSearch istences can claim (We have 3 nodes/replicas in cluster)
+
+
+- Deploy Elasticsearch
+- Use the following StatefulSet (**es-sts.yaml**) to deploy Elasticsearch:
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: es-cluster
+spec:
+  serviceName: elasticsearch
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: elasticsearch
   template:
     metadata:
       labels:
-        app: nginx
+        app: elasticsearch
     spec:
       containers:
-      - name: nginx-container
-        image: nginx:1.24-alpine
+      - name: elasticsearch
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+        resources:
+          limits:
+            cpu: 1000m
+          requests:
+            cpu: 100m
         ports:
-        - containerPort: 80
-  strategy:
-    canary:
-      steps:
-      - setWeight: 20
-      - pause: {duration: 10}
-      - setWeight: 50
-      - pause: {duration: 10}
-      - setWeight: 70
-      - pause: {duration: 10}
-      - setWeight: 100
+        - containerPort: 9200
+          name: rest
+          protocol: TCP
+        - containerPort: 9300
+          name: inter-node
+          protocol: TCP
+        volumeMounts:
+        - name: data
+          mountPath: /usr/share/elasticsearch/data
+        env:
+          - name: cluster.name
+            value: k8s-logs
+          - name: node.name
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: discovery.seed_hosts
+            value: "es-cluster-0.elasticsearch,es-cluster-1.elasticsearch,es-cluster-2.elasticsearch"
+          - name: cluster.initial_master_nodes
+            value: "es-cluster-0,es-cluster-1,es-cluster-2"
+          - name: ES_JAVA_OPTS
+            value: "-Xms512m -Xmx512m"
+      initContainers:
+      - name: fix-permissions
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /usr/share/elasticsearch/data"]
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: data
+          mountPath: /usr/share/elasticsearch/data
+      - name: increase-vm-max-map
+        image: busybox
+        command: ["sysctl", "-w", "vm.max_map_count=262144"]
+        securityContext:
+          privileged: true
+      - name: increase-fd-ulimit
+        image: busybox
+        command: ["sh", "-c", "ulimit -n 65536"]
+        securityContext:
+          privileged: true
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+      nodeSelector:
+        kubernetes.io/hostname: kworker1
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+      labels:
+        app: elasticsearch
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "local-storage"
+      resources:
+        requests:
+          storage: 2Gi
 ```
 
-- This deploys an older version (nginx:1.24-alpine) with 3 replicas. The Canary strategy distributes traffic incrementally, starting at 20% for the new version.
-
-3. Apply the Manifest File
+- Apply the StatefulSet:
 ```bash
-kubectl apply -f nginx-rollouts.yaml
+kubectl apply -f es-sts.yaml
 ```
 
-4. Monitor the Rollout
+### Verify Elasticsearch Deployment
+
+- After the Elastisearch pods come into the running state, let us try and verify the Elasticsearch statefulset. The easiest method to do this is to check the status of the cluster. In order to check the status, port-forward the Elasticsearch pod’s 9200 port.
+
 ```bash
-kubectl argo rollouts get rollout nginx-rollout --watch
+kubectl port-forward es-cluster-0 9200:9200
 ```
 
-![argo][3]
+- You can sned curl to health check.
+```bash
+curl http://localhost:9200/_cluster/health/?pretty
+```
 
-### Step 2: Roll Out a New Version
+![efk][2]
 
-1. Update the Manifest File, Edit the **nginx-rollouts.yaml** file to update the nginx container image to the latest version:
+![efk][3]
+
+
+## Deploy Kibana Deployment & Service
+
+Kibana can be created as a simple Kubernetes deployment. If you check the following Kibana deployment manifest file, we have an env var ELASTICSEARCH_URL defined to configure the Elasticsearch cluster endpoint. Kibana uses the endpoint URL to connect to elasticsearch.
+
+- Create the Kibana deployment manifest as kibana-deployment.yaml
 ```yaml
-image: nginx:latest
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  labels:
+    app: kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana:7.5.0
+        resources:
+          limits:
+            cpu: 1000m
+          requests:
+            cpu: 100m
+        env:
+          - name: ELASTICSEARCH_URL
+            value: http://elasticsearch:9200
+        ports:
+        - containerPort: 5601
 ```
 
-2. Apply the Updated Manifest File
+- Create the manifest.
 ```bash
-kubectl apply -f nginx-rollouts.yaml
+kubectl create -f kibana-deployment.yaml
 ```
 
-3. Monitor the Rollout
+- To access the Kibana UI via the node's IP address, we'll create a NodePort service. This is a simple way to expose the service for demonstration purposes. A NodePort service assigns a specific port on each cluster node, allowing you to access the application using the node's IP and the assigned port.In real-world projects, however, it's more common to use Kubernetes Ingress in combination with a ClusterIP service. This setup provides better control, security, and scalability by routing external traffic through the ingress, while the service itself remains accessible only within the cluster.
+
+- Save the following manifest as kibana-svc.yaml
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana-np
+spec:
+  selector: 
+    app: kibana
+  type: NodePort  
+  ports:
+    - port: 8080
+      targetPort: 5601 
+      nodePort: 30000
+```
+
+- Create the kibana-svc
 ```bash
-kubectl argo rollouts get rollout nginx-rollout --watch
+kubectl create -f kibana-svc.yaml
 ```
 
-- Traffic gradually shifts in the steps defined (20%, 50%, 70%, and finally 100%).
+- Now you will be able to access Kibana over http://<node-ip>:3000
+![efk][4]
 
-![argo][4]
+- You may need open port to cluster
 
-- Additionally You do not have to wait until new verison's deployment You can Promote or Abort
-- Promote Immediately: If the new version is stable and ready
+### Verify Kibana Deployment
+
+- After the pods come into the running state, let us try and verify Kibana deployment. The easiest method to do this is through the UI access of the cluster.
+
+To check the status, port-forward the Kibana pod’s 5601 port. If you have created the nodePort service, you can also use that.
 ```bash
-kubectl argo rollouts promote nginx-rollout
+kubectl port-forward <kibana-pod-name> 5601:5601
 ```
 
-- Abort Rollout: If issues arise with the new version:
-```bash
-kubectl argo rollouts abort nginx-rollout
-```
+![efk][5]
+
+![efk][6]
 
 ---
 
-## Using the Argo Rollouts Dashboard
+## Deploy Fluentd Kubernetes Manifests
 
-- Arge Rollout also has a simple GUI that you can follow up deployments and check details.
-- You can run below command and lunch GUI
-```bash
-kubectl argo rollouts dashboard
+### Deploying Fluentd as a DaemonSet
+Fluentd is typically deployed as a DaemonSet to ensure it can collect logs from all nodes in the cluster. To accomplish this, it also needs elevated permissions to access and retrieve pod metadata across all namespaces.
+
+### Service Accounts in Kubernetes
+To grant specific permissions to components within a Kubernetes cluster, service accounts are used in conjunction with cluster roles and cluster role bindings. Let’s proceed to create the necessary service account and define appropriate roles.
+
+#### Creating a Fluentd Cluster Role
+A cluster role in Kubernetes defines rules that outline a specific set of permissions. For Fluentd, we need to grant permissions to access both pods and namespaces.
+
+---
+
+1. Create a manifest fluentd-role.yaml
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: fluentd
+  labels:
+    app: fluentd
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - namespaces
+  verbs:
+  - get
+  - list
+  - watch
 ```
 
-- Open the dashboard at http://localhost:3100 to inspect the rollout process in detail. 
-- If you cluster is in remote host You need to open tunnel 
+- Apply the manifest
+```bash
+kubectl create -f fluentd-role.yaml
+```
 
-![argo][5]
+2. Create Fluentd Service Account
+  A service account in kubernetes is an entity to provide identity to a pod. Here, we want to create a service account to be used with fluentd pods.
 
+- Create a manifest **fluentd-sa.yaml**
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: fluentd
+  labels:
+    app: fluentd
+```
 
-![argo][6]
+- Apply the manifest
+```bash
+kubectl create -f fluentd-sa.yaml
+```
 
-- You can click and check rollout's details.
+3. Fluentd Cluster Role Binding
+- Create a manifest fluentd-rb.yaml
+```yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: fluentd
+roleRef:
+  kind: ClusterRole
+  name: fluentd
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: fluentd
+  namespace: default
+```
 
-![argo][7]
+- Apply the manifest
+```bash
+kubectl create -f fluentd-rb.yaml
+```
+
+4. Deploy Fluentd DaemonSet
+- Save the following as fluentd-ds.yaml
+```yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd
+  labels:
+    app: fluentd
+spec:
+  selector:
+    matchLabels:
+      app: fluentd
+  template:
+    metadata:
+      labels:
+        app: fluentd
+    spec:
+      serviceAccount: fluentd
+      serviceAccountName: fluentd
+      containers:
+      - name: fluentd
+        image: fluent/fluentd-kubernetes-daemonset:v1.4.2-debian-elasticsearch-1.1
+        env:
+          - name:  FLUENT_ELASTICSEARCH_HOST
+            value: "elasticsearch.default.svc.cluster.local"
+          - name:  FLUENT_ELASTICSEARCH_PORT
+            value: "9200"
+          - name: FLUENT_ELASTICSEARCH_SCHEME
+            value: "http"
+          - name: FLUENTD_SYSTEMD_CONF
+            value: disable
+          - name: FLUENT_CONTAINER_TAIL_PARSER_TYPE
+            value: /^(?<time>.+) (?<stream>stdout|stderr) [^ ]* (?<log>.*)$/
+        resources:
+          limits:
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
+```
+
+- Apply
+```bash
+kubectl create -f fluentd-ds.yaml
+```
+
+5. Verify Fluentd Setup
+6. In order to verify the fluentd installation, let us start a pod that creates logs continuously. We will then try to see these logs inside Kibana.
+- Save the following as test-pod.yaml
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: counter
+spec:
+  containers:
+  - name: count
+    image: busybox
+    args: [/bin/sh, -c,'i=0; while true; do echo "Thanks for visiting devopscube! $i"; i=$((i+1)); sleep 1; done']
+```
+
+- Apply
+```bash
+kubectl create -f test-pod.yaml
+```
+
+- At the end We should have below resources
+![efk][7]
+
+- We can verify logs are in Kibana now
+- We need to do **port-forward** again
+
+- Step 1: Open kibana UI using proxy or the nodeport service endpoint. Head to management console inside it.
+![efk][8]
+
+- Step 2: Select the “Index Patterns” option under Kibana section.
+- Step 3: Create a new Index Patten using the pattern – “logstash-*” and
+- Step 4: Select “@timestamp” in the timestamps option.
+- Now We should able to see indexes/logs
+
+![efk][9]
+
+![efk][10]
 
 
 ---
 
-
-## Conclusion
-
-By following these steps, you can install Argo Rollouts, set up the kubectl plugin, and deploy applications using advanced strategies like Canary. With features like traffic control and monitoring, Argo Rollouts ensures reliable and flexible application deployments.
 
 
 * * *
@@ -227,12 +543,15 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/argo-rollouts/argo-1.jpg
-[2]: ../assets/images/argo-rollouts/argo-2.jpg
-[3]: ../assets/images/argo-rollouts/argo-3.jpg
-[4]: ../assets/images/argo-rollouts/argo-4.jpg
-[5]: ../assets/images/argo-rollouts/argo-5.jpg
-[6]: ../assets/images/argo-rollouts/argo-6.jpg
-[7]: ../assets/images/argo-rollouts/argo-7.jpg
+[1]: ../assets/images/efk/efk1.jpg
+[2]: ../assets/images/efk/efk2.jpg
+[3]: ../assets/images/efk/efk3.jpg
+[4]: ../assets/images/efk/efk4.jpg
+[5]: ../assets/images/efk/efk5.jpg
+[6]: ../assets/images/efk/efk6.jpg
+[7]: ../assets/images/efk/efk7.jpg
+[8]: ../assets/images/efk/efk8.jpg
+[9]: ../assets/images/efk/efk9.jpg
+[10]: ../assets/images/efk/efk10.jpg
 
 
