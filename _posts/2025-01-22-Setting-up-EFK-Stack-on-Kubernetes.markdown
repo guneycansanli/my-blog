@@ -51,7 +51,6 @@ The deployment includes Fluentd for log collection, Elasticsearch for storage, a
 - You can clone **https://github.com/guneycansanli/k8s-training.git** and fond all yamls under **kubernetes-efk-yamls** directory.
 
 - Note: All the EFK components get deployed in the default namespace.
-
 ```bash
 git clone https://github.com/guneycansanli/k8s-training.git
 ```
@@ -64,7 +63,6 @@ git clone https://github.com/guneycansanli/k8s-training.git
 #### Create a Headless Service
 
 - Define the headless service (`es-svc.yaml`) for internal communication between Elasticsearch pods:
-
 ```yaml
 apiVersion: v1
 kind: Service
@@ -84,7 +82,6 @@ spec:
 ![efk][1]
 
 - Apply the service:
-
 ```bash
 kubectl apply -f es-svc.yaml
 ```
@@ -92,7 +89,6 @@ kubectl apply -f es-svc.yaml
 - Before we begin creating the statefulset for elastic search, let’s recall that a statefulset requires a storage class defined beforehand using which it can create volumes whenever required.
 - Since I work with my local cluster in my home lab , Local Clusters Lack Native Storage Backends
 Local Kubernetes clusters (e.g., minikube, kubeadm setups) don't come with built-in storage backends. Instead Storage is tied to the local filesystem of the worker nodes. You have to manually specify the storage paths or directories that the PVs map to, using mechanisms like hostPath or local volumes.
-
 - You need to crate StorageClass
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -138,13 +134,9 @@ kubectl apply -f local-persistent-volume-kworker1.yaml
 ```
 
 - Note: Make sure path directory already exist and also You may have some issues if you crate PV on worker or master node.
-
 - I have crated 3 diffrent PV so ElasticSearch istences can claim (We have 3 nodes/replicas in cluster)
-
-
 - Deploy Elasticsearch
 - Use the following StatefulSet (**es-sts.yaml**) to deploy Elasticsearch:
-
 ```yaml
 apiVersion: apps/v1
 kind: StatefulSet
@@ -319,6 +311,7 @@ kubectl create -f kibana-svc.yaml
 ```
 
 - Now you will be able to access Kibana over http://<node-ip>:3000
+
 ![efk][4]
 
 - You may need open port to cluster
@@ -328,6 +321,7 @@ kubectl create -f kibana-svc.yaml
 - After the pods come into the running state, let us try and verify Kibana deployment. The easiest method to do this is through the UI access of the cluster.
 
 To check the status, port-forward the Kibana pod’s 5601 port. If you have created the nodePort service, you can also use that.
+
 ```bash
 kubectl port-forward <kibana-pod-name> 5601:5601
 ```
@@ -479,8 +473,8 @@ kubectl create -f fluentd-ds.yaml
 
 5. Verify Fluentd Setup
 6. In order to verify the fluentd installation, let us start a pod that creates logs continuously. We will then try to see these logs inside Kibana.
-- Save the following as test-pod.yaml
 
+- Save the following as test-pod.yaml
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -499,12 +493,13 @@ kubectl create -f test-pod.yaml
 ```
 
 - At the end We should have below resources
+
 ![efk][7]
 
 - We can verify logs are in Kibana now
 - We need to do **port-forward** again
-
 - Step 1: Open kibana UI using proxy or the nodeport service endpoint. Head to management console inside it.
+
 ![efk][8]
 
 - Step 2: Select the “Index Patterns” option under Kibana section.
