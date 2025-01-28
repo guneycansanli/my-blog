@@ -1,7 +1,7 @@
 ---
 title: "Setting up EFK Stack on Kubernetes"
 layout: post
-date: 2025-01-24 12:20
+date: 2025-01-26 12:20
 image: ../assets/images/efk/efk-main.jpg
 headerImage: true
 tag:
