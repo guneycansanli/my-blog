@@ -13,16 +13,6 @@ author: guneycansanli
 description: Zellij: A Modern Terminal Multiplexer for Linux
 ---
 
-# How to Setup EFK Stack on Kubernetes: A Step-by-Step Guide
-
-### Introduction
-
-EFK (Elasticsearch, Fluentd, Kibana) is a powerful open-source stack for centralized log aggregation, analysis, and visualization. When managing multiple applications and services on Kubernetes, centralizing logs ensures better monitoring and troubleshooting. 
-
-This guide walks you through setting up the EFK stack on a Kubernetes cluster.
-
----
-
 # Zellij - A Fresh Take on Terminal Multiplexing
 
 If you use Linux a lot, especially for coding or server stuff, you probably know how useful terminal multiplexers are. They help you manage multiple terminal sessions inside one window. However temrinal multiplexers are not my favourite tools I mostly use default terminals OS has but some default terminals have not multi window features so You have to open 2 diffrent windows side by side. 
