@@ -145,7 +145,7 @@ You can create your own by editing `.kdl` files (Zellij uses **KDL** format for 
 
 Example:
 
-```bash
+```kdl
 // layout_file.kdl
 
 layout {
