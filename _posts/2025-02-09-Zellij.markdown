@@ -2,7 +2,7 @@
 title: "Zellij: A Modern Terminal Multiplexer for Linux"
 layout: post
 date: 2025-02-08 12:20
-image: ../assets/images/zellif/main.jpg
+image: ../assets/images/zellij/main.jpg
 headerImage: true
 tag:
     - linux
