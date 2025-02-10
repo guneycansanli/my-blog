@@ -1,0 +1,306 @@
+---
+title: "Zellij: A Modern Terminal Multiplexer for Linux"
+layout: post
+date: 2025-02-09 12:20
+image: ../assets/images/zellif/main.jpg
+headerImage: true
+tag:
+    - linux
+    - zellij
+    - Terminal-Multiplexer
+category: blog
+author: guneycansanli
+description: Zellij: A Modern Terminal Multiplexer for Linux
+---
+
+# How to Setup EFK Stack on Kubernetes: A Step-by-Step Guide
+
+### Introduction
+
+EFK (Elasticsearch, Fluentd, Kibana) is a powerful open-source stack for centralized log aggregation, analysis, and visualization. When managing multiple applications and services on Kubernetes, centralizing logs ensures better monitoring and troubleshooting. 
+
+This guide walks you through setting up the EFK stack on a Kubernetes cluster.
+
+---
+
+# Zellij - A Fresh Take on Terminal Multiplexing
+
+If you use Linux a lot, especially for coding or server stuff, you probably know how useful terminal multiplexers are. They help you manage multiple terminal sessions inside one window. However temrinal multiplexers are not my favourite tools I mostly use default terminals OS has but some default terminals have not multi window features so You have to open 2 diffrent windows side by side. 
+
+One of the newer and more exciting terminal multiplexers out there is **Zellij**. It's open-source, easy to use, and packed with cool features that make terminal work smoother.
+
+NOTE: My seraches showed me there were couple of bug/s Zellij has like Memory leak (High memory usage, Growing Memory usage) but seems like that bug fixed with latest relase. 
+
+Unlike older tools like `tmux` or `screen`, Zellij has a fresh approach with an easy-to-learn keybinding system, built-in layouts, and support for plugins.
+
+The official repo for Zellij is on GitHub. You can find and cehck latest developers updates.
+
+## Why Use Zellij?
+
+- **Split Panes** → Divide your terminal into multiple sections (horizontally or vertically).
+- **Session Saving** → Don’t worry about accidentally closing the terminal; Zellij keeps your session.
+- **Pre-Designed Layouts** → Quickly set up workspaces with predefined layouts.
+- **Plugin Support** → Extend functionality by adding custom plugins.
+- **Mouse Support** → Not just keyboard shortcuts, you can also use your mouse!
+- **Status Bar** → See useful info like time, battery level, and current session name. (You can find keys and do not try to remeber short-cuts everytime)
+
+---
+
+## Installing Zellij on Linux
+
+You can install Zellij using your distro’s package manager:
+
+```bash
+sudo apt install zellij         # Debian, Ubuntu, Mint
+sudo sudo snap install zellij --classic #For newer Ubuntu distros 
+sudo dnf install zellij         # RHEL, CentOS, Fedora, Rocky, AlmaLinux
+sudo emerge -a sys-apps/zellij  # Gentoo
+sudo apk add zellij             # Alpine
+sudo pacman -S zellij           # Arch Linux
+sudo zypper install zellij      # OpenSUSE
+sudo pkg install zellij         # FreeBSD
+```
+
+If you can’t find a package, download the latest binary:
+
+```bash
+wget https://github.com/zellij-org/zellij/releases/download/v0.41.2/zellij-x86_64-unknown-linux-musl.tar.gz
+tar -xvf zellij-x86_64-unknown-linux-musl.tar.gz
+chmod +x zellij
+./zellij
+```
+
+To make it available system-wide:
+
+```bash
+sudo mv zellij /usr/local/bin/
+```
+
+### Install via Cargo
+
+If you have Rust installed, you can get Zellij with Cargo:
+
+```bash
+cargo install zellij
+```
+
+You can find latest relase here   [Zellij-v0.41.2](https://github.com/zellij-org/zellij/releases/tag/v0.41.2) 
+
+### Run Zellij Without Installing
+
+If you just wanna try it without installing:
+
+```bash
+bash <(curl -L https://zellij.dev/launch)           # Bash/Zsh
+bash (curl -L https://zellij.dev/launch | psub)     # Fish
+```
+
+---
+
+##  Getting Started
+
+Once installed, just run:
+
+```bash
+zellij
+```
+
+![zellij][1]
+
+You'll get an option to choose keybinding modes. If you're new, stick with **Default Mode** since it’s simpler.
+
+![zellij][2]
+
+### Basic Commands
+
+- **New Pane** → `Ctrl + p` then `n`
+- **Rename Selected Pane** → `Ctrl + p` then `c`
+
+![zellij][3]
+
+- **Switch Pane** → `Ctrl + p` then arrow keys
+- **Resize Pane** → `Ctrl + n` then arrow keys (For extend) or `+|-` , or  `HJKL` 
+
+![zellij][4]
+
+- **Close Pane** → `Ctrl + o` then `x`
+- **New Tab** → `Ctrl + t` then `n`
+- **Switch Tabs** → `Ctrl + t` then arrow keys
+
+![zellij][5]
+
+
+- **Session Manager** → `Ctrl + 0` then `w`
+
+![zellij][6]
+
+- You can list your sessions
+```bash
+zellij ls 
+```
+
+- You attach your session
+```bash
+zellij a 
+```
+
+![zellij][7]
+
+---
+
+## Using Layouts
+
+Layouts are text files that define an arrangement of Zellij panes and tabs.
+You can create your own by editing `.kdl` files (Zellij uses **KDL** format for configs).
+
+Example:
+
+```bash
+// layout_file.kdl
+
+layout {
+    pane
+    pane split_direction="vertical" {
+        pane
+        pane command="htop"
+    }
+}
+```
+
+- Applying a Layout
+
+A layout can be applied when Zellij starts:
+
+```bash
+zellij --layout /path/to/layout_file.kdl
+```
+
+- Or by setting it up in the configuration.
+  A layout can also be applied inside a running session with the same command:
+
+```bash
+zellij --layout /path/to/layout_file.kdl
+```
+
+- In this case, Zellij will start this layout as one or more new tabs in the current session.
+
+- A layout can also be applied from a remote URL:
+
+```bash
+zellij --layout https://example.com/layout_file.kdl
+```
+
+- For security reasons, remote layouts will have all their commands suspended behind a Waiting ro run <command> banner - prompting the user to run each one.
+
+
+![zellij][8]
+
+![zellij][9]
+
+
+Note:
+## Layout default directory
+- By default Zellij will load the default.kdl layout, found in the layouts directory (a subdirectory of the config directory [config/layouts]).
+- If not found, Zellij will start with one pane and one tab.
+- Layouts residing in the default directory can be accessed by their bare name:
+
+```bash
+zellij --layout [layout_name]
+```
+
+---
+
+## Managing Sessions
+
+Zellij lets you manage multiple sessions like other multiplexers.
+
+List active sessions:
+
+```bash
+zellij list-sessions
+```
+
+Attach to a session:
+
+```bash
+zellij attach session_name
+```
+
+---
+
+## Customizing Zellij
+
+Config file is at:
+
+```bash
+~/.config/zellij/config.kdl
+```
+
+To change prefix keybinding from `Ctrl + o` to `Ctrl + b`, add this:
+
+```kdl
+keybind {
+    prefix "Ctrl-b"
+}
+```
+
+---
+
+## Plugins & Extensions
+
+Zellij has a **plugin system**, allowing you to extend functionality. Plugins can be written in any language and interact via the Zellij API.
+
+### Popular Plugins
+
+- **Status Bar** → Shows CPU, memory, battery, etc.
+- **File Picker** → Browse & open files inside Zellij.
+- **Tab Manager** → Improve tab navigation.
+
+---
+
+##  Conclusion
+
+Zellij is a modern alternative to tmux and screen, making it easier to manage terminal sessions. With intuitive keybindings, layouts, and plugin support, it’s a great tool for developers, sysadmins, and power users.
+
+Give it a shot and level up your terminal game! 🚀
+
+
+
+---
+
+
+
+* * *
+
+---
+
+Thanks for reading...
+
+---
+
+---
+
+---
+
+---
+
+> :+1: :+1: :+1: :+1: :+1: :+1: :+1: :+1:
+
+---
+
+Guneycan Sanli.
+
+---
+
+[1]: ../assets/images/zellij/zelli-1.jpg
+[2]: ../assets/images/zellij/zelli-2.jpg
+[3]: ../assets/images/zellij/zelli-3.jpg
+[4]: ../assets/images/zellij/zelli-4.jpg
+[5]: ../assets/images/zellij/zelli-5.jpg
+[6]: ../assets/images/zellij/zelli-6.jpg
+[7]: ../assets/images/zellij/zelli-7.jpg
+[8]: ../assets/images/zellij/zelli-8.jpg
+[9]: ../assets/images/zellij/zelli-9.jpg
+
+
+
