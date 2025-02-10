@@ -10,7 +10,8 @@ tag:
     - Terminal-Multiplexer
 category: blog
 author: guneycansanli
-description: Zellij: A Modern Terminal Multiplexer for Linux
+description: Zellij A Modern Terminal Multiplexer for Linux
+
 ---
 
 # Zellij - A Fresh Take on Terminal Multiplexing
@@ -282,15 +283,15 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/zellij/zelli-1.jpg
-[2]: ../assets/images/zellij/zelli-2.jpg
-[3]: ../assets/images/zellij/zelli-3.jpg
-[4]: ../assets/images/zellij/zelli-4.jpg
-[5]: ../assets/images/zellij/zelli-5.jpg
-[6]: ../assets/images/zellij/zelli-6.jpg
-[7]: ../assets/images/zellij/zelli-7.jpg
-[8]: ../assets/images/zellij/zelli-8.jpg
-[9]: ../assets/images/zellij/zelli-9.jpg
+[1]: ../assets/images/zellij/zellij-1.jpg
+[2]: ../assets/images/zellij/zellij-2.jpg
+[3]: ../assets/images/zellij/zellij-3.jpg
+[4]: ../assets/images/zellij/zellij-4.jpg
+[5]: ../assets/images/zellij/zellij-5.jpg
+[6]: ../assets/images/zellij/zellij-6.jpg
+[7]: ../assets/images/zellij/zellij-7.jpg
+[8]: ../assets/images/zellij/zellij-8.jpg
+[9]: ../assets/images/zellij/zellij-9.jpg
 
 
 
