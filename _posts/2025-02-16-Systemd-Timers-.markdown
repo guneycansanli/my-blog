@@ -89,12 +89,33 @@ Systemd timers use a structured time format:
 
 ### Example Expressions
 
-| Schedule                                                | Systemd Timer Expression | Description |
-| --------------------------------------------------------| ------------------------ | ------------|
-| Every 10 minutes | *-*-* *:0/10:00      | Runs every 10 minutes  |
-| Every Monday at 8 AM| Mon *-*-* 08:00:00	      | Runs every Monday at 8 AM   |
-| First of every month| *-*-01 00:00:00      | Runs at midnight on the 1st of each month   |
-| Every weekday at noon| Mon..Fri *-*-* 12:00:00      | Runs at noon from Monday to Friday  |
+<table style="border-collapse: collapse; width: 100%;">
+  <tr style="background-color: #4CAF50; color: white;">
+    <th style="border: 1px solid black; padding: 8px;">Schedule</th>
+    <th style="border: 1px solid black; padding: 8px;">Systemd Timer Expression</th>
+    <th style="border: 1px solid black; padding: 8px;">Description</th>
+  </tr>
+  <tr style="background-color: #e7f7ff;">
+    <td style="border: 1px solid black; padding: 8px;">Every 10 minutes</td>
+    <td style="border: 1px solid black; padding: 8px;"><code>*-*-* *:0/10:00</code></td>
+    <td style="border: 1px solid black; padding: 8px;">Runs every 10 minutes</td>
+  </tr>
+  <tr style="background-color: #e7f7ff;">
+    <td style="border: 1px solid black; padding: 8px;">Every Monday at 8 AM</td>
+    <td style="border: 1px solid black; padding: 8px;"><code>Mon *-*-* 08:00:00</code></td>
+    <td style="border: 1px solid black; padding: 8px;">Runs every Monday at 8 AM</td>
+  </tr>
+  <tr style="background-color: #e7f7ff;">
+    <td style="border: 1px solid black; padding: 8px;">First of every month</td>
+    <td style="border: 1px solid black; padding: 8px;"><code>*-*-01 00:00:00</code></td>
+    <td style="border: 1px solid black; padding: 8px;">Runs at midnight on the 1st of each month</td>
+  </tr>
+  <tr style="background-color: #e7f7ff;">
+    <td style="border: 1px solid black; padding: 8px;">Every weekday at noon</td>
+    <td style="border: 1px solid black; padding: 8px;"><code>Mon..Fri *-*-* 12:00:00</code></td>
+    <td style="border: 1px solid black; padding: 8px;">Runs at noon from Monday to Friday</td>
+  </tr>
+</table>
 
 
 ## Creating a Systemd Timer
