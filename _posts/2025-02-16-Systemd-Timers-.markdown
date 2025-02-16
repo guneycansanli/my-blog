@@ -5,9 +5,9 @@ date: 2025-02-16 12:20
 image: ../assets/images/systemdtimer/main.jpg
 headerImage: true
 tag:
-    - efk
-    - k8s
-    - logging
+    - linux
+    - cron
+    - systemd
 category: blog
 author: guneycansanli
 description: Use Systemd Timers Instead of Cronjobs
@@ -183,7 +183,7 @@ Systemd timers provide a robust, flexible alternative to cron jobs with better l
 
 ---
 
-
+You can also check out this article: [https://coady.tech/systemd-timer-vs-cron/)](https://coady.tech/systemd-timer-vs-cron/)
 
 * * *
 
