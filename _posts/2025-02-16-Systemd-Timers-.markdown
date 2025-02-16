@@ -214,7 +214,7 @@ Guneycan Sanli.
 [5]: ../assets/images/systemdtimer/timer5.jpg
 [6]: ../assets/images/systemdtimer/timer6.jpg
 [7]: ../assets/images/systemdtimer/timer7.jpg
-[8]: ../assets/images/systemdtimer/timer8.jpg
+[8]: ../assets/images/systemdtimer/timer-8.jpg
 
 
 
