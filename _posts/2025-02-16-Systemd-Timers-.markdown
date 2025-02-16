@@ -58,15 +58,15 @@ Systemd timers consist of two main unit files:
 1. Timer Unit File – Defines when a task should run.
 2. Service Unit File – Specifies what task should be executed.
 
-For example, to run a backup script daily:
+For example, to run a Memory check script every minutes:
  - A service file defines the backup script execution.
  - A timer file schedules the service execution at a specific time.
 
 You can control timers using standard systemctl commands:
 
 ```sh
-systemctl start mytimer.timer  
-systemctl stop mytimer.timer  
+systemctl start mytimer.service  
+systemctl stop mytimer.service
 systemctl enable mytimer.timer  
 systemctl status mytimer.timer  
 ```
