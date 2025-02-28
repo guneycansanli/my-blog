@@ -130,13 +130,10 @@ Guneycan Sanli.
 ---
 
 [1]: ../assets/images/siab/siab-1.jpg
-[2]: ../assets/images/systemdtimer/timer2.jpg
-[3]: ../assets/images/systemdtimer/timer3.jpg
-[4]: ../assets/images/systemdtimer/timer4.jpg
-[5]: ../assets/images/systemdtimer/timer5.jpg
-[6]: ../assets/images/systemdtimer/timer6.jpg
-[7]: ../assets/images/systemdtimer/timer7.jpg
-[8]: ../assets/images/systemdtimer/timer-8.jpg
+[2]: ../assets/images/siab/siab-2.jpg
+[3]: ../assets/images/siab/siab-3.jpg
+[4]: ../assets/images/siab/siab-4.jpg
+[5]: ../assets/images/siab/siab-5.jpg
 
 
 
