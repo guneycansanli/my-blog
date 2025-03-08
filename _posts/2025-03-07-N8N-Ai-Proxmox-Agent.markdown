@@ -68,8 +68,8 @@ https://your-proxmox-ip:8006
 
 ![n8n-prx2][4]
 
-2. Also We need to udpate AI Agent text and Train our AI agent how it should process and which urls it should use 
-3. Example:
+- Also We need to udpate AI Agent text and Train our AI agent how it should process and which urls it should use 
+- Example:
 
 ```bash
 #You are a Proxmox AI Agent expert designed to generate API commands based on user input. 
