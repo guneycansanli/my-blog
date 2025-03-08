@@ -97,15 +97,15 @@ NOTE: Plase check **AI Agent** and edit for your requirements. AI agent will be 
 
 ![n8n-prx2][7]
 
-4. Here is example I can chat with AI agent and It tells me all running VMs overview.
+- Here is example I can chat with AI agent and It tells me all running VMs overview.
 
 ![n8n-prx2][8]
 
-5. List all Proxmox server users  
+- List all Proxmox server users  
 
 ![n8n-prx2][9]
 
-6. Overview of Proxmox server.
+- Overview of Proxmox server.
 
 ![n8n-prx2][10]
 
