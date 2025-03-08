@@ -58,7 +58,7 @@ https://your-proxmox-ip:8006
 
 ![n8n-prx2][2]
 
-6. Here is the how it should look like.
+**Here is the how it should look like.**
 
 ![n8n-prx2][3]
 
