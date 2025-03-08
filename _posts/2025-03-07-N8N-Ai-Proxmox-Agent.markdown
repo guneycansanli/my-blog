@@ -79,14 +79,15 @@ https://your-proxmox-ip:8006
 
 ```
 
-4. Plase check **AI Agent** and edit for your requirements. AI agent will be main component to manage all workflow, You can use also diffrent AI Model since Gemini is free to ues I will use Gemini. 
-5. Edit your HTTP request and use your proxmox server credential.
+NOTE: Plase check **AI Agent** and edit for your requirements. AI agent will be main component to manage all workflow, You can use also diffrent AI Model since Gemini is free to ues I will use Gemini. 
+
+- Edit your HTTP request and use your proxmox server credential.
 
 ![n8n-prx2][5]
 
 ![n8n-prx2][6]
 
-6. You may need to create new credential.
+- You may need to create new credential.
 
 ### Testing Workflow
 
