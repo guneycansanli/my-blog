@@ -33,7 +33,6 @@ Ensure you have the following before proceeding:
 ```bash
 https://your-proxmox-ip:8006  
 ```
-
 2. Log in with your root credentials.
 3. In the left sidebar, click on Datacenter.
 4. Go to the **Permissions** tab.
@@ -52,7 +51,7 @@ https://your-proxmox-ip:8006
 ### Import Template Workflow to n8n
 
 1. You can download or copy the workflow to your PC and save it as **json** file. 
-2. In **n8n** clict **+** icon and create new workflow.
+2. In **n8n** click **+** icon and create new workflow.
 3. Click **...** next to **save** button and import your file.
 4. You can also directly use templae URL to import any template workflow.
 5. Once you importat the template You will be able see nodes. 
@@ -71,14 +70,13 @@ https://your-proxmox-ip:8006
 
 2. Also We need to udpate AI Agent text and Train our AI agent how it should process and which urls it should use 
 3. Example:
-```bash
-You are a Proxmox AI Agent expert designed to generate API commands based on user input. 
-This is Proxmox which will help you to get the details of existing Proxmox installations, ensure to append to existing url : https://192.168.1.11:8006/api2/ to get response from existing proxmox 
 
-My prommox nodes are named as pve
-pve : https://192.168.1.11:8006/api2/
-.
-.
+```bash
+#You are a Proxmox AI Agent expert designed to generate API commands based on user input. 
+#This is Proxmox which will help you to get the details of existing Proxmox installations, ensure to append to existing url : https://192.168.1.11:8006/api2/ to #get response from existing proxmox 
+#My prommox nodes are named as pve
+#pve : https://192.168.1.11:8006/api2/
+
 ```
 
 4. Plase check **AI Agent** and edit for your requirements. AI agent will be main component to manage all workflow, You can use also diffrent AI Model since Gemini is free to ues I will use Gemini. 
