@@ -5,8 +5,9 @@ date: 2025-03-07 12:20
 image: ../assets/images/n8n-prx/main.jpg
 headerImage: true
 tag:
-    - linux
-    - shell
+    - n8n
+    - proxmox
+    - ai-agent
 category: blog
 author: guneycansanli
 description: Integrating n8n AI Agent with Proxmox for Server Management
