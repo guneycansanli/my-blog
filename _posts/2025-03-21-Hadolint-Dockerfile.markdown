@@ -10,7 +10,7 @@ tag:
     - best-practise
 category: blog
 author: guneycansanli
-description: Hadolint: Step-by-Step Guide to Linting Dockerfiles
+description: Hadolint Step-by-Step Guide to Linting Dockerfiles
 ---
 
 ## What is Hadolint?
