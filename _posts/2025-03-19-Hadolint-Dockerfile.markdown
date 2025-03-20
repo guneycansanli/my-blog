@@ -67,7 +67,6 @@ Run Hadolint against your Dockerfile:
 
 ```bash
 hadolint Dockerfile
-
 ```
 
 ### Example Dockerfile (Unoptimized)
@@ -83,7 +82,6 @@ RUN apt-get install -y curl
 
 ```bash
 hadolint Dockerfile
-
 ```
 
 Hadolint will output warnings and errors if any exist.
@@ -126,7 +124,6 @@ If you want to ignore a specific rule (e.g., DL3008):
 
 ```bash
 hadolint --ignore DL3008 Dockerfile
-
 ```
 
 ## Using hadolint.yaml Configuration
@@ -144,14 +141,12 @@ trustedRegistries:
   - docker.io
   - "*.gcr.io"
   - "*.ecr.amazonaws.com"
-
 ```
 
 Run Hadolint with the configuration file:
 
 ```bash
 hadolint --config .hadolint.yaml Dockerfile
-
 ```
 
 ![hadolint][5]
@@ -164,7 +159,6 @@ You can Add Hadolint as a linting step in your CI/CD pipeline:
 
 ```bash
 hadolint Dockerfile || exit 1
-
 ```
 
 This will fail the pipeline if the Dockerfile contains critical issues.
@@ -177,7 +171,6 @@ If you don't want to install Hadolint, you can run it using Docker:
 
 ```bash
 docker run --rm -i hadolint/hadolint < Dockerfile
-
 ```
 
 ![hadolint][7]
