@@ -35,28 +35,24 @@ Hadolint is an open-source command-line tool for linting Dockerfiles. It helps i
 wget -O hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
 sudo mv hadolint /usr/local/bin/hadolint
 sudo chmod +x /usr/local/bin/hadolint
-
 ```
 
 ### Install on Mac
 
 ```bash
 brew install hadolint
-
 ```
 
 ### Install on Windows
 
 ```bash
 scoop install hadolint
-
 ```
 
 ### Verify Installation
 
 ```bash
 hadolint --version
-
 ```
 
 ![hadolint][1]
