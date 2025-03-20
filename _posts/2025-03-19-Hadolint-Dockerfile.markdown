@@ -159,7 +159,6 @@ hadolint Dockerfile || exit 1
 
 This will fail the pipeline if the Dockerfile contains critical issues.
 
-- You may need to create new credential.
 
 ## Running Hadolint with Docker
 
