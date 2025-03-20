@@ -223,7 +223,7 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/hadolint/hadolint-1.jpg
+[1]: ../assets/images/hadolint/hadolint-1-1.jpg
 [2]: ../assets/images/hadolint/hadolint-2.jpg
 [3]: ../assets/images/hadolint/hadolint-3.jpg
 [4]: ../assets/images/hadolint/hadolint-4.jpg
