@@ -2,7 +2,7 @@
 title: "Hadolint: Step-by-Step Guide to Linting Dockerfiles"
 layout: post
 date: 2025-03-21 12:20
-image: ../assets/images/hantolint/main.jpg
+image: ../assets/images/hadolint/main.jpg
 headerImage: true
 tag:
     - docker
@@ -47,7 +47,7 @@ brew install hadolint
 
 ### Install on Windows
 
-```powershell
+```bash
 scoop install hadolint
 
 ```
@@ -58,6 +58,8 @@ scoop install hadolint
 hadolint --version
 
 ```
+
+![hadolint][1]
 
 ## Linting Dockerfiles Using Hadolint
 
@@ -86,6 +88,22 @@ hadolint Dockerfile
 
 Hadolint will output warnings and errors if any exist.
 
+![hadolint][2]
+
+- You can see output and Hadolint recommends couple things We can make Dockerfile better/best practises. 
+- Hadolint reads Dockerfile and analysis Dockefile. There are rules that Hadolint follow You can find rules [Hadolint Rules](https://github.com/hadolint/hadolint/tree/master/src/Hadolint/Rule?ref=devopscube.com) 
+
+Hadolint ouput includes:  
+- **🔹 Info**: Provides general suggestions for improvement. These are minor recommendations that can enhance the quality but are not critical.  
+- **🎨 Style**: Focuses on formatting and structure, such as proper indentation, line length, and readability improvements.  
+- **⚠️ Warning**: Highlights less critical issues, including minor security concerns and areas needing improvement.  
+- **❌ Error**: Represents severe issues, potentially indicating security vulnerabilities or major violations of best practices. These must be addressed immediately.  
+
+![hadolint][3]
+
+- If you check the exit code, you will get a non-zero exit code after your Dockerfile checks.
+
+
 ### Optimized Dockerfile
 
 ```dockerfile
@@ -95,9 +113,12 @@ RUN apt-get update && \
     apt-get install -y curl=8.4.0 --no-install-recommends && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-CMD ["echo", "Hello, world!"]
-
 ```
+
+![hadolint][4]
+
+- You can see above exmaple after I implement handolint recommendations new scan's exit code shows **0**
+
 
 ## Ignoring Rules in Hadolint
 
@@ -122,6 +143,7 @@ override:
 trustedRegistries:
   - docker.io
   - "*.gcr.io"
+  - "*.ecr.amazonaws.com"
 
 ```
 
@@ -132,10 +154,13 @@ hadolint --config .hadolint.yaml Dockerfile
 
 ```
 
+![hadolint][5]
+
+![hadolint][6]
 
 ## Integrating Hadolint in CI/CD Pipelines
 
-Add Hadolint as a linting step in your CI/CD pipeline:
+You can Add Hadolint as a linting step in your CI/CD pipeline:
 
 ```bash
 hadolint Dockerfile || exit 1
@@ -155,6 +180,7 @@ docker run --rm -i hadolint/hadolint < Dockerfile
 
 ```
 
+![hadolint][7]
 
 ## Hadolint Online Version
 
@@ -208,16 +234,14 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/
-[2]: ../assets/images/
-[3]: ../assets/images/
-[4]: ../assets/images/
-[5]: ../assets/images/
-[6]: ../assets/images/
-[7]: ../assets/images/
-[8]: ../assets/images/
-[9]: ../assets/images/
-[10]: ../assets/images/
+[1]: ../assets/images/hadolint/hadolint-1.jpg
+[2]: ../assets/images/hadolint/hadolint-2.jpg
+[3]: ../assets/images/hadolint/hadolint-3.jpg
+[4]: ../assets/images/hadolint/hadolint-4.jpg
+[5]: ../assets/images/hadolint/hadolint-5.jpg
+[6]: ../assets/images/hadolint/hadolint-6.jpg
+[7]: ../assets/images/hadolint/hadolint-7.jpg
+
 
 
 
