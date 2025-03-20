@@ -2,7 +2,7 @@
 title: "Hadolint: Step-by-Step Guide to Linting Dockerfiles"
 layout: post
 date: 2025-03-19 12:20
-image: ../assets/images/hadolint/main.jpg
+image: ../assets/images/hadolint/main-h.jpg
 headerImage: true
 tag:
     - docker
