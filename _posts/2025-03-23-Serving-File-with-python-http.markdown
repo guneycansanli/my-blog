@@ -2,7 +2,7 @@
 title: "Serving Files with Python's SimpleHTTPServer"
 layout: post
 date: 2025-03-23 12:20
-image: ../assets/images/fileserver/main.jpg
+image: ../assets/images/file-server/main.jpg
 headerImage: true
 tag:
     - python
