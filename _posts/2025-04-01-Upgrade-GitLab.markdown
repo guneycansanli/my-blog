@@ -177,12 +177,15 @@ Guneycan Sanli.
 
 ---
 
-[1]: ../assets/images/file-server/file-1.jpg
-[2]: ../assets/images/file-server/file-2.jpg
-[3]: ../assets/images/file-server/file-3.jpg
-[4]: ../assets/images/file-server/file-4.jpg
-[5]: ../assets/images/file-server/file-5.jpg
-[6]: ../assets/images/file-server/file-6.jpg
+[0]: ../assets/images/gitlab-upgrade/gitlab-0.jpg
+[1]: ../assets/images/gitlab-upgrade/gitlab-1.jpg
+[2]: ../assets/images/gitlab-upgrade/gitlab-2.jpg
+[3]: ../assets/images/gitlab-upgrade/gitlab-3.jpg
+[4]: ../assets/images/gitlab-upgrade/gitlab-4.jpg
+[5]: ../assets/images/gitlab-upgrade/gitlab-5.jpg
+[6]: ../assets/images/gitlab-upgrade/gitlab-6.jpg
+[7]: ../assets/images/gitlab-upgrade/gitlab-7.jpg
+[8]: ../assets/images/gitlab-upgrade/gitlab-8.jpg
 
 
 
