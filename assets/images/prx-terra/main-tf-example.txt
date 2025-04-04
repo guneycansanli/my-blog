@@ -1,0 +1,57 @@
+terraform {
+  required_providers {
+    proxmox = {
+      source  = "telmate/proxmox"
+      # Optionally specify a version constraint
+      # version = "2.9.14"
+    }
+  }
+}
+
+provider "proxmox" {
+  pm_api_url          = var.pm_api_url
+  pm_api_token_id     = var.pm_api_token_id
+  pm_api_token_secret = var.pm_api_token_secret
+  pm_tls_insecure     = true # Set to false if you have valid TLS certificates
+}
+
+resource "proxmox_lxc" "debian_container" {
+  count        = var.lxc_count
+  hostname     = "lxc-debian-${count.index + 1}"
+  target_node  = var.node_name
+  vmid         = 2000 + count.index # Ensure unique VMIDs, adjust starting number if needed
+  ostemplate   = "local:vztmpl/${var.lxc_template}" # Assumes template is on 'local' storage in 'vztmpl' format
+  cores        = var.lxc_cores
+  memory       = var.lxc_memory
+  password     = var.lxc_password # Set a secure password
+  unprivileged = true
+  onboot       = true
+  start        = true
+
+  # Network Interface (Example using DHCP on vmbr0)
+  network {
+    name   = "eth0"
+    bridge = "vmbr0" # Replace with your Proxmox bridge name
+    ip     = "dhcp"
+  }
+
+  # Root Filesystem
+  rootfs {
+    storage = "local-lvm" # Replace with your desired storage pool for the root disk
+    size    = "8G"        # Adjust size as needed
+  }
+
+  # Optional: Add SSH keys for easier access
+  # ssh_public_keys = var.ssh_public_keys
+
+  # Optional: Mount points
+  # mountpoint {
+  #   key     = "mp0"
+  #   mp      = "/mnt/data"
+  #   storage = "storage-pool-name" # Name of your storage for the mount point
+  #   size    = "10G"
+  #   volume  = "subvol-${count.index + 1}-data" # Or specify volume path
+  # }
+
+  tags = "terraform;debian"
+}

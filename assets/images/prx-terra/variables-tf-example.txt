@@ -1,0 +1,59 @@
+variable "pm_api_url" {
+  description = "The API URL for your Proxmox server (e.g., https://proxmox-ip:8006/api2/json)."
+  type        = string
+  # sensitive   = true # Uncomment if you store this in version control without tfvars
+}
+
+variable "pm_api_token_id" {
+  description = "The Proxmox API Token ID (e.g., user@pam!tokenid)."
+  type        = string
+  # sensitive   = true # Uncomment if you store this in version control without tfvars
+}
+
+variable "pm_api_token_secret" {
+  description = "The secret associated with the Proxmox API Token."
+  type        = string
+  sensitive   = true # Always mark secrets as sensitive
+}
+
+variable "node_name" {
+  description = "The name of the Proxmox node where the LXC container will be created."
+  type        = string
+}
+
+variable "lxc_template" {
+  description = "The filename of the LXC template to use (must be available on the target node's storage)."
+  type        = string
+  default     = "debian-12-standard_12.7-1_amd64.tar.zst"
+}
+
+variable "lxc_count" {
+  description = "The number of LXC containers to create."
+  type        = number
+  default     = 1
+}
+
+variable "lxc_cores" {
+  description = "Number of CPU cores for the LXC container."
+  type        = number
+  default     = 1
+}
+
+variable "lxc_memory" {
+  description = "Amount of RAM in MB for the LXC container."
+  type        = number
+  default     = 512
+}
+
+variable "lxc_password" {
+  description = "Password for the root user inside the LXC container."
+  type        = string
+  sensitive   = true
+}
+
+# Optional: Add a variable for SSH keys
+variable "ssh_public_keys" {
+  description = "SSH public keys to install in the container for root access."
+  type        = string
+  default     = "" # Add your public key here or load from a file
+}

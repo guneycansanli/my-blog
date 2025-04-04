@@ -31,6 +31,9 @@ Before you begin, ensure you have the following set up:
 4.  **LXC Template**: The necessary LXC template file downloaded onto your Proxmox node's designated storage (e.g., `local` storage). This guide uses: `debian-12-standard_12.7-1_amd64.tar.zst`.
 5.  **Git (Optional)**: Useful for version controlling your Terraform configuration.
 
+
+You can find out terraform files (main.tf and variables.tf) [here](https://github.com/guneycansanli/my-blog/tree/main/assets/images/prx-terra)
+
 ## The Setup Process
 
 ### Step 1: Obtain the Terraform Files
