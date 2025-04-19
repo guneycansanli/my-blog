@@ -225,13 +225,13 @@ If zombie processes accumulate and their parent is already dead or misbehaving, 
 
 ## Bonus: Commands Cheat Sheet
 
-| Action | Command |
-|--------|---------|
-| List zombies | `ps aux | grep Z` |
-| Find zombie parent | `ps -o ppid= -p <Zombie_PID>` |
-| Signal parent | `kill -s SIGCHLD <Parent_PID>` |
-| Force kill parent | `kill -9 <Parent_PID>` |
-| Reboot system | `sudo reboot` |
+| Action                  | Command                                |
+|-------------------------|----------------------------------------|
+| List zombies            | `ps aux | grep Z`                      |
+| Find zombie parent      | `ps -o ppid= -p <Zombie_PID>`          |
+| Signal parent           | `kill -s SIGCHLD <Parent_PID>`         |
+| Force kill parent       | `kill -9 <Parent_PID>`                 |
+| Reboot system           | `sudo reboot`                          |
 
 ---
 
