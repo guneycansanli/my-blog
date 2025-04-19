@@ -235,7 +235,7 @@ If zombie processes accumulate and their parent is already dead or misbehaving, 
 
 ---
 
-Thanks for diving into this creepy (but important!) topic. 🧟‍♂️ Got questions or want real-life examples? Drop them below!
+Thanks for reading!
 
 —
 
