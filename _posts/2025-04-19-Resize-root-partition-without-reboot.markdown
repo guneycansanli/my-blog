@@ -1,7 +1,7 @@
 ---
 title: "Resize Linux Root Partition on a Live System Without Rebooting"
 layout: post
-date: 2025-04-18 16:00
+date: 2025-04-19 11:00
 image: ../assets/images/resize-root/main.jpg
 headerImage: true
 tag:
