@@ -2,7 +2,7 @@
 title: "Zombie Processes in Linux What They Are and How to Prevent Them"
 layout: post
 date: 2025-04-19 15:00
-image: ../assets/images/zombies/main.jpg
+image: ../assets/images/zombie/main.jpg
 headerImage: true
 tag:
     - linux
@@ -241,5 +241,5 @@ Thanks for diving into this creepy (but important!) topic. 🧟‍♂️ Got que
 
 **Guneycan Sanli**
 
-[1]: ../assets/images/zombie/zombie-1.jpg
+[1]: ../assets/images/zombie/zombie1.jpg
 [2]: ../assets/images/zombie/zombie-2.jpg
