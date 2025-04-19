@@ -107,10 +107,10 @@ sudo parted /dev/XXX
 (parted) print
 ```
 
-### Resize Partition 1
+### Resize Partition 2 (/ is partition 2 in my system)
 
 ```bash
-(parted) resizepart 1 100%
+(parted) resizepart 2 100%
 ```
 
 >  `resizepart` is available in `parted 3.0+`. If you see `resize has been removed`, you’re using an outdated or incompatible version.
