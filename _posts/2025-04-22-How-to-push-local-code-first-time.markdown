@@ -1,7 +1,7 @@
 ---
 title: "How to Push a Local Project to a New GitLab Repository"
 layout: post
-date: 2025-04-22 15:00
+date: 2025-04-22 11:00
 image: ../assets/images/gitlab-code/main.jpg
 headerImage: true
 tag:
@@ -113,11 +113,11 @@ If you're using a **self-hosted GitLab** instance where basic authentication is 
 If you encounter the following error when attempting to push your code:
 
 ```bash
-! [rejected]        main -> main (non-fast-forward)
-error: failed to push some refs to 'http://192.168.1.171/guneycansanli/fast-api-ai.git'
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Integrate the remote changes (e.g.
-hint: 'git pull ...') before pushing again.
+    ! [rejected]        main -> main (non-fast-forward)
+    error: failed to push some refs to 'http://192.168.1.171/guneycansanli/fast-api-ai.git'
+    hint: Updates were rejected because the tip of your current branch is behind
+    hint: its remote counterpart. Integrate the remote changes (e.g.
+    hint: 'git pull ...') before pushing again.
 ```
 
 This error occurs when your local branch is behind the remote branch. To resolve it, follow these steps:
