@@ -1,7 +1,7 @@
 ---
 title: "How to Push a Local Project to a New GitLab Repository"
 layout: post
-date: 2025-04-22 11:00
+date: 2025-04-21 11:00
 image: ../assets/images/gitlab-code/main.jpg
 headerImage: true
 tag:
