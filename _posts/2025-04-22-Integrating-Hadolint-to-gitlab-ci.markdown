@@ -1,7 +1,7 @@
 ---
-title: "How to Push a Local Project to a New GitLab Repository"
+title: "Integrating Hadolint into GitLab CI/CD for Merge Request Linting"
 layout: post
-date: 2025-04-22 11:00
+date: 2025-04-23 11:00
 image: ../assets/images/gitlab-hadolint/main.jpg
 headerImage: true
 tag:
@@ -11,7 +11,7 @@ tag:
     - docker
 category: blog
 author: guneycansanli
-description: How to Push a Local Project to a New GitLab Repository
+description:  Integrating Hadolint into GitLab CI/CD for Merge Request Linting
 ---
 
 # Step-by-Step Guide: Integrating Hadolint into GitLab CI/CD for Merge Request Linting
@@ -209,5 +209,9 @@ Thanks for reading!
 
 
 
-[1]: ../assets/images/zombie/zombie1.jpg
-[2]: ../assets/images/zombie/zombie-2.jpg
+[1]: ../assets/images/gitlab-hadolint/hado-ci-1.jpg
+[2]: ../assets/images/gitlab-hadolint/hado-ci-2.jpg
+[3]: ../assets/images/gitlab-hadolint/hado-ci-3.jpg
+[4]: ../assets/images/gitlab-hadolint/hado-ci-4.jpg
+[5]: ../assets/images/gitlab-hadolint/hado-ci-5.jpg
+[6]: ../assets/images/gitlab-hadolint/hado-ci-6.jpg
