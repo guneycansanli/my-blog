@@ -209,7 +209,7 @@ Thanks for reading!
 
 
 
-[1]: ../assets/images/gitlab-hadolint/hado-ci-1.jpg
+[1]: ../assets/images/gitlab-hadolint/hado-ci-1-1.jpg
 [2]: ../assets/images/gitlab-hadolint/hado-ci-2.jpg
 [3]: ../assets/images/gitlab-hadolint/hado-ci-3.jpg
 [4]: ../assets/images/gitlab-hadolint/hado-ci-4.jpg
