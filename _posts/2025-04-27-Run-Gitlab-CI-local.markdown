@@ -136,7 +136,7 @@ You will see logs indicating successful execution inside a Docker container.
 
 ### 4.1 Install (Specific Version)
 
-This feature deprecaetd with newer gitlab verisons : [https://gitlab.com/gitlab-org/gitlab/-/issues/385235](https://gitlab.com/gitlab-org/gitlab/-/issues/385235)
+This feature deprecated with newer gitlab versions : [https://gitlab.com/gitlab-org/gitlab/-/issues/385235](https://gitlab.com/gitlab-org/gitlab/-/issues/385235)
 
 Download GitLab Runner 13.3.0:
 
