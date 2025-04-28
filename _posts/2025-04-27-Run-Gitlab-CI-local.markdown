@@ -188,7 +188,7 @@ Thanks for reading!
 
 [1]: ../assets/images/gitlab-ci-local/ci-1.jpg
 [2]: ../assets/images/gitlab-ci-local/ci-2.jpg
-[3]: ../assets/images/gitlab-ci-local/ci-3.jpg
+[3]: ../assets/images/gitlab-ci-local/ci-3-3.jpg
 [4]: ../assets/images/gitlab-ci-local/ci-4.jpg
 [5]: ../assets/images/gitlab-ci-local/ci-5.jpg
 
