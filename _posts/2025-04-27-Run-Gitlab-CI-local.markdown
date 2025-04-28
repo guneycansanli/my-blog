@@ -18,7 +18,7 @@ description: Running GitLab CI Jobs Locally
 
 ## 1. Introduction
 
-Testing code before deploying is critical. GitLab CI/CD usually runs jobs on remote servers, but it’s often useful to execute them locally during development. As I Gitlab User/Learner I was looking for a simple way to etst my CI (gitlab-ci.yaml) without pushing any code to to repository.
+Testing code before deploying is critical. GitLab CI/CD usually runs jobs on remote servers, but it’s often useful to execute them locally during development. As a Gitlab User/Learner I was looking for a simple way to etst my CI (gitlab-ci.yaml) without pushing any code to to repository.
 This guide shows how to run GitLab CI pipelines on your own machine.
 ---
 
