@@ -234,6 +234,6 @@ Thanks for reading!
 
 
 [1]: ../assets/images/docker-multi-stage/multi-1.jpg
-[2]: ../assets/images/docker-multi-stage/multi-2.jpg
+[2]: ../assets/images/docker-multi-stage/multi-2-2.jpg
 [3]: ../assets/images/docker-multi-stage/multi-3.jpg
 
