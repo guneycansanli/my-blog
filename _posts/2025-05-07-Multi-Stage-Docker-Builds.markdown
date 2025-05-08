@@ -75,20 +75,33 @@ You can see my image is **1.09GB**
 Create a new file: `Dockerfile`
 
 ```dockerfile
+# First stage: build
 FROM node:18 AS builder
 
 WORKDIR /app
+
+# Copy only package files first for better caching
 COPY package*.json ./
+
+# Install all dependencies
 RUN npm install
+
+# Copy the rest of the application
 COPY . .
 
+# Run the build script
+RUN npm run build
+
+# Second stage: production image
 FROM node:18-slim
 
 WORKDIR /app
-COPY --from=builder /app ./
-RUN npm install --only=production
 
-CMD ["node", "index.js"]
+# Copy built app and node_modules from builder
+COPY --from=builder /app ./
+
+# Use npm start, same as in the traditional version
+CMD ["npm", "start"]
 ```
 
 Result:
