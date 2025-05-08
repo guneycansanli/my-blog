@@ -172,12 +172,12 @@ From ~700MB ➜ ~20MB (can drop under 5MB with `scratch`)
 
 ## Pro Tips for Go Builds
 
-| Tip               | Description |
-|-------------------|-------------|
-| `CGO_ENABLED=0`   | Builds a static binary, no C libraries |
-| `GOOS`, `GOARCH`  | Cross-compile for Linux, Windows, ARM, etc. |
-| `FROM scratch`    | Minimal image with just the binary |
-| `distroless` base | Secure images with no package manager |
+| Tip                     | Description |
+|-------------------------|-------------|
+| `CGO_ENABLED=0`         | Builds a static binary, no C libraries |
+| `GOOS`, `GOARCH`        | Cross-compile for Linux, Windows, ARM, etc. |
+| `FROM scratch`          | Minimal image with just the binary |
+| `distroless base `      | Secure images with no package manager |
 
 ---
 
