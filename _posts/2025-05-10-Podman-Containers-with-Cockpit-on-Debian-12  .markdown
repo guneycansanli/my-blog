@@ -1,20 +1,18 @@
 ---
 title: "Managing Your Podman Containers with Cockpit on Debian 12"
 layout: post
-date: 2025-05-04 11:00
-image: ../assets/images/docker-multi-stage/main.jpg
+date: 2025-05-10 11:00
+image: ../assets/images/pod-man
 headerImage: true
 tag:
-    - docker
-    - image
+    - podman
+    - Cockpit
 category: blog
 author: guneycansanli
 description: Managing Your Podman Containers with Cockpit on Debian 12  
 ---
 
 # Managing Your Podman Containers with Cockpit on Debian 12  
-**Written by:** Tom Donohue  
-**Last Updated:** _20 December 2024_
 
 If you’re someone who spends a lot of time in the terminal managing your containers, that’s great! But if you need a break from constant typing and prefer a **UI-based** approach, I’ve got something that might interest you. Enter **Cockpit**, a fantastic tool that lets you manage your containers from a sleek web interface. 🖥️
 
