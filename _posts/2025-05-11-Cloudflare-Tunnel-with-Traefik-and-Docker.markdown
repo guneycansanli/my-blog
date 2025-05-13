@@ -378,15 +378,15 @@ Thanks for reading!
 
 
 [1]: ../assets/images/traefik/traefik-1.png
-[2]: ../assets/images/traefik/traefik-2.png
-[3]: ../assets/images/traefik/traefik-3.png
-[4]: ../assets/images/traefik/traefik-4.png
-[5]: ../assets/images/traefik/traefik-5.png
-[6]: ../assets/images/traefik/traefik-6.png
-[7]: ../assets/images/traefik/traefik-7.png
-[8]: ../assets/images/traefik/traefik-8.png
-[9]: ../assets/images/traefik/traefik-9.png
-[10]: ../assets/images/traefik/traefik-10.png
-[11]: ../assets/images/traefik/traefik-11.png
+[2]: ../assets/images/traefik/traefik-2.jpg
+[3]: ../assets/images/traefik/traefik-3.jpg
+[4]: ../assets/images/traefik/traefik-4.jpg
+[5]: ../assets/images/traefik/traefik-5.jpg
+[6]: ../assets/images/traefik/traefik-6.jpg
+[7]: ../assets/images/traefik/traefik-7.jpg
+[8]: ../assets/images/traefik/traefik-8.jpg
+[9]: ../assets/images/traefik/traefik-9.jpg
+[10]: ../assets/images/traefik/traefik-10.jpg
+[11]: ../assets/images/traefik/traefik-11.jpg
 
 
