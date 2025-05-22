@@ -2,7 +2,6 @@
 title: "Powerful Linux Commands"
 layout: post
 date: 2025-05-14 11:00
-image: ../assets/images/linux-commands/main.jpg
 headerImage: true
 tag:
     - linux
