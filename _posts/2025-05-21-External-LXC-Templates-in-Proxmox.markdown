@@ -177,8 +177,8 @@ Thanks for reading!
 [3]: ../assets/images/prx-lxc-ex/ex-3.jpg
 [4]: ../assets/images/prx-lxc-ex/ex-4.jpg
 [5]: ../assets/images/prx-lxc-ex/ex-5.jpg
-[5]: ../assets/images/prx-lxc-ex/ex-6.jpg
-[5]: ../assets/images/prx-lxc-ex/ex-7.jpg
+[6]: ../assets/images/prx-lxc-ex/ex-6.jpg
+[7]: ../assets/images/prx-lxc-ex/ex-7.jpg
 
 
 
