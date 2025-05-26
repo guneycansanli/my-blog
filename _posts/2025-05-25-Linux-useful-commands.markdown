@@ -156,7 +156,7 @@ dstat -cdngy
 Want to know what happens when you press `Ctrl` + something in Bash?
 
 ```bash
-command-7
+bind -p
 ```
 
 Useful for:
