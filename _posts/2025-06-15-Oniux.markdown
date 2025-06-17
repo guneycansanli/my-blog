@@ -27,7 +27,7 @@ Most tools, like Torsocks, rely on `LD_PRELOAD` to hijack libc calls, redirectin
 - Misconfigurations or clever bypasses can expose real IPs.
 - Torsocks doesn’t protect against DNS leaks or bypass at the kernel level.
 
-Enter **Oniux**, built on Tor’s Rust-based Arti and the `onionmasq` framework. It creates an isolated network namespace—complete with a custom `onion0` interface and Tor-first DNS resolution—ensuring every bit of traffic goes through Tor. Leaks? Practically impossible. :contentReference[oaicite:1]{index=1}
+Enter **Oniux**, built on Tor’s Rust-based Arti and the `onionmasq` framework. It creates an isolated network namespace—complete with a custom `onion0` interface and Tor-first DNS resolution—ensuring every bit of traffic goes through Tor. Leaks? Practically impossible.
 
 ---
 
@@ -49,17 +49,54 @@ Enter **Oniux**, built on Tor’s Rust-based Arti and the `onionmasq` framework.
 
 ## Oniux vs Torsocks — Side by Side
 
-| Feature                     | Oniux (Kernel-Level)                            | Torsocks (LD_PRELOAD)                             |
-|-----------------------------|-------------------------------------------------|---------------------------------------------------|
-| Application compatibility   | *All* Linux apps (static, dynamic, Rust, Zig)   | Only dynamically linked <br> C-based apps         |
-| Leak resistance             | Kernel enforced—no accidental bypasses          | Vulnerable to raw syscalls and misconfigured libs |
-| DNS security                | Tor-only resolver                               | May leak via host DNS                             |
-| Isolation approach          | Complete namespace isolation                    | Applies only to libc-level traffic                |
-| Platform support            | Linux only                                      | Cross-platform                                    |
-| Stability                   | Experimental, improving                         | Mature, 15+ years stable                          |
-| Tech stack                  | Rust (Arti, onionmasq)                          | C (CTor)                                          |
+<table>
+  <thead>
+    <tr>
+      <th><strong>Feature</strong></th>
+      <th><strong>Oniux (Kernel-Level)</strong></th>
+      <th><strong>Torsocks (LD_PRELOAD)</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Application compatibility</strong></td>
+      <td><span style="background-color:#d4edda;"><strong>All Linux apps (static, dynamic, Rust, Zig)</strong></span></td>
+      <td>Only dynamically linked <br> C-based apps</td>
+    </tr>
+    <tr>
+      <td><strong>Leak resistance</strong></td>
+      <td><span style="background-color:#d4edda;"><strong>Kernel enforced—no accidental bypasses</strong></span></td>
+      <td>Vulnerable to raw syscalls and misconfigured libs</td>
+    </tr>
+    <tr>
+      <td><strong>DNS security</strong></td>
+      <td><span style="background-color:#d4edda;"><strong>Tor-only resolver</strong></span></td>
+      <td>May leak via host DNS</td>
+    </tr>
+    <tr>
+      <td><strong>Isolation approach</strong></td>
+      <td><span style="background-color:#d4edda;"><strong>Complete namespace isolation</strong></span></td>
+      <td>Applies only to libc-level traffic</td>
+    </tr>
+    <tr>
+      <td><strong>Platform support</strong></td>
+      <td>Linux only</td>
+      <td><span style="background-color:#fff3cd;"><strong>Cross-platform</strong></span></td>
+    </tr>
+    <tr>
+      <td><strong>Stability</strong></td>
+      <td>Experimental, improving</td>
+      <td><span style="background-color:#d1ecf1;"><strong>Mature, 15+ years stable</strong></span></td>
+    </tr>
+    <tr>
+      <td><strong>Tech stack</strong></td>
+      <td><strong>Rust (Arti, onionmasq)</strong></td>
+      <td><strong>C (CTor)</strong></td>
+    </tr>
+  </tbody>
+</table>
 
-A direct comparison shows Oniux’s approach eliminates entire classes of leakage risk that Torsocks leaves open :contentReference[oaicite:6]{index=6}.
+<p><strong>A direct comparison shows Oniux’s approach eliminates entire classes of leakage risk that Torsocks leaves open.</strong></p>
 
 ---
 
@@ -131,6 +168,8 @@ oniux bash
 
 ![oni][3]
 
+![oni][4]
+
 4. Isolate GUI apps (e.g. chat clients)
 
 ```bash
@@ -180,6 +219,7 @@ Thanks for reading!
 [1]: ../assets/images/oniux/oniux-1.jpg
 [2]: ../assets/images/oniux/oniux-2.jpg
 [3]: ../assets/images/oniux/oniux-3.jpg
+[4]: ../assets/images/oniux/oniux-4.jpg
 
 
 
