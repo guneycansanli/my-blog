@@ -145,7 +145,7 @@ cargo install --git https://gitlab.torproject.org/tpo/core/oniux --tag v0.4.0 on
 
 # Practical Use Cases
 
-1. Check your Tor IP (IPv4 or IPv6)
+- Check your Tor IP (IPv4 or IPv6)
 
 ```bash
 oniux curl https://icanhazip.com
@@ -154,13 +154,13 @@ oniux curl -6 https://ipv6.icanhazip.com
 
 ![oni][2]
 
-2. Visit .onion sites
+- Visit .onion sites
 
 ```bash
 oniux curl http://exampleonionaddress.onion
 ```
 
-3. “Torify” an entire shell session
+- “Torify” an entire shell session
 
 ```bash
 oniux bash
@@ -170,31 +170,31 @@ oniux bash
 
 ![oni][4]
 
-4. Isolate GUI apps (e.g. chat clients)
+- Isolate GUI apps (e.g. chat clients)
 
 ```bash
 oniux hexchat
 ```
 
-5. Secure Git operations
+- Secure Git operations
 
 ```bash
 oniux git clone https://private.repo.example.org/org/project.git
 ```
 
-6. Anonymize database backups
+- Anonymize database backups
 
 ```bash
 oniux pg_dump -h db.secure.internal -U user mydb > mydb.sql
 ```
 
-7. Network scanning through Tor
+- Network scanning through Tor
 
 ```bash
 oniux nmap -sT -p 443 example.com
 ```
 
-8. CI/CD pipelines with enforced Tor routing
+- CI/CD pipelines with enforced Tor routing
 
 ```bash
 oniux ./run_tests.sh
