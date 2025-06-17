@@ -1,0 +1,186 @@
+---
+title: "Oniux Kernel-Level Tor Isolation for Linux — A Privacy Game-Changer"
+layout: post
+date: 2025-06-15 11:00
+image: ../assets/images/oniux/main.jpg
+headerImage: true
+tag:
+    - linux
+    - oniux
+    - privacy
+category: blog
+author: guneycansanli
+description: Oniux Kernel-Level Tor Isolation for Linux — A Privacy Game-Changer
+---
+
+# Oniux: Kernel-Level Tor Isolation for Linux — A Privacy Game-Changer
+
+When every packet counts, whether you’re a journalist in hostile regions or a developer protecting sensitive metadata, traditional tools can fall short. **Oniux** is a new command-line utility from the Tor Project that uses Linux namespaces to enforce true Tor routing at the kernel level—no leaks, no proxy bypass, no compromises.
+
+---
+
+## Why Oniux Matters
+
+Most tools, like Torsocks, rely on `LD_PRELOAD` to hijack libc calls, redirecting them to Tor’s SOCKS proxy. However:
+
+- Static binaries or apps using raw system calls can evade these hooks—risking leaks.
+- Misconfigurations or clever bypasses can expose real IPs.
+- Torsocks doesn’t protect against DNS leaks or bypass at the kernel level.
+
+Enter **Oniux**, built on Tor’s Rust-based Arti and the `onionmasq` framework. It creates an isolated network namespace—complete with a custom `onion0` interface and Tor-first DNS resolution—ensuring every bit of traffic goes through Tor. Leaks? Practically impossible. :contentReference[oaicite:1]{index=1}
+
+---
+
+## Under the Hood: How It Works
+
+1. **Namespace Isolation**  
+   Uses `clone(2)` to spawn a process with its own network, mount, PID, and user namespace—cut off from `eth0` and other real interfaces.
+
+2. **Virtual Tor Interface**  
+   `onionmasq` sets up `onion0`, a TUN interface forced through Tor’s circuit.
+
+3. **Secure DNS**  
+   A bind-mounted `resolv.conf` ensures all domain lookups go through Tor's DNS resolver—no exceptions.
+
+4. **Privilege Minimization**  
+   Drops capabilities once everything is configured, then executes your command inside this sealed environment.
+
+---
+
+## Oniux vs Torsocks — Side by Side
+
+| Feature                     | Oniux (Kernel-Level)                            | Torsocks (LD_PRELOAD)                             |
+|-----------------------------|-------------------------------------------------|---------------------------------------------------|
+| Application compatibility   | *All* Linux apps (static, dynamic, Rust, Zig)   | Only dynamically linked <br> C-based apps         |
+| Leak resistance             | Kernel enforced—no accidental bypasses          | Vulnerable to raw syscalls and misconfigured libs |
+| DNS security                | Tor-only resolver                               | May leak via host DNS                             |
+| Isolation approach          | Complete namespace isolation                    | Applies only to libc-level traffic                |
+| Platform support            | Linux only                                      | Cross-platform                                    |
+| Stability                   | Experimental, improving                         | Mature, 15+ years stable                          |
+| Tech stack                  | Rust (Arti, onionmasq)                          | C (CTor)                                          |
+
+A direct comparison shows Oniux’s approach eliminates entire classes of leakage risk that Torsocks leaves open :contentReference[oaicite:6]{index=6}.
+
+---
+
+## Getting Started with Oniux
+
+Ensure you have:
+- A Linux system
+- Rust toolchain
+
+### Install Rust on Ubuntu/Debian via rustup (recommended)
+
+```bash
+sudo apt update && sudo apt install -y curl build-essential gcc make
+```
+
+### Download and run rustup installer
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+```
+
+### Activate Rust environment in current shell
+```bash
+source "$HOME/.cargo/env"
+```
+
+### Verify installation
+```bash
+rustc --version  # should display e.g. "rustc 1.xx.x (yyyy-mm-dd)" :contentReference[oaicite:0]{index=0}
+```
+
+### (Optional) Install via APT (older version):
+```bash
+sudo apt install -y rustc
+rustc --version
+```
+
+## Then install Oniux:
+
+```bash
+cargo install --git https://gitlab.torproject.org/tpo/core/oniux --tag v0.4.0 oniux
+```
+
+![oni][1]
+
+
+# Practical Use Cases
+
+1. Check your Tor IP (IPv4 or IPv6)
+
+```bash
+oniux curl https://icanhazip.com
+oniux curl -6 https://ipv6.icanhazip.com
+```
+
+![oni][2]
+
+2. Visit .onion sites
+
+```bash
+oniux curl http://exampleonionaddress.onion
+```
+
+3. “Torify” an entire shell session
+
+```bash
+oniux bash
+```
+
+![oni][3]
+
+4. Isolate GUI apps (e.g. chat clients)
+
+```bash
+oniux hexchat
+```
+
+5. Secure Git operations
+
+```bash
+oniux git clone https://private.repo.example.org/org/project.git
+```
+
+6. Anonymize database backups
+
+```bash
+oniux pg_dump -h db.secure.internal -U user mydb > mydb.sql
+```
+
+7. Network scanning through Tor
+
+```bash
+oniux nmap -sT -p 443 example.com
+```
+
+8. CI/CD pipelines with enforced Tor routing
+
+```bash
+oniux ./run_tests.sh
+```
+
+
+# Final Thoughts
+Oniux offers a leap in privacy protection by sealing applications within their own Tor routing environment. Its Rust and namespace-based design neutralizes weaknesses inherent in LD_PRELOAD tools. While it’s still experimental, it’s robust and powerful enough for admins and privacy-focused pros.
+
+If you're working in high-stakes environments—journalism, data research, threat intelligence, or sensitive development—Oniux is a compelling upgrade. Install it, experiment, file issues, and help shape its path toward maturity.
+
+
+---
+
+Thanks for reading!
+
+—
+
+**Guneycan Sanli**
+
+
+[1]: ../assets/images/oniux/oniux-1.jpg
+[2]: ../assets/images/oniux/oniux-2.jpg
+[3]: ../assets/images/oniux/oniux-3.jpg
+
+
+
+
