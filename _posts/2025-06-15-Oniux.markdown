@@ -49,49 +49,49 @@ Enter **Oniux**, built on Tor’s Rust-based Arti and the `onionmasq` framework.
 
 ## Oniux vs Torsocks — Side by Side
 
-<table>
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
   <thead>
-    <tr>
-      <th><strong>Feature</strong></th>
-      <th><strong>Oniux (Kernel-Level)</strong></th>
-      <th><strong>Torsocks (LD_PRELOAD)</strong></th>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid #ccc; padding: 8px;"><strong>Feature</strong></th>
+      <th style="border: 1px solid #ccc; padding: 8px;"><strong>Oniux (Kernel-Level)</strong></th>
+      <th style="border: 1px solid #ccc; padding: 8px;"><strong>Torsocks (LD_PRELOAD)</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Application compatibility</strong></td>
-      <td><span style="background-color:#d4edda;"><strong>All Linux apps (static, dynamic, Rust, Zig)</strong></span></td>
-      <td>Only dynamically linked <br> C-based apps</td>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Application compatibility</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px; background-color: #d4edda;"><strong>All Linux apps (static, dynamic, Rust, Zig)</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Only dynamically linked <br> C-based apps</td>
     </tr>
     <tr>
-      <td><strong>Leak resistance</strong></td>
-      <td><span style="background-color:#d4edda;"><strong>Kernel enforced—no accidental bypasses</strong></span></td>
-      <td>Vulnerable to raw syscalls and misconfigured libs</td>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Leak resistance</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px; background-color: #d4edda;"><strong>Kernel enforced—no accidental bypasses</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Vulnerable to raw syscalls and misconfigured libs</td>
     </tr>
     <tr>
-      <td><strong>DNS security</strong></td>
-      <td><span style="background-color:#d4edda;"><strong>Tor-only resolver</strong></span></td>
-      <td>May leak via host DNS</td>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>DNS security</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px; background-color: #d4edda;"><strong>Tor-only resolver</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">May leak via host DNS</td>
     </tr>
     <tr>
-      <td><strong>Isolation approach</strong></td>
-      <td><span style="background-color:#d4edda;"><strong>Complete namespace isolation</strong></span></td>
-      <td>Applies only to libc-level traffic</td>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Isolation approach</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px; background-color: #d4edda;"><strong>Complete namespace isolation</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Applies only to libc-level traffic</td>
     </tr>
     <tr>
-      <td><strong>Platform support</strong></td>
-      <td>Linux only</td>
-      <td><span style="background-color:#fff3cd;"><strong>Cross-platform</strong></span></td>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Platform support</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Linux only</td>
+      <td style="border: 1px solid #ccc; padding: 8px; background-color: #fff3cd;"><strong>Cross-platform</strong></td>
     </tr>
     <tr>
-      <td><strong>Stability</strong></td>
-      <td>Experimental, improving</td>
-      <td><span style="background-color:#d1ecf1;"><strong>Mature, 15+ years stable</strong></span></td>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Stability</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Experimental, improving</td>
+      <td style="border: 1px solid #ccc; padding: 8px; background-color: #d1ecf1;"><strong>Mature, 15+ years stable</strong></td>
     </tr>
     <tr>
-      <td><strong>Tech stack</strong></td>
-      <td><strong>Rust (Arti, onionmasq)</strong></td>
-      <td><strong>C (CTor)</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Tech stack</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>Rust (Arti, onionmasq)</strong></td>
+      <td style="border: 1px solid #ccc; padding: 8px;"><strong>C (CTor)</strong></td>
     </tr>
   </tbody>
 </table>
