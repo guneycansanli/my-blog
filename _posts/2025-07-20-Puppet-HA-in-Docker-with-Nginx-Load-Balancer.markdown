@@ -22,6 +22,15 @@ Using Puppet in Docker lets you easily package and run Puppet tools like Puppet 
 
 In this post, I’ll show you how to create containerized Puppet environments to simplify your development and deployment.
 
+
+## Why Use Puppet with Docker?
+
+- Running Puppet within Docker provides a convenient method to deploy Puppet and related tools like Puppet Server and PuppetDB.
+- By packaging these components into Docker containers, we can:
+- Enable the deployment of a Puppet environment (such as Puppet Server, PuppetDB, and PostgreSQL) on any system capable of running Linux containers.
+- Facilitate the operation and scaling of the Puppet infrastructure on container orchestration platforms like Kubernetes, Rancher, DC/OS, or Docker Swarm.
+- Offer an excellent local development setup for Puppet using Docker, simplifying the process of testing new Puppet versions or developing applications that interact with the PuppetDB API.
+
 ---
 
 ## 1. Prerequisites
@@ -228,6 +237,10 @@ docker compose --profile test run testing puppet agent -t
 ./clean.sh
 ```
 
+
+# Conclusion
+
+Integrating Puppet with Docker streamlines both development and deployment processes. It empowers teams to work faster, test more thoroughly, and adapt their infrastructure with minimal overhead. Whether for experimenting with configurations or scaling across platforms, this approach provides a reliable, reproducible, and highly flexible foundation for modern infrastructure management.
 
 ---
 
