@@ -125,12 +125,50 @@ Above output verify DNS Altname is **puppet-ca**
 
 # Summary Table
 
-| Service        | Image                                             | Role                           | Key Environment Variables                                                       |
-|----------------|--------------------------------------------------|--------------------------------|---------------------------------------------------------------------------------|
-| Puppet CA      | `ghcr.io/voxpupuli/puppetserver:8.7.0-latest`   | Certificate Authority          | `PUPPETSERVER_HOSTNAME`, `USE_PUPPETDB`, `CA_ENABLED`, `CA_ALLOW_SUBJECT_ALT_NAMES` |
-| Puppet Compiler| `ghcr.io/voxpupuli/puppetserver:8.7.0-latest`   | Compile and serve Puppet code  | `PUPPETSERVER_HOSTNAME`, `USE_PUPPETDB`, `CA_ENABLED`, `CA_HOSTNAME`, `DNS_ALT_NAMES` |
-| Puppet LB      | `nginx:1.29.0`                                   | Load balancing                 | Exposes port `8140`, mounts `nginx.conf` and SSL certificates                   |
-| Crafty HA Test | `ghcr.io/betadots/pdc:latest`                    | Testing Puppet code            | Mounts `puppet.conf` and `agent-ssl`                                           |
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 2px solid black; text-align: left; font-weight: bold; padding: 6px;">Service</th>
+      <th style="border: 2px solid black; text-align: left; font-weight: bold; padding: 6px;">Image</th>
+      <th style="border: 2px solid black; text-align: left; font-weight: bold; padding: 6px;">Role</th>
+      <th style="border: 2px solid black; text-align: left; font-weight: bold; padding: 6px;">Key Environment Variables</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">Puppet CA</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">ghcr.io/voxpupuli/puppetserver:8.7.0-latest</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">Certificate Authority</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">
+        <code>PUPPETSERVER_HOSTNAME</code>, <code>USE_PUPPETDB</code>, <code>CA_ENABLED</code>, <code>CA_ALLOW_SUBJECT_ALT_NAMES</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">Puppet Compiler</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">ghcr.io/voxpupuli/puppetserver:8.7.0-latest</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">Compile and serve Puppet code</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">
+        <code>PUPPETSERVER_HOSTNAME</code>, <code>USE_PUPPETDB</code>, <code>CA_ENABLED</code>, <code>CA_HOSTNAME</code>, <code>DNS_ALT_NAMES</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">Puppet LB</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">nginx:1.29.0</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">Load balancing</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">
+        Exposes port <code>8140</code>, mounts <code>nginx.conf</code> and SSL certificates
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">Crafty HA Test</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">ghcr.io/betadots/pdc:latest</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">Testing Puppet code</td>
+      <td style="border: 2px solid black; text-align: left; padding: 6px;">
+        Mounts <code>puppet.conf</code> and <code>agent-ssl</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 
 ---
