@@ -14,9 +14,13 @@ author: guneycansanli
 description: Puppet HA (puppet ca & compilers) in Docker with Nginx Load Balancer
 ---
 
-# Dive into Mosh (Mobile Shell)
+# Introduction
 
-This guide walks through setting up a high-availability (HA) Puppet infrastructure (CA and compilers) in Docker, including multiple compile servers, a central CA, Nginx load balancing.
+If you’re starting with Puppet and Docker, you might wonder: Should Puppet manage Docker, or run Puppet inside Docker containers? The answer is—you can do both!
+
+Using Puppet in Docker lets you easily package and run Puppet tools like Puppet Server and PuppetDB as containers. This setup is great for quickly building and testing environments, which you can then apply to production.
+
+In this post, I’ll show you how to create containerized Puppet environments to simplify your development and deployment.
 
 ---
 
