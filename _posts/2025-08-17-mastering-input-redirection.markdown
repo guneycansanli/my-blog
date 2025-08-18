@@ -153,19 +153,19 @@ echo "Hello, $name"
 ## 4. Practical Scenarios for Sysadmins and Developers
 
 Database administration
-- **Import backups with < or send inline queries with <<.**
+- **Import backups with < or send inline queries with `<<` .**
 
 Configuration management
-- **Generate config files dynamically with <<EOF blocks in scripts.**
+- **Generate config files dynamically with `<<`EOF blocks in scripts.**
 
 Testing commands
-- **Quickly test parsing tools with <<< "sample text".**
+- **Quickly test parsing tools with `<<<`  "sample text".**
 
 Remote automation
-- **Use << with SSH for batch execution of commands.**
+- **Use `<<`  with SSH for batch execution of commands.**
 
 Scripting best practices
-- **Replace echo "..." | cmd with <<< "..." for readability and efficiency.**
+- **Replace echo "..." | cmd with `<<<`  "..." for readability and efficiency.**
 
 ---
 
