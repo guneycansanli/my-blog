@@ -65,9 +65,9 @@ Here <() (process substitution) is combined with < to pass sorted versions of fi
 
 ---
 
-## 2. << – Here Document (Multi-Line Input)
+## 2. "<<" – Here Document (Multi-Line Input)
 
-The << operator lets you supply multi-line input inline. It continues until a specified delimiter is reached. This is very common in shell scripts.
+The **"<<"** operator lets you supply multi-line input inline. It continues until a specified delimiter is reached. This is very common in shell scripts.
 
 ### Example 1 – Pass multiple lines to cat:
 
@@ -121,9 +121,9 @@ The block of commands runs remotely as if typed one by one.
 
 ![redirect][4]
 
-## 3. <<< – Here String (Single-Line Input)
+## 3. "<<<" – Here String (Single-Line Input)
 
-The <<< operator is like <<, but for single strings. It’s perfect for quick one-liners.
+The **"<<<"** operator is like <<, but for single strings. It’s perfect for quick one-liners.
 
 ### Example 1 – Count words in a string:
 
