@@ -14,7 +14,7 @@ description: Mastering Input Redirection in Linux - <, <<, and <<<
 
 # Introduction
 
-In the Linux shell, redirection operators let you control how commands receive input and where they send output. Most users know about > and >> for writing to files, but input redirection (<, <<, and <<<) is equally powerful.
+In the Linux shell, redirection operators let you control how commands receive input and where they send output. Most users know about > and `<<` for writing to files, but input redirection (<, `<<`, and `<<<`) is equally powerful.
 
 These three operators allow you to feed data into commands directly from files, inline text, or strings. Mastering them will help you write cleaner scripts and simplify everyday sysadmin tasks.
 
