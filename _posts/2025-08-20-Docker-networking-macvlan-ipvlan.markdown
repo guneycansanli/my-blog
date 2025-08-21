@@ -88,7 +88,7 @@ Unlike MacVLAN, IPVLAN containers share the host’s MAC. Only IPs differ.
 
 IPVLAN Modes:
 
-1. L2 Mode
+###  1. L2 Mode
 
 - Works like MacVLAN but without unique MACs.
 - All containers → same MAC as host.
@@ -109,7 +109,7 @@ Containers reachable on LAN directly.
 ⚠️ Security tools may flag this as MAC spoofing since many IPs map to one MAC.
 
 
-2. L3 Mode
+### 2. L3 Mode
 
 - Host acts as a router for containers.
 - Containers live in their own subnet.
