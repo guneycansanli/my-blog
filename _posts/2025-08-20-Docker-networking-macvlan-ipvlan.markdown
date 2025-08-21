@@ -223,8 +223,8 @@ Thanks for reading!
 
 [1]: ../assets/images/dockermac/dockermac-1.jpg
 [2]: ../assets/images/dockermac/dockermac-2.jpg
-[2]: ../assets/images/dockermac/dockermac-3.jpg
-[2]: ../assets/images/dockermac/dockermac-4.jpg
+[3]: ../assets/images/dockermac/dockermac-3.jpg
+[4]: ../assets/images/dockermac/dockermac-4.jpg
 
 
 
