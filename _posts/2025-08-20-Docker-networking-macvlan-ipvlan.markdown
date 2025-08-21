@@ -133,63 +133,63 @@ Great for segmentation & isolation.
 
 ## 4. MacVLAN vs IPVLAN: Quick Comparison
 
-<table>
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; text-align: center;">
   <thead>
-    <tr>
-      <th style="text-align:left;">Feature</th>
-      <th style="text-align:center;">MacVLAN</th>
-      <th style="text-align:center;">IPVLAN L2</th>
-      <th style="text-align:center;">IPVLAN L3</th>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid #ccc; padding: 8px; text-align:left;">Feature</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">MacVLAN</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">IPVLAN L2</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">IPVLAN L3</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left;">MAC per container</td>
-      <td style="text-align:center;">✅ Unique MACs</td>
-      <td style="text-align:center;">❌ Shared with host</td>
-      <td style="text-align:center;">❌ Shared with host</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">MAC per container</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ Unique MACs</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">❌ Shared with host</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">❌ Shared with host</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">Works without promiscuous mode</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">❌ No</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ Yes</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ Yes</td>
     </tr>
     <tr>
-      <td style="text-align:left;">Works without promiscuous mode</td>
-      <td style="text-align:center;">❌ No</td>
-      <td style="text-align:center;">✅ Yes</td>
-      <td style="text-align:center;">✅ Yes</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">Requires static routes</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">❌ No</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">❌ No</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ Yes</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">LAN reachability (same subnet)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ Yes</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ Yes</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">⚠️ Needs routes</td>
     </tr>
     <tr>
-      <td style="text-align:left;">Requires static routes</td>
-      <td style="text-align:center;">❌ No</td>
-      <td style="text-align:center;">❌ No</td>
-      <td style="text-align:center;">✅ Yes</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">Isolation / segmentation</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">➖ Moderate</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">➖ Moderate</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ Strong (routed subnets)</td>
+    </tr>
+    <tr style="background-color: #f9f9f9;">
+      <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">Switch port-security friendly</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">❌ Can break (many MACs)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ Friendlier (one MAC)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ Friendlier (one MAC)</td>
     </tr>
     <tr>
-      <td style="text-align:left;">LAN reachability (same subnet)</td>
-      <td style="text-align:center;">✅ Yes</td>
-      <td style="text-align:center;">✅ Yes</td>
-      <td style="text-align:center;">⚠️ Needs routes</td>
+      <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">IDS/IPS false-positive risk</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">➖ Normal</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">⚠️ Many IPs → one MAC</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">⚠️ Many IPs → one MAC</td>
     </tr>
-    <tr>
-      <td style="text-align:left;">Isolation / segmentation</td>
-      <td style="text-align:center;">➖ Moderate</td>
-      <td style="text-align:center;">➖ Moderate</td>
-      <td style="text-align:center;">✅ Strong (routed subnets)</td>
-    </tr>
-    <tr>
-      <td style="text-align:left;">Switch port-security friendly</td>
-      <td style="text-align:center;">❌ Can break (many MACs)</td>
-      <td style="text-align:center;">✅ Friendlier (one MAC)</td>
-      <td style="text-align:center;">✅ Friendlier (one MAC)</td>
-    </tr>
-    <tr>
-      <td style="text-align:left;">IDS/IPS false-positive risk</td>
-      <td style="text-align:center;">➖ Normal</td>
-      <td style="text-align:center;">⚠️ Many IPs → one MAC</td>
-      <td style="text-align:center;">⚠️ Many IPs → one MAC</td>
-    </tr>
-    <tr>
-      <td style="text-align:left;">Typical use case</td>
-      <td style="text-align:center;">Legacy/LAN realism</td>
-      <td style="text-align:center;">Simpler LAN access</td>
-      <td style="text-align:center;">Routed/isolated networks</td>
+    <tr style="background-color: #f9f9f9;">
+      <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">Typical use case</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Legacy/LAN realism</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Simpler LAN access</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Routed/isolated networks</td>
     </tr>
   </tbody>
 </table>
