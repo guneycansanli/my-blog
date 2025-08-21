@@ -145,9 +145,9 @@ Great for segmentation & isolation.
   <tbody>
     <tr>
       <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">MAC per container</td>
-      <td style="border: 1px solid #ccc; padding: 8px;">✅ Unique MACs</td>
-      <td style="border: 1px solid #ccc; padding: 8px;">❌ Shared with host</td>
-      <td style="border: 1px solid #ccc; padding: 8px;">❌ Shared with host</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Unique MACs</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Shared with host</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Shared with host</td>
     </tr>
     <tr style="background-color: #f9f9f9;">
       <td style="border: 1px solid #ccc; padding: 8px; text-align:left;">Works without promiscuous mode</td>
