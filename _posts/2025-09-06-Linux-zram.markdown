@@ -59,14 +59,14 @@ With **16 GB RAM** and **8 GB allocated to ZRAM (zstd)**, you may effectively ho
       <td style="padding: 8px; border: 1px solid #ddd;">2.68</td>
     </tr>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><strong>lzo-rle ⚡</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong>lzo-rle</strong></td>
       <td style="padding: 8px; border: 1px solid #ddd;">4.5s</td>
       <td style="padding: 8px; border: 1px solid #ddd;">1.1G</td>
       <td style="padding: 8px; border: 1px solid #ddd;">388M</td>
       <td style="padding: 8px; border: 1px solid #ddd;">2.68</td>
     </tr>
     <tr style="background-color: #f9fafb;">
-      <td style="padding: 8px; border: 1px solid #ddd;"><strong>lz4 ⚡</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong>lz4</strong></td>
       <td style="padding: 8px; border: 1px solid #ddd;">4.5s</td>
       <td style="padding: 8px; border: 1px solid #ddd;">1.1G</td>
       <td style="padding: 8px; border: 1px solid #ddd;">403.4M</td>
