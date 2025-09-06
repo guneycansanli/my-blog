@@ -221,6 +221,7 @@ With ZRAM enabled and tuned:
 - **Smoother multitasking with 100+ browser tabs and many apps open**
 - **Less SSD wear since disk swap is used much less**
 
+---
 
 # Conclusion
 
