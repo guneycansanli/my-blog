@@ -217,9 +217,9 @@ You should see increased available memory and ZRAM usage instead of immediate di
 
 With ZRAM enabled and tuned:
 
-✅ No more sudden browser crashes due to OOM killer
-✅ Smoother multitasking with 100+ browser tabs and many apps open
-✅ Less SSD wear since disk swap is used much less
+- **No more sudden browser crashes due to OOM killer**
+- **Smoother multitasking with 100+ browser tabs and many apps open**
+- **Less SSD wear since disk swap is used much less**
 
 
 # Conclusion
