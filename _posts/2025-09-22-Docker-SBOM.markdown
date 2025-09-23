@@ -165,6 +165,8 @@ grype sbom:sbom.json
 
 ![sbom][6]
 
+![sbom][7]
+
 This identifies CVEs linked to your packages.
 
 
@@ -203,6 +205,7 @@ Thanks for reading!
 [4]: ../assets/images/sbom/sbom-4.jpg
 [5]: ../assets/images/sbom/sbom-5.jpg
 [6]: ../assets/images/sbom/sbom-6.jpg
+[7]: ../assets/images/sbom/sbom-7.jpg
 
 
 
