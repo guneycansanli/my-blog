@@ -199,7 +199,7 @@ This approach allows you to:
    You’ll need appropriate privileges. For rootless runtimes, configure permissions for your user.
 
 
-REF NSENTER: (https://www.redhat.com/en/blog/container-namespaces-nsenter)[https://www.redhat.com/en/blog/container-namespaces-nsenter]
+REF NSENTER: [https://www.redhat.com/en/blog/container-namespaces-nsenter](https://www.redhat.com/en/blog/container-namespaces-nsenter)
 
 ---
 
