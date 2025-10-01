@@ -1,5 +1,5 @@
 ---
-title: "Docker Distroless Containers"
+title: "Distroless Containers"
 layout: post
 date: 2025-09-30 11:00
 image: ../assets/images/distroless/main.jpg
@@ -10,7 +10,7 @@ tag:
     - container
 category: blog
 author: guneycansanli
-description: Docker Distroless Containers
+description: Distroless Containers
 ---
 
 # Distroless Containers Explained: A Practical Guide to Minimal, Secure Images
@@ -165,13 +165,13 @@ For production, nonroot is generally recommended.
 Because distroless containers don’t ship with a shell, commands like this won’t work:
 
 ```bash
-nsenter -t $(docker inspect -f '{{.State.Pid}}' <container>) -u hostname
+nsenter -t $(docker inspect -f '\{\{.State.Pid\}\}' <container>) -u hostname
 
-nsenter -t $(docker inspect -f '{{.State.Pid}}' <container>) -n ip a
+nsenter -t $(docker inspect -f '\{\{.State.Pid\}\}' <container>) -n ip a
 
-nsenter -t $(docker inspect -f '{{.State.Pid}}' <container>) -n netstat -tulpn
+nsenter -t $(docker inspect -f '\{\{.State.Pid\}\}' <container>) -n netstat -tulpn
 
-nsenter -t $(docker inspect -f '{{.State.Pid}}' 22cd91504233) -n ss -tulpn
+nsenter -t $(docker inspect -f '\{\{.State.Pid\}\}' 22cd91504233) -n ss -tulpn
 ```
 
 ![distro][4]
