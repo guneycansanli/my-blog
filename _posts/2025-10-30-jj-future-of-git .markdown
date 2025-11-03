@@ -22,7 +22,7 @@ It’s the foundation of modern software collaboration and one of the most influ
 But let’s be real: **Git can also be frustrating**.  
 Branches, rebases, detached HEADs, and merge conflicts often make simple tasks feel unnecessarily complex.  
 
-That’s where [jj](https://jj-vcs.github.io/jj/latest/) **Jujutsu (jj)** comes in.  
+That’s where **[jj]**(https://jj-vcs.github.io/jj/latest/) **Jujutsu (jj)** comes in.  
 
 Jujutsu rethinks version control while staying **100% compatible with Git**. It’s not here to replace it, but to make it *feel human*.  
 Think of it as Git’s smarter, calmer sibling — keeping all the power, but removing the friction.  
@@ -232,7 +232,7 @@ cargo install --locked --bin jj jj-cli
 ![jj][1]
 
 
-Please check other installation methods for other distros. (jj installation)[https://jj-vcs.github.io/jj/latest/install-and-setup/]
+Please check other installation methods for other distros. [jj installation](https://jj-vcs.github.io/jj/latest/install-and-setup)
 
 
 Verify JJ version:
@@ -244,7 +244,7 @@ jj --version
 ![jj][2]
 
 
-If you want to do some tutorials You can find good examples in official JJ page: (jj tutorial)[https://jj-vcs.github.io/jj/latest/tutorial/] 
+If you want to do some tutorials You can find good examples in official JJ page: [jj tutorial](https://jj-vcs.github.io/jj/latest/tutorial/)
 
 
 ---
