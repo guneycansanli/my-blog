@@ -22,7 +22,7 @@ It’s the foundation of modern software collaboration and one of the most influ
 But let’s be real: **Git can also be frustrating**.  
 Branches, rebases, detached HEADs, and merge conflicts often make simple tasks feel unnecessarily complex.  
 
-That’s where **[jj]**(https://jj-vcs.github.io/jj/latest/) **Jujutsu (jj)** comes in.  
+That’s where **[Jujutsu (jj)]**(https://jj-vcs.github.io/jj/latest/) comes in.  
 
 Jujutsu rethinks version control while staying **100% compatible with Git**. It’s not here to replace it, but to make it *feel human*.  
 Think of it as Git’s smarter, calmer sibling — keeping all the power, but removing the friction.  
