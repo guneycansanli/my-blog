@@ -229,36 +229,37 @@ This runs your "testsycn" profile non-interactively every hour.
 
 # **7. Useful Unison Options (Cheat Sheet)**
 
-<table>
+<table style="border-collapse: collapse; width: 100%;">
   <thead>
     <tr>
-      <th>Option</th>
-      <th>Description</th>
+      <th style="border: 1px solid #555; padding: 6px;">Option</th>
+      <th style="border: 1px solid #555; padding: 6px;">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>-auto</td>
-      <td>Automatically handles simple updates</td>
+      <td style="border: 1px solid #555; padding: 6px;">-auto</td>
+      <td style="border: 1px solid #555; padding: 6px;">Automatically handles simple updates</td>
     </tr>
     <tr>
-      <td>-batch</td>
-      <td>No user prompts (cron-friendly)</td>
+      <td style="border: 1px solid #555; padding: 6px;">-batch</td>
+      <td style="border: 1px solid #555; padding: 6px;">No user prompts (cron-friendly)</td>
     </tr>
     <tr>
-      <td>-ui text</td>
-      <td>Forces text interface</td>
+      <td style="border: 1px solid #555; padding: 6px;">-ui text</td>
+      <td style="border: 1px solid #555; padding: 6px;">Forces text interface</td>
     </tr>
     <tr>
-      <td>-repeat watch</td>
-      <td>Real-time sync</td>
+      <td style="border: 1px solid #555; padding: 6px;">-repeat watch</td>
+      <td style="border: 1px solid #555; padding: 6px;">Real-time sync</td>
     </tr>
     <tr>
-      <td>-prefer newer</td>
-      <td>Newest file wins in conflicts</td>
+      <td style="border: 1px solid #555; padding: 6px;">-prefer newer</td>
+      <td style="border: 1px solid #555; padding: 6px;">Newest file wins in conflicts</td>
     </tr>
   </tbody>
 </table>
+
 
 
 ### Combined example
@@ -268,33 +269,34 @@ unison work -auto -batch -prefer newer
 
 # **8. Why I Prefer Unison Over Other Tools**
 
-<table>
+<table style="border-collapse: collapse; width: 100%;">
   <thead>
     <tr>
-      <th>Tool</th>
-      <th>Sync Type</th>
-      <th>Two-Way</th>
-      <th>GUI</th>
-      <th>Best Use</th>
+      <th style="border: 1px solid #555; padding: 6px;">Tool</th>
+      <th style="border: 1px solid #555; padding: 6px;">Sync Type</th>
+      <th style="border: 1px solid #555; padding: 6px;">Two-Way</th>
+      <th style="border: 1px solid #555; padding: 6px;">GUI</th>
+      <th style="border: 1px solid #555; padding: 6px;">Best Use</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>rsync</td>
-      <td>One-way</td>
-      <td>❌</td>
-      <td>❌</td>
-      <td>Backups, mirroring</td>
+      <td style="border: 1px solid #555; padding: 6px;">rsync</td>
+      <td style="border: 1px solid #555; padding: 6px;">One-way</td>
+      <td style="border: 1px solid #555; padding: 6px;">❌</td>
+      <td style="border: 1px solid #555; padding: 6px;">❌</td>
+      <td style="border: 1px solid #555; padding: 6px;">Backups, mirroring</td>
     </tr>
     <tr>
-      <td>Unison</td>
-      <td>Two-way</td>
-      <td>✅</td>
-      <td>Optional</td>
-      <td>Active development, multi-system workflows</td>
+      <td style="border: 1px solid #555; padding: 6px;">Unison</td>
+      <td style="border: 1px solid #555; padding: 6px;">Two-way</td>
+      <td style="border: 1px solid #555; padding: 6px;">✅</td>
+      <td style="border: 1px solid #555; padding: 6px;">Optional</td>
+      <td style="border: 1px solid #555; padding: 6px;">Active development, multi-system workflows</td>
     </tr>
   </tbody>
 </table>
+
 
 
 Unison gives me flexibility rsync never could.  
