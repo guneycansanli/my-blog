@@ -32,7 +32,6 @@ It also provides a built-in shell, scripting support, and the ability to compile
 ## What We Will Build
 
 - Compile a custom iPXE ISO  
-- Boot it in QEMU  
 - Embed a boot script in the ISO  
 - Serve boot scripts over HTTP  
 - Boot Debian 13 directly over the network  
