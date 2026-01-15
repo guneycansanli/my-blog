@@ -19,7 +19,6 @@ description: Netbooting with iPXE
 Network booting allows computers to start without relying on a local disk. Instead, the machine fetches its boot instructions over the network. One of the most flexible tools for this is **iPXE**, an open-source network boot firmware that significantly extends the traditional PXE feature set.
 
 Unlike legacy PXE which typically uses TFTP, iPXE supports modern protocols such as:
-
 - HTTP / HTTPS  
 - iSCSI SAN  
 - AoE  
@@ -44,7 +43,7 @@ Let’s begin!
 
 ## Part 1: Building and Testing iPXE
 
-We need to have a machine/server to create and serve images and boot-scipt. There are some packages We need to install details can be found in [https://ipxe.org/download](https://ipxe.org/download)
+We need to have a machine/server to create and serve images and boot-scipt. There are some packages that We need to install. Details can be found in [https://ipxe.org/download](https://ipxe.org/download)
 
 I have used Debian12 VM below packages can be diffrent for different distros.
 
