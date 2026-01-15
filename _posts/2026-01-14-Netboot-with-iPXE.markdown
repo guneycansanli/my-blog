@@ -44,7 +44,7 @@ Let’s begin!
 
 ## Part 1: Building and Testing iPXE
 
-We need to have a machine/server to create and serve images and boot-scipt. There are some packages We need to install details can be found in (https://ipxe.org/download)[https://ipxe.org/download]
+We need to have a machine/server to create and serve images and boot-scipt. There are some packages We need to install details can be found in [https://ipxe.org/download](https://ipxe.org/download)
 
 I have used Debian12 VM below packages can be diffrent for different distros.
 
@@ -65,16 +65,12 @@ git clone git@github.com:ipxe/ipxe.git
 For our testing environment we will need: 
 
 ```bash
-git clone git@github.com:ipxe/ipxe.git 
+apt install qemu python3
 ```
 
 ### Building first iPXE iso image
 
 We will try to create a dummy/first image and It will be x86_64 architecture. 
-
-```bash
-apt install install qemu python3
-```
 
 Run the following two commands in the src/ folder to build your first iPXE iso image.
 
