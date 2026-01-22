@@ -1,8 +1,8 @@
 ---
-title: "Using Docker Hardened Images (DHI) with Debian 12"
+title: "Using Docker Hardened Images (DHI)"
 layout: post
 date: 2026-01-22 11:00
-image: ../assets/images/docker/dhi-debian.jpg
+image: ../assets/images/docker-hdi/main.jpg
 headerImage: true
 tag:
     - docker
@@ -11,7 +11,7 @@ tag:
     - containers
 category: blog
 author: guneycansanli
-description: Using Docker Hardened Images (DHI) with Debian 12
+description: Using Docker Hardened Images (DHI)
 ---
 
 ## Introduction
